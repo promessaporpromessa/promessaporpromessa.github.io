@@ -40,6 +40,28 @@ body{transition:background-color .35s ease}
 .ob[data-theme="light"] .ob-glass { box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.05); }
 .ob-theme { position: absolute; z-index: 6; top: 14px; right: 14px; display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--tx); background: var(--n161616); border: 1px solid var(--gb); border-radius: 99px; padding: 7px 12px 7px 8px; cursor: pointer; transition: border-color .2s, background .2s; }
 .ob .ob-car { -webkit-mask-image: none; mask-image: none; height: 74%; bottom: 3%; }
+.ob-fb-btn { position: fixed; z-index: 50; right: 18px; bottom: 18px; display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 13.5px; font-weight: 600; color: #FFFFFF; background: #E1251B; border: 0; border-radius: 99px; padding: 11px 16px 11px 14px; cursor: pointer; box-shadow: 0 6px 24px rgba(0,0,0,.35); transition: transform .2s; }
+.ob-fb-btn:hover { transform: translateY(-2px); }
+.ob-fb-btn:focus-visible { outline: 2px solid var(--tx); outline-offset: 3px; }
+.ob-fb-btn svg { width: 16px; height: 16px; }
+.ob-fb-nudge { position: fixed; z-index: 50; right: 18px; bottom: 74px; width: min(300px, calc(100vw - 36px)); background: var(--n161616); color: var(--tx); border: 1px solid var(--gb); border-left: 3px solid #E1251B; border-radius: 14px; padding: 14px 14px 12px; box-shadow: 0 10px 30px rgba(0,0,0,.35); font-size: 13.5px; line-height: 1.45; animation: obfbin .35s ease; }
+.ob-fb-nudge b { display: block; font-size: 14.5px; margin-bottom: 4px; }
+.ob-fb-nudge .r { display: flex; gap: 8px; margin-top: 10px; }
+.ob-fb-nudge button { font: inherit; font-size: 12.5px; font-weight: 600; border-radius: 99px; padding: 6px 12px; cursor: pointer; }
+.ob-fb-nudge .go { color: #FFFFFF; background: #E1251B; border: 1px solid #E1251B; }
+.ob-fb-nudge .no { color: var(--mut); background: none; border: 1px solid var(--gb); }
+.ob-fb-dlg { width: min(640px, calc(100vw - 24px)); max-height: calc(100vh - 24px); padding: 0; border: 1px solid var(--gb); border-radius: 18px; background: var(--n161616); color: var(--tx); box-shadow: 0 20px 60px rgba(0,0,0,.5); overflow: hidden; }
+.ob-fb-dlg::backdrop { background: rgba(0,0,0,.55); backdrop-filter: blur(3px); }
+.ob-fb-dlg .hd { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; padding: 18px 20px 12px; border-bottom: 1px solid var(--gb); }
+.ob-fb-dlg h2 { margin: 0 0 4px; font-size: 19px; letter-spacing: -.01em; }
+.ob-fb-dlg p { margin: 0; font-size: 13px; color: var(--mut); line-height: 1.45; }
+.ob-fb-dlg .x { font: inherit; font-size: 20px; line-height: 1; color: var(--mut); background: none; border: 1px solid var(--gb); border-radius: 50%; width: 32px; height: 32px; cursor: pointer; flex: none; }
+.ob-fb-dlg iframe { display: block; width: 100%; height: min(620px, calc(100vh - 170px)); border: 0; background: #FFFFFF; }
+.ob-fb-dlg .ft { padding: 10px 20px 14px; font-size: 12px; color: var(--dim); }
+.ob-fb-dlg .ft a { color: var(--tx); }
+@keyframes obfbin { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ob-fb-nudge { animation: none; } .ob-fb-btn { transition: none; } }
+@media (max-width: 640px) { .ob-fb-btn .lb { display: none; } .ob-fb-btn { padding: 12px; } }
 .ob-theme:hover { border-color: #E1251B; }
 .ob-theme:focus-visible { outline: 2px solid #E1251B; outline-offset: 2px; }
 .ob-theme .sw { position: relative; width: 34px; height: 20px; border-radius: 99px; background: var(--n2A2A2A); flex: 0 0 auto; }
@@ -381,6 +403,10 @@ input.ob-in { flex: 1 1 14rem; }
 .ob-chipd.down { background: rgba(255,179,71,.14); color: var(--nFFB347); }
 .ob-chipd.na, .ob-chipd.flat { background: var(--n1F1F1F); color: var(--mut); font-weight: 400; }
 .ob-eco-c .u { font-size: 12px; color: var(--mut); }
+.ob-eco { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ob-eco > .ob-eco-c:last-child:nth-child(3n+1) { grid-column: 1 / -1; }
+@media (max-width: 1100px) { .ob-eco { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ob-eco > .ob-eco-c:last-child:nth-child(3n+1) { grid-column: auto; } }
+@media (max-width: 700px) { .ob-eco { grid-template-columns: minmax(0, 1fr); } }
 .ob-eco-rs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin-top: 2px; font-size: 12.5px; color: var(--mut); }
 .ob-eco-rs b { font-size: 17px; font-weight: 600; color: var(--tx); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
 .ob-eco-rs i { font-style: normal; font-size: 11.5px; font-weight: 600; color: var(--mut); }
@@ -1070,6 +1096,12 @@ input.ob-in { flex: 1 1 14rem; }
       </div>
     </section>
 
+    <button class="ob-fb-btn" type="button" hidden aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="lb">Feedback</span></button>
+    <dialog class="ob-fb-dlg" aria-labelledby="ob-fb-t">
+      <div class="hd"><div><h2 id="ob-fb-t">Ajude a melhorar o Promessa por Promessa</h2><p>O que está bom, o que dá para melhorar e o que você quer ver aqui. Leva 1 minuto e não precisa se identificar.</p></div><button class="x" type="button" aria-label="Fechar">×</button></div>
+      <div class="bd"></div>
+      <div class="ft">O formulário não abriu? <a class="ob-fb-ext" href="#" target="_blank" rel="noopener">Abra em outra aba ↗</a></div>
+    </dialog>
     <p class="ob-foot ob-mono">★ Fontes oficiais e imprensa, sempre linkadas · atualização diária e semanal · curadoria <a class="ob-foot-link" href="https://www.linkedin.com/in/matheusbbrandao/" target="_blank" rel="noopener">Matheus Brandão · LinkedIn</a> · caricatura gerada por IA<br><span class="ob-site-upd"></span></p>
   </div>
 </div>
@@ -2157,6 +2189,7 @@ input.ob-in { flex: 1 1 14rem; }
     { k: 'divida', t: 'Dívida pública', u: '% do PIB', freq: 'mensal', dk: 'pp', f: (v) => `${nf1(v)}%`, kind: 'line', why: 'Dívida bruta do governo geral. Quanto maior, mais o país gasta com juros e menos sobra para as promessas.' },
     { k: 'percap', t: 'Dívida por brasileiro', u: 'R$ por habitante', freq: 'mensal', dk: 'pct', f: (v) => `R$ ${new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 }).format(v)}`, kind: 'line', why: 'Dívida bruta do governo geral em reais (Banco Central) dividida pela população estimada pelo IBGE. É uma conta ilustrativa do tamanho da dívida: ela é do governo, não uma cobrança individual.' },
     { k: 'primario', t: 'Contas no vermelho?', u: 'resultado primário, % do PIB', freq: 'anual e 12 meses', dk: 'pp', f: (v) => `${v > 0 ? '+' : ''}${nf2(v)}%`, kind: 'bar', why: 'Receitas menos despesas, sem contar juros. Negativo é déficit: o governo gastou mais do que arrecadou.' },
+    { k: 'arrecadacao', t: 'Quanto o país arrecada', u: 'R$ trilhões em 12 meses · receitas federais', freq: 'mensal', dk: 'pct', f: (v) => `R$ ${nf2(v)} tri`, kind: 'line', why: 'Tudo o que a União arrecada com impostos e contribuições (Receita Federal), somado em 12 meses. É o "faturamento" do governo: é dele que sai o dinheiro para as promessas e para pagar a dívida. Até 2025 o ponto é o total do ano; em 2026, a soma dos últimos 12 meses.' },
     { k: 'pib', t: 'Crescimento do PIB', u: '% ao ano', freq: 'trimestral', dk: 'pp', f: (v) => `${nf1(v)}%`, kind: 'bar', why: 'Quanto a economia cresceu. É o termômetro de emprego, renda e arrecadação.' },
     { k: 'ibov', t: 'Bolsa (Ibovespa)', u: 'pontos', freq: 'diária', dk: 'pct', f: (v) => new Intl.NumberFormat('pt-BR', { notation: 'compact', maximumFractionDigits: 1 }).format(v), kind: 'line', why: 'Termômetro do humor dos investidores com o país e com o governo.' },
     { k: 'dolar', t: 'Dólar', u: 'R$', freq: 'diária', dk: 'pct', f: (v) => `R$ ${nf2(v)}`, kind: 'line', why: 'Dólar mais caro encarece importados, combustível e alimentos, e pressiona a inflação.' },
@@ -2358,6 +2391,16 @@ input.ob-in { flex: 1 1 14rem; }
       const cd = document.createElement('b'); cd.className = dl.cls; cd.textContent = dl.cls === 'na' ? 'sem divulgação nova' : dl.t;
       cmp.append(dot, ct, cd);
       c.append(top, vr, u, ch, cmp);
+      if (cfg.k === 'arrecadacao' && A) {
+        const MES = r.data.filter((d) => d.indicador === 'arrecadacao_mes').map((d) => ({ ...d, valor: Number(d.valor) })).sort((a, b) => String(a.data).localeCompare(String(b.data)));
+        const mA = asOf(MES, String(A.data));
+        if (mA) {
+          const box = document.createElement('div'); box.className = 'ob-eco-rs';
+          const b = document.createElement('b'); b.textContent = `R$ ${nf1(mA.valor)} bi`;
+          const s = document.createElement('span'); s.textContent = ` arrecadados só em ${mA.rotulo}`;
+          box.append(b, s); c.insertBefore(box, ch);
+        }
+      }
       if (cfg.k === 'divida' && A) {
         const ra = rsAt(String(A.data)), rs0 = (st || inside[0]) ? rsAt(String((st || inside[0]).data)) : null, rb = Bp ? rsAt(String(Bp.data)) : null;
         if (ra) {
@@ -2715,6 +2758,43 @@ input.ob-in { flex: 1 1 14rem; }
     onTheme.forEach((f) => { try { f(); } catch (e) { /* segue */ } });
     draw();
   });
+
+  /* ===== Feedback (Google Forms) ===== */
+  const FEEDBACK_FORM = '';
+  (() => {
+    const btn = document.querySelector('.ob-fb-btn'), dlg = document.querySelector('.ob-fb-dlg');
+    if (!FEEDBACK_FORM || !btn || !dlg) return;
+    const embed = FEEDBACK_FORM.includes('?') ? `${FEEDBACK_FORM}&embedded=true` : `${FEEDBACK_FORM}?embedded=true`;
+    dlg.querySelector('.ob-fb-ext').href = FEEDBACK_FORM;
+    const store = (k, v) => { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } return null; };
+    const open = () => {
+      const bd = dlg.querySelector('.bd');
+      if (!bd.firstChild) { const f = document.createElement('iframe'); f.src = embed; f.title = 'Formulário de feedback'; f.loading = 'lazy'; bd.append(f); }
+      if (typeof dlg.showModal === 'function') dlg.showModal(); else window.open(FEEDBACK_FORM, '_blank', 'noopener');
+      store('pp-fb', 'visto');
+      const n = document.querySelector('.ob-fb-nudge'); if (n) n.remove();
+    };
+    btn.hidden = false;
+    btn.addEventListener('click', open);
+    dlg.querySelector('.x').addEventListener('click', () => dlg.close());
+    dlg.addEventListener('click', (ev) => { if (ev.target === dlg) dlg.close(); });
+    if (!store('pp-fb')) {
+      setTimeout(() => {
+        if (store('pp-fb') || dlg.open) return;
+        const n = document.createElement('div'); n.className = 'ob-fb-nudge'; n.setAttribute('role', 'status');
+        const b = document.createElement('b'); b.textContent = 'O que você quer ver aqui?';
+        const t = document.createElement('span'); t.textContent = 'Conte o que achou do painel e o que falta acompanhar no mandato.';
+        const r = document.createElement('div'); r.className = 'r';
+        const go = document.createElement('button'); go.type = 'button'; go.className = 'go'; go.textContent = 'Dar feedback';
+        const no = document.createElement('button'); no.type = 'button'; no.className = 'no'; no.textContent = 'Agora não';
+        go.addEventListener('click', open);
+        no.addEventListener('click', () => { store('pp-fb', 'dispensado'); n.remove(); });
+        r.append(go, no); n.append(b, t, r);
+        document.querySelector('.ob').append(n);
+      }, 40000);
+    }
+  })();
+
   dash.onData(() => { draw(); });
   const named = location.hash.slice(1);
   show(named || 'visao');
