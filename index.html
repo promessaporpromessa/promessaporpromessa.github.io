@@ -781,6 +781,18 @@ input.ob-in { flex: 1 1 14rem; }
 .ob-grid > .ob-card .ob-card-head .ob-sub { min-height: 3em; }
 .ob-grid > .ob-card .ob-note-s:first-of-type { margin-top: 0; }
 @media (max-width: 760px) { .ob-grid > .ob-card .ob-card-head .ob-sub { min-height: 0; } }
+
+/* filtros simplificados */
+.ob-ecof-h { display: none; }
+.ob-ecof { gap: 12px 28px; padding: 14px 16px; align-items: flex-end; }
+.ob-ecof .ob-dates { display: none; flex-basis: 100%; }
+.ob-ecof.ob-dates-on .ob-dates { display: flex; }
+.ob-ecof .ob-dates .ob-ecof-l { display: none; }
+.ob-ecof .ob-dates .ob-ecof-row { width: auto; flex-wrap: wrap; }
+.ob-ecof .ob-dates .ob-ecof-row .ob-in { flex: 0 1 180px; width: 180px; }
+.ob-dates-btn { border-left: 1px solid var(--gb) !important; border-radius: 0 4px 4px 0; margin-left: 2px; }
+.ob-dates-btn::before { content: "📅 "; filter: grayscale(1); }
+.ob-dates-btn[aria-expanded="true"] { color: var(--tx); }
 </style>
 
 <div class="ob">
@@ -1050,7 +1062,7 @@ input.ob-in { flex: 1 1 14rem; }
         </div>
         <div class="ob-ecof ob-menf" style="margin-top:14px">
           <div class="ob-ecof-h"><span class="ob-mono">⏷ Filtro</span><b>Período da conversa</b></div>
-          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Início, meio e fim</span>
+          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Período</span>
             <div class="ob-seg" role="tablist" aria-label="Período">
               <button class="ob-seg-b" data-mp="base" aria-selected="true">Linha de base</button>
               <button class="ob-seg-b" data-mp="a1" aria-selected="false">2027</button>
@@ -1058,10 +1070,6 @@ input.ob-in { flex: 1 1 14rem; }
               <button class="ob-seg-b" data-mp="a3" aria-selected="false">2029</button>
               <button class="ob-seg-b" data-mp="a4" aria-selected="false">2030</button>
               <button class="ob-seg-b" data-mp="tudo" aria-selected="false">Mandato inteiro</button>
-            </div>
-          </div>
-          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Recentes</span>
-            <div class="ob-seg" role="tablist" aria-label="Período recente">
               <button class="ob-seg-b" data-mp="7d" aria-selected="false">7 dias</button>
               <button class="ob-seg-b" data-mp="30d" aria-selected="false">30 dias</button>
             </div>
@@ -1185,19 +1193,19 @@ input.ob-in { flex: 1 1 14rem; }
         <div class="ob-card-head"><div><span class="ob-badge ob-mono">O que todo mundo deveria acompanhar</span><h2 class="ob-h ob-split">A economia do mandato</h2><p class="ob-sub">Dívida, contas públicas, crescimento, bolsa, dólar, juros, inflação e emprego desde o início do 3º mandato (dez/2022). Os gráficos e a lista têm filtros próprios: mexer em um não muda o outro. Passe o mouse nos pontos para ver a fonte.</p></div><span class="ob-idx ob-mono">E-01</span></div>
         <div class="ob-ecof ob-ecof-gr">
           <div class="ob-ecof-h"><span class="ob-mono">⏷ Filtro</span><b>Gráficos</b></div>
-          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Período dos gráficos (igual para todos)</span>
+          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Período</span>
             <div class="ob-seg ob-eco-per" role="tablist" aria-label="Período">
               <button class="ob-seg-b" data-p="7d" aria-selected="false">7 dias</button>
               <button class="ob-seg-b" data-p="30d" aria-selected="false">30 dias</button>
               <button class="ob-seg-b" data-p="12m" aria-selected="false">12 meses</button>
-              <button class="ob-seg-b" data-p="mand" aria-selected="true">Desde dez/2022</button>
+              <button class="ob-seg-b" data-p="mand" aria-selected="true">Mandato todo</button>
               <button class="ob-seg-b" data-p="custom" aria-selected="false" tabindex="-1" disabled>Personalizado</button>
             </div>
           </div>
           <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">De · Até</span>
             <div class="ob-ecof-row"><input class="ob-in ob-eco-de" type="date" aria-label="Início do período"><span class="ob-dimtx">→</span><input class="ob-in ob-eco-ate" type="date" aria-label="Fim do período"><button class="ob-back ob-mono ob-eco-today" type="button">Até hoje</button></div>
           </div>
-          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l ob-cmp-lbl">Comparar hoje com</span>
+          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l ob-cmp-lbl">Comparar com</span>
             <div class="ob-seg ob-eco-cmpm" role="tablist" aria-label="Comparação">
               <button class="ob-seg-b" data-c="semana" aria-selected="false">Semana anterior</button>
               <button class="ob-seg-b" data-c="mes" aria-selected="true">Mês anterior</button>
@@ -1211,19 +1219,19 @@ input.ob-in { flex: 1 1 14rem; }
         <h3 class="ob-h ob-eco-listh">Lista de indicadores</h3>
         <div class="ob-ecof ob-ecof-t">
           <div class="ob-ecof-h"><span class="ob-mono">⏷ Filtro</span><b>Lista de indicadores</b></div>
-          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Período da lista</span>
+          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Período</span>
             <div class="ob-seg ob-eco-per" role="tablist" aria-label="Período">
               <button class="ob-seg-b" data-p="7d" aria-selected="false">7 dias</button>
               <button class="ob-seg-b" data-p="30d" aria-selected="false">30 dias</button>
               <button class="ob-seg-b" data-p="12m" aria-selected="false">12 meses</button>
-              <button class="ob-seg-b" data-p="mand" aria-selected="true">Desde dez/2022</button>
+              <button class="ob-seg-b" data-p="mand" aria-selected="true">Mandato todo</button>
               <button class="ob-seg-b" data-p="custom" aria-selected="false" tabindex="-1" disabled>Personalizado</button>
             </div>
           </div>
           <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">De · Até</span>
             <div class="ob-ecof-row"><input class="ob-in ob-eco-de" type="date" aria-label="Início do período"><span class="ob-dimtx">→</span><input class="ob-in ob-eco-ate" type="date" aria-label="Fim do período"><button class="ob-back ob-mono ob-eco-today" type="button">Até hoje</button></div>
           </div>
-          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l ob-cmp-lbl">Comparar hoje com</span>
+          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l ob-cmp-lbl">Comparar com</span>
             <div class="ob-seg ob-eco-cmpm" role="tablist" aria-label="Comparação">
               <button class="ob-seg-b" data-c="semana" aria-selected="false">Semana anterior</button>
               <button class="ob-seg-b" data-c="mes" aria-selected="true">Mês anterior</button>
@@ -2562,7 +2570,7 @@ input.ob-in { flex: 1 1 14rem; }
     [inDe, inAte].forEach((i) => { i.max = TODAY; i.min = '2022-01-01'; });
     const sync = () => {
       inDe.value = st.start; inAte.value = st.end;
-      const lb = root.querySelector('.ob-cmp-lbl'); if (lb) lb.textContent = st.end === TODAY ? `Comparar hoje (${brDate(TODAY)}) com` : `Comparar ${brDate(st.end)} com`;
+      const lb = root.querySelector('.ob-cmp-lbl'); if (lb) lb.textContent = 'Comparar com';
       root.querySelectorAll('.ob-eco-per [data-p]').forEach((x) => x.setAttribute('aria-selected', String(x.dataset.p === st.preset)));
       root.querySelectorAll('.ob-eco-cmpm [data-c]').forEach((x) => x.setAttribute('aria-selected', String(x.dataset.c === st.cmp)));
     };
@@ -3184,6 +3192,22 @@ input.ob-in { flex: 1 1 14rem; }
       bg.append(s);
     }
   })();
+
+
+  /* filtros simples: datas só aparecem ao clicar em "Escolher datas" */
+  document.querySelectorAll('.ob-ecof').forEach((f) => {
+    const dg = [...f.querySelectorAll('.ob-ecof-g')].find((g) => g.querySelector('input[type="date"]'));
+    const seg = f.querySelector('.ob-ecof-g .ob-seg');
+    if (!dg || !seg) return;
+    dg.classList.add('ob-dates');
+    f.querySelectorAll('[data-p="custom"]').forEach((b) => b.remove());
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'ob-seg-b ob-dates-btn'; b.textContent = 'Escolher datas';
+    b.addEventListener('click', () => { const on = !f.classList.contains('ob-dates-on'); f.classList.toggle('ob-dates-on', on); b.setAttribute('aria-expanded', String(on)); if (on) { const i = dg.querySelector('input'); if (i) i.focus(); } });
+    seg.append(b);
+    const mark = () => { const custom = !seg.querySelector('[aria-selected="true"]:not(.ob-dates-btn)'); if (b.getAttribute('aria-selected') !== String(custom)) b.setAttribute('aria-selected', String(custom)); if (custom && !f.classList.contains('ob-dates-on')) f.classList.add('ob-dates-on'); };
+    new MutationObserver(mark).observe(seg, { subtree: true, attributes: true, attributeFilter: ['aria-selected'] });
+    mark();
+  });
 
   dash.onData(() => { draw(); });
   const named = location.hash.slice(1);
