@@ -23,7 +23,7 @@ body{transition:background-color .35s ease}
 </head>
 <body>
 <div id="dash-root">
-<script src="estilo.js?v=2"></script>
+<script src="estilo.js?v=3"></script>
 
 <div class="ob">
   <div class="ob-bg"><div class="ob-bgdots d1"></div><div class="ob-bgdots d2"></div><div class="ob-bgstar s1"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s2"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s3"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgline l1"></div><div class="ob-bgline l2"></div></div>
@@ -1129,7 +1129,7 @@ body{transition:background-color .35s ease}
     const rows = base.filter((d) => !pst.partido || d.partido === pst.partido)
       .sort((a, b) => a.uf.localeCompare(b.uf) || (a.casa === b.casa ? 0 : a.casa === 'Senado' ? -1 : 1) || a.nome.localeCompare(b.nome, 'pt-BR'));
     document.querySelector('.ob-p-count').textContent = `${rows.length} de ${r.data.length} parlamentares${pst.partido ? ` do ${pst.partido}` : ''}`;
-    const LIM = window.innerWidth < 640 ? 10 : 30; const shown = pgAll ? rows : rows.slice(0, LIM);
+    const cols = Math.max(1, getComputedStyle(box).gridTemplateColumns.split(' ').filter(Boolean).length); const LIM = cols * Math.max(1, Math.round((window.innerWidth < 640 ? 10 : 30) / cols)); const shown = pgAll ? rows : rows.slice(0, LIM);
     const ini = (n) => n.replace(/^(Dr\.|Dra\.|Coronel|Delegado|Delegada|Pastor|Pastora|Capitão|Sargento|General|Professor|Professora)\s+/i, '').split(/\s+/).filter((w) => w.length > 2 || /^[A-ZÁÉÍÓÚ]/.test(w)).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
     box.replaceChildren(...shown.map((d) => {
       const c = document.createElement('button'); c.type = 'button'; c.className = 'ob-pg'; c.dataset.key = d.id; c.style.setProperty('--pc', colP(d.partido));
