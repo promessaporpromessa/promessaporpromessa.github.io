@@ -2802,5 +2802,22 @@ input.ob-in { flex: 1 1 14rem; }
 </script>
 
 </div>
+<script>
+/* GoatCounter: visitas + abas e botões mais usados */
+window.goatcounter = { no_onload: false };
+(function () {
+  var send = function (path, title) { try { if (window.goatcounter && window.goatcounter.count) window.goatcounter.count({ path: path, title: title, event: true }); } catch (e) {} };
+  document.addEventListener('click', function (ev) {
+    var t = ev.target.closest && ev.target.closest('.ob-tab, .ob-fb-btn, .ob-fb-nudge .go, .ob-theme, .ob-nw-more, .ob-nw .t');
+    if (!t) return;
+    if (t.classList.contains('ob-tab')) send('aba-' + t.dataset.tab, 'Aba: ' + t.textContent.replace(/^\d+/, '').trim());
+    else if (t.classList.contains('ob-theme')) send('botao-tema', 'Trocou modo claro/escuro');
+    else if (t.classList.contains('ob-nw-more')) send('botao-todas-noticias', 'Mostrar todas as notícias');
+    else if (t.classList.contains('t')) send('clique-noticia', 'Abriu uma notícia');
+    else send('botao-feedback', 'Abriu o feedback');
+  }, true);
+})();
+</script>
+<script data-goatcounter="https://promessaporpromessa.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
