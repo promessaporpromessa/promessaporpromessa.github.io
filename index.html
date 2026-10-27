@@ -39,7 +39,7 @@ body{transition:background-color .35s ease}
 .ob[data-theme="light"] { --nFFFFFF: #111111; --nF2F2F2: #1A1A1A; --nE6E6E6: #262626; --nD8D8D8: #333333; --nD6D6D6: #383838; --nCFCFCF: #404040; --nA3A3A3: #5C5C5C; --n8A8A8A: #6B6B6B; --n7A7A7A: #737373; --n6E6E6E: #767676; --n6B6B6B: #8C8C8C; --n5C5C5C: #A6A6A6; --n3A3A3A: #C9C9C9; --n2E2E2E: #DCDCDC; --n2A2A2A: #E2E2E2; --n262626: #E6E6E6; --n242424: #E8E8E8; --n232323: #EBEBEB; --n222222: #ECECEC; --n1F1F1F: #F0F0F0; --n1C1C1C: #F3F3F3; --n1B1B1B: #FFFFFF; --n181818: #F5F5F5; --n161616: #F7F7F7; --n151515: #F7F7F7; --n141414: #F7F7F7; --n111111: #F4F3F0; --nFFB347: #C96F00; --nF07167: #E0564C; --n241614: #FBE7E5; --n2A1513: #FADCD9; --w: 0,0,0; --k: 255,255,255; color-scheme: light; }
 .ob[data-theme="light"] .ob-glass { box-shadow: 0 1px 2px rgba(0,0,0,.04), 0 6px 24px rgba(0,0,0,.05); }
 .ob-theme { position: absolute; z-index: 6; top: 14px; right: 14px; display: inline-flex; align-items: center; gap: 8px; font: inherit; font-size: 12.5px; font-weight: 600; color: var(--tx); background: var(--n161616); border: 1px solid var(--gb); border-radius: 99px; padding: 7px 12px 7px 8px; cursor: pointer; transition: border-color .2s, background .2s; }
-.ob .ob-car { -webkit-mask-image: none; mask-image: none; height: 98%; bottom: 1%; }
+.ob .ob-car { -webkit-mask-image: none; mask-image: none; height: 90%; bottom: 2%; }
 .ob-theme:hover { border-color: #E1251B; }
 .ob-theme:focus-visible { outline: 2px solid #E1251B; outline-offset: 2px; }
 .ob-theme .sw { position: relative; width: 34px; height: 20px; border-radius: 99px; background: var(--n2A2A2A); flex: 0 0 auto; }
@@ -1151,8 +1151,8 @@ input.ob-in { flex: 1 1 14rem; }
       const k = F / (F + z2);
       return [cx + x1 * k, cyS + y2 * k, z2];
     };
-    const cyS = h * 0.54;
-    const RS = Math.min(R * 1.12, (cyS - 16) / 1.08);
+    const cyS = h * 0.56;
+    const RS = Math.min(w * 0.5, (cyS - 26) / 1.14);
     const V = [];
     for (let i = 0; i < 10; i++) { const t = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? RS * 0.42 : RS; V.push([rr * Math.cos(t), rr * Math.sin(t)]); }
     const d = RS * 0.14;
