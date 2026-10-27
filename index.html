@@ -201,6 +201,35 @@ input.ob-in { flex: 1 1 14rem; }
 .ob-ind .r, .ob-ind .o { color: var(--mut); font-size: 13px; line-height: 1.45; }
 .ob-ind .p { font-size: 13px; color: var(--tx); border-left: 2px solid var(--violet); padding-left: 8px; margin-top: 4px; }
 .ob-feed { display: grid; gap: 12px; min-height: 200px; }
+/* todas as notícias */
+.ob-nw-bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 4px; }
+.ob-nw-bar .ob-nw-q { flex: 1 1 200px; min-width: 0; }
+.ob-nw-bar .ob-nw-tema { flex: 0 1 220px; }
+.ob-nw-n { color: var(--dim); margin: 12px 0 4px; font-size: 10.5px; }
+.ob-nw-list { display: grid; gap: 0; }
+.ob-nw-day { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--mut); padding: 14px 0 6px; border-bottom: 1px solid var(--gb); display: flex; justify-content: space-between; gap: 8px; }
+.ob-nw-day span { color: var(--dim); }
+.ob-nw { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 4px 14px; padding: 12px 0; border-bottom: 1px solid var(--gb); }
+.ob-nw .hr { font-family: var(--mono); font-size: 11.5px; color: var(--dim); padding-top: 2px; }
+.ob-nw .tg { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-bottom: 4px; }
+.ob-nw .tm { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--mut); border: 1px solid var(--gb); border-radius: 99px; padding: 2px 8px; }
+.ob-nw .pr { font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; color: var(--tx); border: 1px solid rgba(225,37,27,.45); border-radius: 99px; padding: 2px 8px; }
+.ob-nw .eco, .ob-nw-ecoinl, .ob-ev .eco { display: inline-flex; align-items: center; gap: 5px; font-family: var(--mono); font-size: 10px; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; color: var(--nFFB347); background: rgba(255,179,71,.12); border: 1px solid rgba(255,179,71,.55); border-radius: 99px; padding: 2px 8px; }
+.ob-nw .eco::before, .ob-nw-ecoinl::before, .ob-ev .eco::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; animation: obblink 1.6s ease-in-out infinite; }
+.ob-nw-ecoinl { font-size: 9.5px; padding: 1px 7px; vertical-align: 1px; }
+.ob-nw .t { font-size: 15px; font-weight: 650; line-height: 1.35; color: var(--tx); text-decoration: none; }
+.ob-nw .t:hover { text-decoration: underline; text-underline-offset: 3px; }
+.ob-nw .r { font-size: 13px; color: var(--mut); line-height: 1.45; margin-top: 3px; }
+.ob-nw .en { font-size: 12.5px; color: var(--tx); margin-top: 6px; padding: 6px 10px; border-left: 2px solid var(--nFFB347); background: rgba(255,179,71,.07); border-radius: 4px; }
+.ob-nw .vc { font-size: 12px; color: var(--dim); margin-top: 5px; }
+.ob-nw .vc button { font: inherit; color: var(--tx); background: none; border: 0; padding: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.ob-nw.ob-flash, .ob-ev.ob-flash { animation: obnwflash 1.6s ease; }
+@keyframes obnwflash { 0%, 30% { background: rgba(225,37,27,.12); } 100% { background: transparent; } }
+.ob-nw-more { margin-top: 14px; width: 100%; font: inherit; font-size: 13.5px; font-weight: 600; color: var(--tx); background: var(--n161616); border: 1px solid var(--gb); border-radius: 12px; padding: 11px 14px; cursor: pointer; transition: border-color .2s; }
+.ob-nw-more:hover { border-color: #E1251B; }
+.ob-ev .eco { margin-left: 6px; vertical-align: 1px; }
+@media (max-width: 640px) { .ob-nw { grid-template-columns: 1fr; } }
+@media (prefers-reduced-motion: reduce) { .ob-nw .eco::before, .ob-nw-ecoinl::before, .ob-ev .eco::before { animation: none; } }
 .ob-ev { display: grid; grid-template-columns: 92px minmax(0, 1fr) auto; gap: 6px 18px; padding: 16px 18px; align-items: start; }
 .ob-ev .dt { font-family: var(--mono); font-size: 12px; color: var(--mut); line-height: 1.4; }
 .ob-ev .dt b { display: block; font-size: 20px; color: var(--tx); font-weight: 300; letter-spacing: -.02em; }
@@ -610,6 +639,22 @@ input.ob-in { flex: 1 1 14rem; }
     </section>
 
     <section id="impacto" class="ob-page" hidden>
+      <div class="ob-card ob-glass" id="card-noticias">
+        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Atualizado todo dia útil</span><h2 class="ob-h ob-split">Todas as notícias do governo</h2><p class="ob-sub">Tudo o que sai sobre o governo e o mandato, com link para a matéria. A etiqueta <b class="ob-nw-ecoinl">Mexeu na economia</b> marca as notícias que movem bolsa, dólar, juros ou contas públicas, sempre com a fonte que faz essa ligação.</p></div><span class="ob-idx ob-mono">I-00</span></div>
+        <div class="ob-nw-bar">
+          <div class="ob-seg ob-nw-f" role="group" aria-label="Filtrar notícias">
+            <button class="ob-seg-b" type="button" data-nf="todas" aria-selected="true">Todas</button>
+            <button class="ob-seg-b" type="button" data-nf="eco" aria-selected="false">Mexeram na economia</button>
+            <button class="ob-seg-b" type="button" data-nf="prom" aria-selected="false">Ligadas a promessas</button>
+          </div>
+          <select class="ob-in ob-nw-tema" aria-label="Tema"><option value="">Todos os temas</option></select>
+          <input class="ob-in ob-nw-q" type="search" placeholder="Buscar notícia…" aria-label="Buscar notícia">
+        </div>
+        <p class="ob-nw-n ob-mono"></p>
+        <div class="ob-nw-list" data-source="noticias"></div>
+        <button class="ob-nw-more" type="button" hidden></button>
+      </div>
+
       <div class="ob-card ob-glass" id="card-registro">
         <div class="ob-card-head"><div><span class="ob-badge ob-mono">Atualizado a cada notícia</span><h2 class="ob-h ob-split">Registro de impacto</h2><p class="ob-sub">Cada projeto aprovado, lei sancionada ou anúncio entra aqui com duas medidas: como o mercado fechou no dia e quanto a conversa nas redes subiu em relação à semana anterior. Movimento de mercado só é atribuído ao evento quando a cobertura faz essa ligação.</p></div><span class="ob-idx ob-mono">I-01</span></div>
         <div class="ob-feed" data-source="impacto_eventos exemplos"></div>
@@ -1654,7 +1699,10 @@ input.ob-in { flex: 1 1 14rem; }
       const b = document.createElement('b'); b.textContent = `${p[2]}/${p[1]}`; dt.append(b, p[0]);
       const mid = document.createElement('div');
       const tp = document.createElement('span'); tp.className = 'tp'; tp.textContent = e.tipo;
+      const NWe = dash.data('noticias').status === 'ok' ? dash.data('noticias').data : [];
+      const ecoE = NWe.some((n) => n.evento === e.id && n.economia);
       const t = document.createElement('p'); t.className = 't'; t.textContent = e.evento;
+      if (ecoE) { const eb = document.createElement('span'); eb.className = 'eco'; eb.textContent = 'Mexeu na economia'; t.append(' ', eb); }
       const pr = document.createElement('div'); pr.className = 'p'; pr.textContent = `Promessa: ${e.promessa}`;
       const l = document.createElement('div'); l.className = 'l';
       l.textContent = [e.mercado_momento ? `Mercado (${e.mercado_momento}): ${e.leitura_mercado}` : e.leitura_mercado, e.nota].filter(Boolean).join(' · ');
@@ -1677,7 +1725,85 @@ input.ob-in { flex: 1 1 14rem; }
       return c;
     }));
   }
+
+  /* ===== Todas as notícias ===== */
+  const nw = { f: 'todas', tema: '', q: '', all: false };
+  const NW_PAGE = 12;
+  const DOW = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
+  const nwRoot = document.getElementById('card-noticias');
+  nwRoot.querySelectorAll('[data-nf]').forEach((b) => b.addEventListener('click', () => {
+    nw.f = b.dataset.nf; nw.all = false;
+    nwRoot.querySelectorAll('[data-nf]').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+    drawNoticias();
+  }));
+  nwRoot.querySelector('.ob-nw-tema').addEventListener('change', (ev) => { nw.tema = ev.target.value; nw.all = false; drawNoticias(); });
+  nwRoot.querySelector('.ob-nw-q').addEventListener('input', (ev) => { nw.q = ev.target.value.trim().toLowerCase(); nw.all = false; drawNoticias(); });
+  nwRoot.querySelector('.ob-nw-more').addEventListener('click', () => { nw.all = !nw.all; drawNoticias(); if (!nw.all) nwRoot.scrollIntoView({ block: 'start' }); });
+  const goEvento = (id) => {
+    const el = document.querySelector(`#card-registro .ob-ev[data-key="${id}"]`);
+    if (!el) return;
+    el.scrollIntoView({ block: 'center', behavior: RM ? 'auto' : 'smooth' });
+    el.classList.remove('ob-flash'); void el.offsetWidth; el.classList.add('ob-flash');
+  };
+  function drawNoticias() {
+    const box = nwRoot.querySelector('.ob-nw-list');
+    const r = dash.data('noticias');
+    if (r.status === 'error') return fail(box);
+    if (r.status !== 'ok') return;
+    const all = [...r.data].sort((a, b) => String(b.data).localeCompare(String(a.data)) || String(b.hora || '').localeCompare(String(a.hora || '')) || String(b.id).localeCompare(String(a.id)));
+    // temas
+    const sel = nwRoot.querySelector('.ob-nw-tema');
+    const temas = [...new Set(all.map((d) => d.tema).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'pt-BR'));
+    if (sel.options.length - 1 !== temas.length) {
+      sel.replaceChildren(new Option('Todos os temas', ''), ...temas.map((t) => new Option(t, t)));
+      sel.value = nw.tema;
+    }
+    const rows = all.filter((d) => (nw.f === 'eco' ? d.economia : nw.f === 'prom' ? !!d.promessa : true)
+      && (!nw.tema || d.tema === nw.tema)
+      && (!nw.q || `${d.titulo} ${d.resumo} ${d.veiculo} ${d.tema}`.toLowerCase().includes(nw.q)));
+    const nEco = all.filter((d) => d.economia).length;
+    nwRoot.querySelector('.ob-nw-n').textContent = `${nf.format(rows.length)} de ${nf.format(all.length)} notícias · ${nf.format(nEco)} mexeram na economia`;
+    const shown = nw.all ? rows : rows.slice(0, NW_PAGE);
+    const out = [];
+    let day = null;
+    shown.forEach((d) => {
+      if (d.data !== day) {
+        day = d.data;
+        const p = String(d.data).split('-');
+        const dow = DOW[new Date(`${d.data}T12:00:00`).getDay()];
+        const nDay = rows.filter((x) => x.data === d.data).length;
+        const h = document.createElement('div'); h.className = 'ob-nw-day';
+        const s = document.createElement('span'); s.textContent = `${nDay} ${nDay === 1 ? 'notícia' : 'notícias'}`;
+        h.append(`${dow}, ${p[2]}/${p[1]}/${p[0]}`, s);
+        out.push(h);
+      }
+      const it = document.createElement('article'); it.className = 'ob-nw'; it.dataset.key = d.id;
+      const hr = document.createElement('div'); hr.className = 'hr'; hr.textContent = d.hora || '—';
+      const body = document.createElement('div');
+      const tg = document.createElement('div'); tg.className = 'tg';
+      if (d.economia) { const e = document.createElement('span'); e.className = 'eco'; e.textContent = 'Mexeu na economia'; tg.append(e); }
+      if (d.tema) { const tm = document.createElement('span'); tm.className = 'tm'; tm.textContent = d.tema; tg.append(tm); }
+      if (d.promessa) { const pr = document.createElement('span'); pr.className = 'pr'; pr.textContent = `Promessa ${d.promessa}`; tg.append(pr); }
+      const t = document.createElement('a'); t.className = 't'; t.href = d.url; t.target = '_blank'; t.rel = 'noopener'; t.textContent = d.titulo;
+      body.append(tg, t);
+      if (d.resumo) { const rs = document.createElement('div'); rs.className = 'r'; rs.textContent = d.resumo; body.append(rs); }
+      if (d.economia && d.economia_nota) { const en = document.createElement('div'); en.className = 'en'; en.textContent = d.economia_nota; body.append(en); }
+      const vc = document.createElement('div'); vc.className = 'vc';
+      vc.append(d.veiculo || '');
+      if (d.evento) { const b = document.createElement('button'); b.type = 'button'; b.textContent = 'ver no registro de impacto ↓'; b.addEventListener('click', () => goEvento(d.evento)); vc.append(' · ', b); }
+      body.append(vc);
+      it.append(hr, body);
+      out.push(it);
+    });
+    if (!rows.length) { const e = document.createElement('p'); e.className = 'ob-empty'; e.textContent = 'Nenhuma notícia com esses filtros.'; out.push(e); }
+    box.replaceChildren(...out);
+    const more = nwRoot.querySelector('.ob-nw-more');
+    more.hidden = rows.length <= NW_PAGE;
+    more.textContent = nw.all ? 'Mostrar menos' : `Mostrar todas as notícias (${nf.format(rows.length)})`;
+  }
+
   function drawImpacto() {
+    drawNoticias();
     drawFeed();
     divbars('.ob-div-mult', 'impacto_eventos', (data) => data.filter((d) => d.conversa_mult !== null && d.conversa_mult !== undefined).map((d) => ({ label: `${String(d.data).slice(8, 10)}/${String(d.data).slice(5, 7)} · ${d.evento}`, v: Number(d.conversa_mult), sub: `${nf.format(Number(d.conversa_dia))} menções vs ${d.conversa_base}`, hl: Number(d.conversa_mult) >= 2 })).sort((a, b) => b.v - a.v), (v) => `${new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 1 }).format(v)}×`);
     drawMercado();
@@ -1806,10 +1932,10 @@ input.ob-in { flex: 1 1 14rem; }
 
   /* ===== YouTube e Fontes ===== */
   dash.calc('fontes_citadas', {
-    inputs: ['promessas', 'pauta', 'impacto_eventos', 'indicadores', 'mercado_d1', 'eleicoes_d1', 'acoes_d1', 'proposicoes', 'atuacao', 'youtube_reeleicao', 'orcamento', 'aprovacao', 'votacoes', 'economia', 'historico_status', 'exemplos', 'agenda'],
+    inputs: ['promessas', 'pauta', 'impacto_eventos', 'indicadores', 'mercado_d1', 'eleicoes_d1', 'acoes_d1', 'proposicoes', 'atuacao', 'youtube_reeleicao', 'orcamento', 'aprovacao', 'votacoes', 'economia', 'historico_status', 'exemplos', 'agenda', 'noticias'],
     title: 'Fontes citadas no painel',
     description: 'Junta o link de fonte de todos os registros do painel e conta em quantos registros cada um aparece.',
-    fn: (promessas, pauta, impacto_eventos, indicadores, mercado_d1, eleicoes_d1, acoes_d1, proposicoes, atuacao, youtube_reeleicao, orcamento, aprovacao, votacoes, economia, historico_status, exemplos, agenda) => {
+    fn: (promessas, pauta, impacto_eventos, indicadores, mercado_d1, eleicoes_d1, acoes_d1, proposicoes, atuacao, youtube_reeleicao, orcamento, aprovacao, votacoes, economia, historico_status, exemplos, agenda, noticias) => {
       const m = new Map();
       const add = (rows, secao) => rows.forEach((r) => {
         const url = r.fonte_url || r.url; if (!url) return;
@@ -1819,6 +1945,7 @@ input.ob-in { flex: 1 1 14rem; }
       });
       add(promessas, 'Promessas'); add(pauta, 'Congresso'); add(impacto_eventos, 'Impacto'); add(indicadores, 'Impacto'); add(mercado_d1, 'Impacto');
       add(eleicoes_d1, 'Impacto'); add(acoes_d1, 'Impacto'); add(proposicoes, 'Mapa'); add(atuacao, 'Mapa'); add(youtube_reeleicao, 'Impacto'); add(orcamento, 'Promessas'); add(historico_status, 'Promessas'); add(aprovacao, 'Impacto'); add(votacoes, 'Congresso'); add(economia, 'Economia'); add(agenda, 'Economia');
+      add(noticias.map((n) => ({ fonte: n.veiculo, fonte_url: n.url })), 'Impacto');
       return [...m.values()].map((o) => ({ fonte: o.fonte, fonte_url: o.fonte_url, secoes: [...o.secoes].join(', '), usos: o.usos })).sort((a, b) => b.usos - a.usos || a.fonte.localeCompare(b.fonte));
     },
   });
