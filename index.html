@@ -1149,9 +1149,10 @@ input.ob-in { flex: 1 1 14rem; }
       const y2 = y * Math.cos(0.12) - z1 * Math.sin(0.12);
       const z2 = y * Math.sin(0.12) + z1 * Math.cos(0.12);
       const k = F / (F + z2);
-      return [cx + x1 * k, cy + y2 * k, z2];
+      return [cx + x1 * k, cyS + y2 * k, z2];
     };
-    const RS = R * 1.12;
+    const cyS = h * 0.54;
+    const RS = Math.min(R * 1.12, (cyS - 16) / 1.08);
     const V = [];
     for (let i = 0; i < 10; i++) { const t = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? RS * 0.42 : RS; V.push([rr * Math.cos(t), rr * Math.sin(t)]); }
     const d = RS * 0.14;
