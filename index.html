@@ -24,6 +24,8 @@ body{transition:background-color .35s ease}
 <body>
 <div id="dash-root">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Inter:wght@400;500;600;700&display=swap');
+
 #dash-root { --dash-gutter: 0; }
 .ob {
   --ink: var(--n111111); --ink2: var(--n111111); --tx: var(--nFFFFFF); --mut: var(--nD6D6D6); --dim: var(--nA3A3A3);
@@ -555,16 +557,235 @@ input.ob-in { flex: 1 1 14rem; }
   .ob-table.ob-cards td.ob-hide-sm { display: none; }
   .ob-table.ob-cards td:empty { display: none; }
 }
+
+/* ===================== EDITORIAL (menos cara de IA) ===================== */
+.ob { --serif: 'Archivo', 'Inter', system-ui, sans-serif; font-family: 'Inter', var(--font-anthropic-sans), system-ui, sans-serif; }
+.ob[data-theme="light"] { --n111111: #F3EFE6; --n1B1B1B: #FBF9F4; --n161616: #F7F4EC; --n151515: #F7F4EC; --n181818: #F3EFE6; }
+/* cartões: menos caixa, mais página */
+.ob-glass { border-radius: 8px; background: var(--glass); }
+.ob-card { border-top: 0; border-radius: 0; background: transparent; border-left: 0; border-right: 0; border-bottom: 0; padding: 26px 0 8px; box-shadow: none !important; }
+.ob-card::before { content: ""; display: block; height: 3px; background: var(--tx); margin-bottom: 16px; width: 100%; }
+.ob-page > .ob-card + .ob-card, .ob-page > .ob-grid { margin-top: 18px; }
+.ob-grid > .ob-card { padding-top: 26px; }
+.ob-edai { border-top: 0; }
+/* títulos e textos */
+.ob-h { font-family: var(--serif); font-weight: 800; font-stretch: 88%; font-size: clamp(1.6rem, 2.7vw, 2.25rem); letter-spacing: -.02em; line-height: 1.04; }
+.ob-sub { font-size: 15px; line-height: 1.5; color: var(--mut); max-width: 64ch; margin-top: 8px; }
+.ob-split .ch { opacity: 1 !important; transform: none !important; animation: none !important; }
+.ob-idx { display: none !important; }
+.ob-badge { border: 0; border-radius: 0; padding: 0; margin-bottom: 8px; color: #E1251B; font-family: inherit; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; }
+.ob-badge::before { display: none; }
+.ob-mono { font-family: inherit; letter-spacing: .03em; }
+/* menos estrelas e pontos piscando */
+.ob-kpi-l::before { display: none !important; }
+.ob-blink, .ob-eco-today::after, .ob-nw .eco::before, .ob-nw-ecoinl::before, .ob-ev .eco::before { animation: none !important; }
+/* navegação: como seção de jornal */
+.ob-tabs { background: transparent; border: 0; border-bottom: 1px solid var(--gb); border-top: 1px solid var(--gb); border-radius: 0; padding: 0; gap: 0; display: flex; justify-self: stretch; width: 100%; }
+.ob-tab { border-radius: 0; padding: 13px 14px 11px; font-size: 14.5px; font-weight: 500; border-bottom: 3px solid transparent; }
+.ob-tab[aria-selected="true"] { background: transparent; color: var(--tx); border-bottom-color: #E1251B; font-weight: 700; }
+.ob-tn { display: none !important; }
+/* números do topo: sem caixas, com fios */
+.ob-kpis-row { gap: 0 !important; border-top: 1px solid var(--gb); border-bottom: 1px solid var(--gb); }
+.ob-kpis-row .ob-kpi { background: transparent; border: 0; border-radius: 0; border-left: 1px solid var(--gb); padding: 14px 14px 12px; }
+.ob-kpis-row .ob-kpi:first-child { border-left: 0; padding-left: 0; }
+.ob-kpis-row .ob-kpi-l { text-transform: none; letter-spacing: 0; font-size: 12.5px; font-weight: 500; color: var(--mut); }
+.ob-kpi-v { font-family: var(--serif); font-weight: 700; font-stretch: 85%; letter-spacing: -.02em; }
+/* "por onde começar" vira linha de texto */
+.ob-story { background: transparent; border: 0; padding: 4px 0; gap: 6px 18px; }
+.ob-story-k { text-transform: none; letter-spacing: 0; font-size: 14px; font-weight: 700; color: var(--tx); }
+.ob-story button { background: none; border: 0; border-radius: 0; padding: 2px 0; font-size: 14.5px; text-decoration: underline; text-decoration-color: rgba(225,37,27,.6); text-underline-offset: 4px; }
+.ob-story button b { display: none; }
+/* topo */
+.ob-hero { border-radius: 8px; }
+.ob-title { font-family: var(--serif); text-transform: uppercase; font-weight: 900; font-stretch: 80%; letter-spacing: -.02em; line-height: .9; }
+.ob-title .l1 { font-family: 'Inter', sans-serif; font-style: normal; font-weight: 400; text-transform: none; letter-spacing: -.01em; }
+.ob-live { font-family: inherit; text-transform: uppercase; font-size: 12px; font-weight: 700; letter-spacing: .05em; }
+.ob-chip { border-radius: 4px; font-family: inherit; text-transform: none; letter-spacing: 0; font-size: 12.5px; }
+.ob-take { font-size: clamp(1.05rem, 1.6vw, 1.22rem); line-height: 1.5; }
+/* filtros e quadros internos mais discretos */
+.ob-ecof { border-radius: 6px; }
+.ob-ecof-h .ob-mono, .ob-ecof-l { text-transform: none; letter-spacing: 0; font-size: 12.5px; font-weight: 600; }
+.ob-seg { border-radius: 6px; }
+.ob-seg-b { border-radius: 4px; }
+.ob-tablebox { border-radius: 6px; }
+.ob-table th { text-transform: none; letter-spacing: 0; font-family: inherit; font-size: 12.5px; font-weight: 600; }
+.ob-eco-c, .ob-ev, .ob-exc, .ob-nw-more, .ob-in { border-radius: 6px; }
+.ob-eco-top .k { text-transform: none; letter-spacing: 0; font-family: var(--serif); font-size: 17px; font-weight: 800; font-stretch: 90%; color: var(--tx); }
+.ob-eco-top .fq { text-transform: none; letter-spacing: 0; }
+.ob-eco-vr .v { font-family: var(--serif); font-weight: 700; font-stretch: 85%; }
+.ob-ev .dt b { font-family: var(--serif); }
+.ob-ev .tp { border-radius: 3px; text-transform: none; letter-spacing: 0; font-family: inherit; font-size: 11.5px; font-weight: 600; }
+.ob-nw .tm, .ob-nw .pr { border-radius: 3px; text-transform: none; letter-spacing: 0; font-family: inherit; font-size: 11.5px; }
+.ob-nw .eco, .ob-nw-ecoinl, .ob-ev .eco { border-radius: 3px; text-transform: none; letter-spacing: 0; font-family: inherit; font-size: 11.5px; }
+.ob-nw-day { font-family: var(--serif); text-transform: none; letter-spacing: 0; font-size: 16px; font-weight: 800; font-stretch: 90%; color: var(--tx); }
+.ob-nw-day span { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; }
+.ob-nw .t { font-family: var(--serif); font-size: 16.5px; font-weight: 700; font-stretch: 92%; line-height: 1.28; }
+.ob-foot { font-family: inherit; text-transform: none; letter-spacing: 0; font-size: 13px; }
+.ob-about-name, .ob-about h2 { font-family: var(--serif); }
+.ob-theme, .ob-fb-btn { border-radius: 6px; }
+.ob[data-theme="light"] .ob-glass { box-shadow: none !important; }
+.ob[data-theme="light"] .ob-hero, .ob[data-theme="light"] .ob-eco-c, .ob[data-theme="light"] .ob-ev { border-color: #DED8CB; }
+@media (max-width: 640px) {
+  .ob-tabs { flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .ob-tab { white-space: nowrap; flex: none; }
+  .ob-kpis-row .ob-kpi:first-child { padding-left: 14px; }
+}
+
+/* lista nominal da votação */
+.ob-vlist { padding: 20px 22px; border-radius: 8px; }
+.ob-vlist-h { display: grid; gap: 4px; margin-bottom: 14px; }
+.ob-vlist-h b { font-family: var(--serif); font-size: 20px; font-weight: 800; font-stretch: 90%; line-height: 1.15; }
+.ob-vlist-m { font-size: 13.5px; color: var(--mut); line-height: 1.45; }
+.ob-vlist-m a { font-size: 13.5px; }
+#ob-vlist .ob-filters { margin: 0 0 16px; }
+#ob-vlist .ob-vq { width: 100%; padding: 12px 14px; }
+/* resumo visual das notícias */
+.ob-nw-viz { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 22px 30px; margin: 6px 0 22px; padding: 20px 0; border-top: 1px solid var(--gb); border-bottom: 1px solid var(--gb); }
+.ob-nw-kpis { grid-column: 1 / -1; display: block; }
+.ob-nw-k { font: inherit; text-align: left; background: none; border: 0; border-left: 1px solid var(--gb); padding: 2px 18px; cursor: pointer; color: var(--tx); display: grid; gap: 4px; }
+.ob-nw-k:first-child { border-left: 0; padding-left: 0; }
+.ob-nw-k b { font-family: var(--serif); font-weight: 800; font-stretch: 85%; font-size: clamp(2.2rem, 4.4vw, 3.4rem); line-height: 1; }
+.ob-nw-k span { font-size: 13.5px; color: var(--mut); }
+.ob-nw-k.k-eco b { color: var(--nFFB347); }
+.ob-nw-k.k-prom b { color: #E1251B; }
+.ob-nw-k.on span { color: var(--tx); text-decoration: underline; text-decoration-color: #E1251B; text-underline-offset: 3px; }
+.ob-nw-vh { font-size: 14px; font-weight: 700; margin-bottom: 10px; }
+.ob-nw-vh span { font-weight: 400; color: var(--dim); font-size: 12px; margin-left: 6px; }
+.ob-nw-tlc { position: relative; }
+.ob-nw-lg { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 12px; color: var(--mut); margin-top: 6px; }
+.ob-nw-lg span { display: inline-flex; align-items: center; gap: 6px; }
+.ob-nw-lg i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.ob-nw-clear { margin-top: 8px; font: inherit; font-size: 12.5px; color: var(--tx); background: none; border: 1px solid var(--gb); border-radius: 4px; padding: 5px 9px; cursor: pointer; }
+.ob-nw-tmc { display: grid; gap: 4px; }
+.ob-nw-tb { font: inherit; display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr) 2ch; gap: 10px; align-items: center; background: none; border: 0; padding: 3px 0; color: var(--mut); cursor: pointer; text-align: left; font-size: 13px; }
+.ob-nw-tb .l { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ob-nw-tb .b { height: 9px; background: rgba(var(--w),.06); border-radius: 2px; overflow: hidden; }
+.ob-nw-tb .b i { display: block; height: 100%; background: var(--n6B6B6B); transition: background .2s; }
+.ob-nw-tb:hover, .ob-nw-tb.on { color: var(--tx); }
+.ob-nw-tb.on .b i, .ob-nw-tb:hover .b i { background: #E1251B; }
+.ob-nw-tb .v { text-align: right; font-variant-numeric: tabular-nums; }
+/* lista usando a largura toda: texto à esquerda, etiquetas e veículo à direita */
+.ob-nw { grid-template-columns: 52px minmax(0, 1fr); padding: 16px 0; }
+.ob-nw > div:nth-child(2) { display: grid; grid-template-columns: minmax(0, 1fr) minmax(220px, 320px); column-gap: 32px; align-items: start; }
+.ob-nw > div:nth-child(2) > * { grid-column: 1; }
+.ob-nw > div:nth-child(2) > .tg { grid-column: 2; grid-row: 1 / span 3; justify-content: flex-end; margin: 2px 0 0; }
+.ob-nw > div:nth-child(2) > .vc { grid-column: 2; grid-row: 4; text-align: right; margin-top: 0; }
+@media (max-width: 760px) { .ob-nw > div:nth-child(2) { display: block; } .ob-nw > div:nth-child(2) > .vc { text-align: left; margin-top: 5px; } .ob-nw > div:nth-child(2) > .tg { justify-content: flex-start; margin-bottom: 6px; } }
+.ob-nw .r { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; font-size: 13.5px; }
+.ob-nw .tg { margin-bottom: 6px; }
+.ob-nw .en { font-size: 12px; padding: 4px 8px; }
+@media (max-width: 860px) { .ob-nw-viz { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 520px) { .ob-nw-k { padding: 2px 10px; } .ob-nw-k b { font-size: 2rem; } .ob-nw-k span { font-size: 11.5px; } }
+.ob-eco-listh { margin: 34px 0 12px; font-size: clamp(1.3rem, 2.1vw, 1.65rem) !important; }
+/* elementos de fundo */
+.ob-bg { overflow: hidden; }
+.ob-bgstar { position: absolute; width: clamp(320px, 40vw, 600px); aspect-ratio: 1; opacity: .05; }
+.ob-bgstar svg { width: 100%; height: 100%; fill: none; stroke: #E1251B; stroke-width: .6; }
+.ob-bgstar.s1 { top: 12%; right: -26%; transform: rotate(14deg); }
+.ob-bgstar.s2 { top: 44%; left: -28%; transform: rotate(-10deg); }
+.ob-bgstar.s3 { top: 76%; right: -22%; transform: rotate(6deg); width: clamp(260px, 30vw, 460px); }
+.ob-bgdots { position: absolute; width: 380px; height: 380px; opacity: .25; background-image: radial-gradient(circle, rgba(225,37,27,.6) 1.2px, transparent 1.5px); background-size: 12px 12px; -webkit-mask-image: radial-gradient(circle at center, #000 0%, transparent 70%); mask-image: radial-gradient(circle at center, #000 0%, transparent 70%); }
+.ob-bgdots.d1 { top: 24%; left: 60%; }
+.ob-bgdots.d2 { top: 60%; left: 2%; width: 300px; height: 300px; }
+.ob-bgline { position: absolute; height: 1px; left: 0; right: 0; background: linear-gradient(90deg, transparent, rgba(225,37,27,.28), transparent); }
+.ob-bgline.l1 { top: 34%; }
+.ob-bgline.l2 { top: 67%; }
+.ob[data-theme="light"] .ob-bgstar { opacity: .08; }
+.ob[data-theme="light"] .ob-bgdots { opacity: .3; }
+@media (max-width: 640px) { .ob-bgstar { width: 300px; opacity: .07; } .ob-bgdots { width: 220px; height: 220px; } }
+
+/* barras da aba Parlamentares e redes */
+.ob-hb { gap: 14px; }
+.ob-hb-row { font-size: 14px; }
+.ob-hb-row .v { font-family: inherit; font-size: 13px; font-weight: 600; color: var(--tx); font-variant-numeric: tabular-nums; }
+.ob-hb-row .t { height: 6px; border-radius: 2px; background: rgba(var(--w),.07); }
+.ob-hb-row .t i { border-radius: 2px; background: var(--n6B6B6B) !important; }
+.ob-hb-row:first-of-type .t i { background: #E1251B !important; }
+/* exemplos: grade, sem cartões cortados */
+.ob-ex-s { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); overflow: visible; padding-bottom: 0; }
+.ob-exc { flex: none; }
+.ob-ex .ob-mono, .ob-ex-h { text-transform: none; letter-spacing: 0; }
+/* balõezinhos dos exemplos */
+.ob-exc .bal { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 2px; }
+.ob-exc .bal b { font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 10px 10px 10px 2px; background: rgba(var(--w),.08); color: var(--tx); }
+.ob-exc .bal b.k-pauta { background: rgba(225,37,27,.16); color: var(--tx); }
+.ob-exc .bal b.k-rede { background: rgba(var(--w),.1); }
+.ob-exc .bal b.k-tom { background: rgba(255,179,71,.16); }
+.ob-exc .bal b.k-novo { background: transparent; border: 1px solid var(--gb); color: var(--mut); }
+.ob-ex-all .ob-ex-s { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+.ob-per-pauta, .ob-per-canal, .ob-per-tom { margin-bottom: 12px; }
+
+.ob-nw-k { cursor: default; border-left: 0; padding-left: 0; display: flex; align-items: baseline; gap: 12px; }
+.ob-nw-k span { font-size: 15px; }
+
+/* aprovação: barras por pesquisa */
+.ob-aprov { min-height: 0; }
+.ob-ap-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 10px 30px; margin-bottom: 18px; }
+.ob-ap-big { display: flex; gap: 28px; flex-wrap: wrap; }
+.ob-ap-big span { font-size: 15px; color: var(--mut); display: flex; align-items: baseline; gap: 8px; }
+.ob-ap-big b { font-family: var(--serif); font-weight: 800; font-stretch: 85%; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: 1; color: var(--tx); }
+.ob-ap-big .d b { color: var(--nFFB347); }
+.ob-ap-cap { margin: 0; font-size: 14px; color: var(--mut); max-width: 40ch; }
+.ob-ap-lg { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 12.5px; color: var(--mut); margin-bottom: 10px; }
+.ob-ap-lg span { display: inline-flex; align-items: center; gap: 6px; }
+.ob-ap-lg i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; }
+.ob-ap-lg i.a, .ob-ap-row .bar .a { background: var(--nF2F2F2); color: var(--n111111); }
+.ob-ap-lg i.d, .ob-ap-row .bar .d { background: var(--nFFB347); color: #111; }
+.ob-ap-lg i.n, .ob-ap-row .bar .n { background: rgba(var(--w),.1); }
+.ob-ap-lg .m { color: var(--dim); }
+.ob-ap-list { display: grid; gap: 10px; }
+.ob-ap-row { display: grid; grid-template-columns: 130px minmax(0, 1fr) 64px minmax(0, 170px); gap: 14px; align-items: center; padding: 6px 0; border-bottom: 1px solid var(--gb); }
+.ob-ap-row .l { display: grid; line-height: 1.25; }
+.ob-ap-row .l b { font-size: 14.5px; }
+.ob-ap-row .l span { font-size: 12.5px; color: var(--mut); }
+.ob-ap-row .bar { position: relative; display: flex; height: 30px; border-radius: 3px; overflow: hidden; }
+.ob-ap-row .bar span { display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.ob-ap-row .bar .mid { position: absolute; left: 50%; top: -3px; bottom: -3px; width: 2px; background: var(--tx); opacity: .7; }
+.ob-ap-row .sd { display: grid; text-align: center; line-height: 1.1; }
+.ob-ap-row .sd b { font-family: var(--serif); font-size: 20px; font-weight: 800; font-stretch: 85%; }
+.ob-ap-row .sd span { font-size: 11px; color: var(--dim); }
+.ob-ap-row .sd.pos b { color: var(--tx); }
+.ob-ap-row .sd.neg b { color: var(--nFFB347); }
+.ob-ap-row .src { font-size: 12px; color: var(--dim); }
+.ob-ap-row .src a { color: var(--mut); text-underline-offset: 3px; }
+@media (max-width: 760px) { .ob-ap-row { grid-template-columns: 96px minmax(0, 1fr) 48px; } .ob-ap-row .src { grid-column: 1 / -1; } }
+
+/* legendas sem quebra */
+.ob-legend { display: grid; grid-template-columns: repeat(3, max-content); gap: 8px 18px; font-size: 12.5px; }
+.ob-legend span { white-space: nowrap; }
+#card-temas .ob-legend { grid-template-columns: repeat(6, max-content); }
+@media (max-width: 760px) { #card-temas .ob-legend { grid-template-columns: repeat(3, max-content); } }
+@media (max-width: 420px) { .ob-legend, #card-temas .ob-legend { grid-template-columns: repeat(2, max-content); } }
+/* fundo vivo */
+.ob-fstar { position: absolute; display: block; opacity: .22; transform: rotate(var(--r, 0deg)); }
+.ob-fstar svg { width: 100%; height: 100%; fill: none; stroke: #E1251B; stroke-width: 6; }
+.ob-fstar.fill svg { fill: #E1251B; stroke: none; }
+.ob-fstar.fill { opacity: .16; }
+.ob[data-theme="light"] .ob-fstar { opacity: .3; }
+@media (prefers-reduced-motion: no-preference) {
+  .ob-fstar { animation: obFloat var(--d, 18s) ease-in-out var(--dl, 0s) infinite, obTwinkle var(--t, 5s) ease-in-out var(--dl, 0s) infinite; }
+  .ob-bgstar.s1 svg, .ob-bgstar.s3 svg { animation: obSpin 160s linear infinite; }
+  .ob-bgstar.s2 svg { animation: obSpin 200s linear infinite reverse; }
+  .ob-bgdots { animation: obDots 12s ease-in-out infinite; }
+  .ob-bgline { animation: obLine 9s ease-in-out infinite; }
+  .ob-bgline.l2 { animation-delay: -4.5s; }
+}
+@keyframes obFloat { 0%, 100% { translate: 0 0; } 50% { translate: 6px -22px; } }
+@keyframes obTwinkle { 0%, 100% { scale: 1; } 50% { scale: .7; } }
+@keyframes obSpin { to { rotate: 360deg; } }
+@keyframes obDots { 0%, 100% { opacity: .18; } 50% { opacity: .32; } }
+@keyframes obLine { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
+.ob-bgstar { opacity: .07; }
 </style>
 
 <div class="ob">
-  <div class="ob-bg"><div class="ob-glow g1"></div><div class="ob-glow g2"></div><div class="ob-glow g3"></div><div class="ob-grain"></div></div>
+  <div class="ob-bg"><div class="ob-bgdots d1"></div><div class="ob-bgdots d2"></div><div class="ob-bgstar s1"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s2"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s3"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgline l1"></div><div class="ob-bgline l2"></div></div>
   <div class="ob-inner">
 
     <header class="ob-hero ob-glass" id="hero">
       <button class="ob-theme" type="button" aria-pressed="false" aria-label="Alternar entre modo escuro e modo claro"><span class="sw"><i><svg class="ic-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></g></svg></i></span><span class="lb">Modo claro</span></button>
       <div class="ob-hero-txt">
-        <div class="ob-live ob-mono"><i></i>Ao vivo · Promessa por Promessa · Mandato 2027–2030</div>
+        <div class="ob-live ob-mono"><i></i>Promessa por Promessa · mandato 2027–2030</div>
         <h1 class="ob-title" id="topo" aria-label="Promessa por Promessa: de olho no mandato de Lula, 2027–2030">
           <span class="l1">De olho no</span>
           <span class="ob-rot" aria-hidden="true"><span class="ob-rot-track"><span>Lula</span><span>Planalto</span><span>Congresso</span><span>Mandato</span><span>Lula</span></span></span>
@@ -600,7 +821,7 @@ input.ob-in { flex: 1 1 14rem; }
 
     <section id="visao" class="ob-page">
       <nav class="ob-story ob-glass" aria-label="Como ler o painel">
-        <span class="ob-mono ob-story-k">Como ler</span>
+        <span class="ob-mono ob-story-k">Por onde começar</span>
         <button type="button" data-go="promessas"><b>1</b> O que foi prometido</button>
         <button type="button" data-go="congresso"><b>2</b> Quem decide e como vota</button>
         <button type="button" data-go="impacto"><b>3</b> O que mudou</button>
@@ -624,7 +845,7 @@ input.ob-in { flex: 1 1 14rem; }
           <div class="ob-legend ob-lg1"></div>
         </div>
         <div class="ob-card ob-glass" id="card-resultado">
-          <div class="ob-card-head"><div><h2 class="ob-h ob-split">A virada nas urnas</h2><p class="ob-sub">Votos válidos no 2º turno · TSE · 25/10/2026</p></div><span class="ob-idx ob-mono">02</span></div>
+          <div class="ob-card-head"><div><h2 class="ob-h ob-split">A virada nas urnas</h2><p class="ob-sub">Votos válidos no segundo turno, segundo o TSE (25/10/2026)</p></div><span class="ob-idx ob-mono">02</span></div>
           <div class="ob-votes" data-source="resultado"></div>
         </div>
       </div>
@@ -638,7 +859,7 @@ input.ob-in { flex: 1 1 14rem; }
 
     <section id="promessas" class="ob-page" hidden>
       <div class="ob-card ob-glass">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Base de promessas de campanha</h2><p class="ob-sub">Plano registrado no TSE e falas da campanha · status revisado toda semana</p></div><span class="ob-idx ob-mono">04</span></div>
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Base de promessas de campanha</h2><p class="ob-sub">Tudo o que Lula prometeu no plano registrado no TSE e nos discursos de campanha. Reviso o status toda semana.</p></div><span class="ob-idx ob-mono">04</span></div>
         <div class="ob-filters">
           <select class="ob-in ob-f-tema" aria-label="Tema"></select>
           <select class="ob-in ob-f-status" aria-label="Status"></select>
@@ -676,7 +897,7 @@ input.ob-in { flex: 1 1 14rem; }
       </div>
 
       <div class="ob-card ob-glass" id="card-orcamento">
-        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Orçamento 2027 · enviado em 31/08/2026</span><h2 class="ob-h ob-split">Quanto custa cada promessa</h2><p class="ob-sub">O que o projeto de Orçamento prevê para os programas-vitrine. O gasto efetivo entra a partir de janeiro, quando a execução começa.</p></div><span class="ob-idx ob-mono">P-03</span></div>
+        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Orçamento de 2027, enviado em 31/08/2026</span><h2 class="ob-h ob-split">Quanto custa cada promessa</h2><p class="ob-sub">O que o projeto de Orçamento prevê para os programas-vitrine. O gasto efetivo entra a partir de janeiro, quando a execução começa.</p></div><span class="ob-idx ob-mono">P-03</span></div>
         <div class="ob-orc" data-source="orcamento"></div>
       </div>
 
@@ -700,7 +921,7 @@ input.ob-in { flex: 1 1 14rem; }
 
     <section id="impacto" class="ob-page" hidden>
       <div class="ob-card ob-glass" id="card-noticias">
-        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Atualizado todo dia útil</span><h2 class="ob-h ob-split">Todas as notícias do governo</h2><p class="ob-sub">Tudo o que sai sobre o governo e o mandato, com link para a matéria. A etiqueta <b class="ob-nw-ecoinl">Mexeu na economia</b> marca as notícias que movem bolsa, dólar, juros ou contas públicas, sempre com a fonte que faz essa ligação.</p></div><span class="ob-idx ob-mono">I-00</span></div>
+        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Atualizado todo dia útil</span><h2 class="ob-h ob-split">Todas as notícias do governo</h2><p class="ob-sub">O que saiu sobre o governo, com link para cada matéria. Quando a notícia mexe com bolsa, dólar, juros ou contas públicas, ela ganha a etiqueta <b class="ob-nw-ecoinl">Mexeu na economia</b>.</p></div><span class="ob-idx ob-mono">I-00</span></div>
         <div class="ob-nw-bar">
           <div class="ob-seg ob-nw-f" role="group" aria-label="Filtrar notícias">
             <button class="ob-seg-b" type="button" data-nf="todas" aria-selected="true">Todas</button>
@@ -710,30 +931,35 @@ input.ob-in { flex: 1 1 14rem; }
           <select class="ob-in ob-nw-tema" aria-label="Tema"><option value="">Todos os temas</option></select>
           <input class="ob-in ob-nw-q" type="search" placeholder="Buscar notícia…" aria-label="Buscar notícia">
         </div>
+        <div class="ob-nw-viz">
+          <div class="ob-nw-kpis"></div>
+          <div class="ob-nw-tl"><div class="ob-nw-vh">Ritmo das notícias <span>cada quadradinho é uma notícia; clique num dia para filtrar</span></div><div class="ob-nw-tlc"></div></div>
+          <div class="ob-nw-tm"><div class="ob-nw-vh">Assuntos <span>clique para filtrar</span></div><div class="ob-nw-tmc"></div></div>
+        </div>
         <p class="ob-nw-n ob-mono"></p>
         <div class="ob-nw-list" data-source="noticias"></div>
         <button class="ob-nw-more" type="button" hidden></button>
       </div>
 
       <div class="ob-card ob-glass" id="card-registro">
-        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Atualizado a cada notícia</span><h2 class="ob-h ob-split">Registro de impacto</h2><p class="ob-sub">Cada projeto aprovado, lei sancionada ou anúncio entra aqui com duas medidas: como o mercado fechou no dia e quanto a conversa nas redes subiu em relação à semana anterior. Movimento de mercado só é atribuído ao evento quando a cobertura faz essa ligação.</p></div><span class="ob-idx ob-mono">I-01</span></div>
+        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Atualizado a cada notícia</span><h2 class="ob-h ob-split">Registro de impacto</h2><p class="ob-sub">Cada lei, projeto ou anúncio importante, com duas medidas: como o mercado fechou no dia e quanto a conversa nas redes cresceu. Só ligo o mercado ao fato quando a própria cobertura faz essa ligação.</p></div><span class="ob-idx ob-mono">I-01</span></div>
         <div class="ob-feed" data-source="impacto_eventos exemplos"></div>
       </div>
 
       <div class="ob-card ob-glass" id="card-aprov">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Aprovação do governo</h2><p class="ob-sub">Aprova × desaprova a forma de governar de Lula, por pesquisa (● Datafolha, ■ Quaest). As marcas vermelhas no topo são os eventos do registro; passe o mouse para ver.</p></div><span class="ob-idx ob-mono">I-09</span></div>
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Aprovação do governo</h2><p class="ob-sub">Quantos aprovam e quantos desaprovam o jeito de Lula governar, pesquisa por pesquisa. A mais recente fica em cima.</p></div><span class="ob-idx ob-mono">I-09</span></div>
         <div class="ob-aprov" data-source="aprovacao impacto_eventos"></div>
         <p class="ob-note-s">Institutos usam perguntas e amostras diferentes; compare cada um com ele mesmo. Margem de erro de 2 pontos.</p>
       </div>
 
       <div class="ob-card ob-glass" id="card-mult">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">O que mais mexeu com a conversa</h2><p class="ob-sub">Menções no dia do evento ÷ média diária da semana anterior · Radar Stilingue</p></div><span class="ob-idx ob-mono">I-02</span></div>
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">O que mais mexeu com a conversa</h2><p class="ob-sub">Menções no dia do fato comparadas com a média da semana anterior, no Radar Stilingue.</p></div><span class="ob-idx ob-mono">I-02</span></div>
         <div class="ob-div ob-div-mult" data-source="impacto_eventos"></div>
         <div class="ob-ex ob-ex-mult" data-source="exemplos"></div>
       </div>
 
       <div class="ob-card ob-glass">
-        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Em destaque · 1º dia útil após a reeleição</span><h2 class="ob-h ob-split">A reação à reeleição</h2><p class="ob-sub">Valores do pregão de 26/10, trocados pelos fechamentos na próxima atualização.</p></div><span class="ob-idx ob-mono">I-03</span></div>
+        <div class="ob-card-head"><div><span class="ob-badge ob-mono">O primeiro pregão depois da reeleição</span><h2 class="ob-h ob-split">A reação à reeleição</h2><p class="ob-sub">Valores do pregão de 26/10, trocados pelos fechamentos na próxima atualização.</p></div><span class="ob-idx ob-mono">I-03</span></div>
         <div class="ob-mk" data-source="mercado_d1"></div>
       </div>
 
@@ -744,7 +970,7 @@ input.ob-in { flex: 1 1 14rem; }
           <p class="ob-note-s ob-semana" data-source="eleicoes_d1"></p>
         </div>
         <div class="ob-card ob-glass" id="card-acoes">
-          <div class="ob-card-head"><div><h2 class="ob-h ob-split">Quem caiu e quem subiu</h2><p class="ob-sub">Ações na manhã de 26/10 · exportadoras sobem com o dólar</p></div><span class="ob-idx ob-mono">I-05</span></div>
+          <div class="ob-card-head"><div><h2 class="ob-h ob-split">Quem caiu e quem subiu</h2><p class="ob-sub">Ações na manhã de 26/10. As exportadoras subiram junto com o dólar.</p></div><span class="ob-idx ob-mono">I-05</span></div>
           <div class="ob-div ob-div-acoes" data-source="acoes_d1"></div>
         </div>
       </div>
@@ -755,13 +981,13 @@ input.ob-in { flex: 1 1 14rem; }
       </div>
 
       <div class="ob-card ob-glass" id="card-conversa-mercado">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">A conversa sobre mercado e Lula</h2><p class="ob-sub">Menções por dia no Radar · 26/10 parcial, até a tarde</p></div><span class="ob-idx ob-mono">I-06</span></div>
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">A conversa sobre mercado e Lula</h2><p class="ob-sub">Menções por dia no Radar (26/10 ainda parcial, até a tarde).</p></div><span class="ob-idx ob-mono">I-06</span></div>
         <div class="ob-colchart" data-source="conversa_mercado"></div>
         <div class="ob-ex ob-ex-merc" data-source="exemplos"></div>
       </div>
 
       <div class="ob-card ob-glass" id="card-youtube">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">A reeleição no YouTube</h2><p class="ob-sub">Vídeos mais vistos publicados em 25 e 26/10 · busca no YouTube via Wilken Perez</p></div><span class="ob-idx ob-mono">I-08</span></div>
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">A reeleição no YouTube</h2><p class="ob-sub">Os vídeos mais vistos publicados em 25 e 26/10.</p></div><span class="ob-idx ob-mono">I-08</span></div>
         <div class="ob-yt" data-source="youtube_reeleicao"></div>
       </div>
 
@@ -814,7 +1040,7 @@ input.ob-in { flex: 1 1 14rem; }
 
     <section id="parlamentares" class="ob-page" hidden>
       <div class="ob-card ob-glass">
-        <div class="ob-card-head"><div><span class="ob-badge ob-mono ob-men-badge">Período · 27/09/26 a 26/10/26</span><h2 class="ob-h ob-split">A conversa sobre governo e Congresso</h2><p class="ob-sub">Quanto se falou, onde e sobre o quê, da linha de base antes da posse até o fim do mandato em 2030. Stilingue (Radar) e Buzzmonitor, sempre de forma agregada. O filtro abaixo vale para todos os números e gráficos desta aba.</p></div><span class="ob-idx ob-mono">06</span></div>
+        <div class="ob-card-head"><div><span class="ob-badge ob-mono ob-men-badge">Período · 27/09/26 a 26/10/26</span><h2 class="ob-h ob-split">A conversa sobre governo e Congresso</h2><p class="ob-sub">Quanto se falou, onde e sobre o quê, da linha de base antes da posse até o fim do mandato. Dados do Radar Stilingue e do Buzzmonitor, sempre somados, sem expor ninguém. O filtro vale para a aba inteira.</p></div><span class="ob-idx ob-mono">06</span></div>
         <div class="ob-seg" role="tablist" aria-label="Arena">
           <button class="ob-seg-b" data-arena="Governo Lula" aria-selected="true">Governo Lula</button>
           <button class="ob-seg-b" data-arena="Congresso" aria-selected="false">Congresso</button>
@@ -858,36 +1084,32 @@ input.ob-in { flex: 1 1 14rem; }
       </div>
 
       <div class="ob-card ob-glass" id="card-linha">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Menções por dia</h2><p class="ob-sub">Radar · amostra da base pública · marcos da eleição e do mandato em destaque</p></div><span class="ob-idx ob-mono">07</span></div>
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Menções por dia</h2><p class="ob-sub">Amostra da base pública do Radar, com os marcos da eleição e do mandato.</p></div><span class="ob-idx ob-mono">07</span></div>
         <div class="ob-men-cmp" data-source="mencoes_dia"></div>
         <div class="ob-line" data-source="mencoes_dia"></div>
-        <div class="ob-ex ob-ex-linha" data-source="exemplos"></div>
       </div>
 
       <div class="ob-grid">
         <div class="ob-card ob-glass" id="card-pautas">
-          <div class="ob-card-head"><div><h2 class="ob-h ob-split">Pautas que puxam a conversa</h2><p class="ob-sub">% dos 5 mil posts mais engajados no Instagram · Buzzmonitor</p></div><span class="ob-idx ob-mono">08</span></div>
+          <div class="ob-card-head"><div><h2 class="ob-h ob-split">Pautas que puxam a conversa</h2><p class="ob-sub">Fatia de cada assunto entre os 5 mil posts mais engajados do Instagram, pelo Buzzmonitor.</p></div><span class="ob-idx ob-mono">08</span></div>
           <p class="ob-note-s ob-per-pauta"></p>
           <div class="ob-hb ob-hb-pauta" data-source="pautas_conversa"></div>
-          <div class="ob-ex ob-ex-pauta" data-source="exemplos"></div>
         </div>
         <div class="ob-card ob-glass" id="card-canais">
-          <div class="ob-card-head"><div><h2 class="ob-h ob-split">Onde a conversa acontece</h2><p class="ob-sub">Menções por rede · Radar</p></div><span class="ob-idx ob-mono">09</span></div>
+          <div class="ob-card-head"><div><h2 class="ob-h ob-split">Onde a conversa acontece</h2><p class="ob-sub">Menções por rede social, no Radar.</p></div><span class="ob-idx ob-mono">09</span></div>
           <p class="ob-note-s ob-per-canal"></p>
           <div class="ob-hb ob-hb-canal" data-source="mencoes_canal"></div>
-          <div class="ob-ex ob-ex-canal" data-source="exemplos"></div>
         </div>
       </div>
 
       <div class="ob-card ob-glass" id="card-tom">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Tom da conversa</h2><p class="ob-sub">Classificação automática do Radar: serve como indício, não como veredito, porque erra em ironia</p></div><span class="ob-idx ob-mono">10</span></div>
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Tom da conversa</h2><p class="ob-sub">Classificação automática do Radar. Vale como pista, não como veredito: ela costuma errar com ironia.</p></div><span class="ob-idx ob-mono">10</span></div>
         <p class="ob-note-s ob-per-tom"></p>
         <div class="ob-sent" data-source="mencoes_sentimento"></div>
-        <div class="ob-ex ob-ex-tom" data-source="exemplos"></div>
       </div>
 
       <div class="ob-card ob-glass" id="card-cadastro">
-        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Cadastro conferido · Congresso em Foco + Brasil de Fato</span><h2 class="ob-h ob-split">Os 594 do Congresso de 2027</h2><p class="ob-sub">513 deputados e 81 senadores, com a origem de cada nome e o nível de checagem. Partidos conferidos com os totais por bancada da imprensa; trocas até a posse entram na atualização semanal.</p></div><span class="ob-idx ob-mono">11</span></div>
+        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Conferido com Congresso em Foco e Brasil de Fato</span><h2 class="ob-h ob-split">Os 594 do Congresso de 2027</h2><p class="ob-sub">513 deputados e 81 senadores, com a origem de cada nome e o nível de checagem. Partidos conferidos com os totais por bancada da imprensa; trocas até a posse entram na atualização semanal.</p></div><span class="ob-idx ob-mono">11</span></div>
         <div class="ob-filters">
           <select class="ob-in ob-p-casa" aria-label="Casa"><option value="">Câmara e Senado</option><option value="Câmara">Câmara</option><option value="Senado">Senado</option></select>
           <select class="ob-in ob-p-uf" aria-label="Estado"></select>
@@ -907,6 +1129,11 @@ input.ob-in { flex: 1 1 14rem; }
             <tbody></tbody>
           </table>
         </div>
+      </div>
+
+      <div class="ob-card ob-glass" id="card-exemplos">
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Exemplos de menções</h2><p class="ob-sub">Posts públicos que ilustram os gráficos acima. A etiqueta em cada um mostra a que ele se refere. É uma amostra para ilustrar, não é tempo real.</p></div><span class="ob-idx ob-mono">10</span></div>
+        <div class="ob-ex ob-ex-all" data-source="exemplos"></div>
       </div>
 
       <div class="ob-card ob-glass">
@@ -945,14 +1172,40 @@ input.ob-in { flex: 1 1 14rem; }
         <div class="ob-uf-props" data-source="proposicoes atuacao"></div>
       </div>
       <div class="ob-card ob-glass">
-        <div class="ob-card-head"><div><h2 class="ob-h">Parlamentares do estado</h2><p class="ob-sub">Senado e Câmara a partir de 2027 · cada nome leva às notícias mais recentes sobre ele</p></div></div>
+        <div class="ob-card-head"><div><h2 class="ob-h">Parlamentares do estado</h2><p class="ob-sub">Senado e Câmara a partir de 2027. Cada nome leva às notícias mais recentes sobre ele.</p></div></div>
         <div class="ob-uf-people" data-source="parlamentares atuacao votos"></div>
       </div>
     </section>
 
     <section id="economia" class="ob-page" hidden>
       <div class="ob-card ob-glass">
-        <div class="ob-card-head"><div><span class="ob-badge ob-mono">O que todo mundo deveria acompanhar</span><h2 class="ob-h ob-split">A economia do mandato</h2><p class="ob-sub">Dívida, contas públicas, crescimento, bolsa, dólar, juros, inflação e emprego desde o início do 3º mandato (dez/2022). A lista e os gráficos têm filtros próprios: mexer em um não altera o outro. Passe o mouse nos pontos para ver a fonte.</p></div><span class="ob-idx ob-mono">E-01</span></div>
+        <div class="ob-card-head"><div><span class="ob-badge ob-mono">O que todo mundo deveria acompanhar</span><h2 class="ob-h ob-split">A economia do mandato</h2><p class="ob-sub">Dívida, contas públicas, crescimento, bolsa, dólar, juros, inflação e emprego desde o início do 3º mandato (dez/2022). Os gráficos e a lista têm filtros próprios: mexer em um não muda o outro. Passe o mouse nos pontos para ver a fonte.</p></div><span class="ob-idx ob-mono">E-01</span></div>
+        <div class="ob-ecof ob-ecof-gr">
+          <div class="ob-ecof-h"><span class="ob-mono">⏷ Filtro</span><b>Gráficos</b></div>
+          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Período dos gráficos (igual para todos)</span>
+            <div class="ob-seg ob-eco-per" role="tablist" aria-label="Período">
+              <button class="ob-seg-b" data-p="7d" aria-selected="false">7 dias</button>
+              <button class="ob-seg-b" data-p="30d" aria-selected="false">30 dias</button>
+              <button class="ob-seg-b" data-p="12m" aria-selected="false">12 meses</button>
+              <button class="ob-seg-b" data-p="mand" aria-selected="true">Desde dez/2022</button>
+              <button class="ob-seg-b" data-p="custom" aria-selected="false" tabindex="-1" disabled>Personalizado</button>
+            </div>
+          </div>
+          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">De · Até</span>
+            <div class="ob-ecof-row"><input class="ob-in ob-eco-de" type="date" aria-label="Início do período"><span class="ob-dimtx">→</span><input class="ob-in ob-eco-ate" type="date" aria-label="Fim do período"><button class="ob-back ob-mono ob-eco-today" type="button">Até hoje</button></div>
+          </div>
+          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l ob-cmp-lbl">Comparar hoje com</span>
+            <div class="ob-seg ob-eco-cmpm" role="tablist" aria-label="Comparação">
+              <button class="ob-seg-b" data-c="semana" aria-selected="false">Semana anterior</button>
+              <button class="ob-seg-b" data-c="mes" aria-selected="true">Mês anterior</button>
+              <button class="ob-seg-b" data-c="ano" aria-selected="false">Ano anterior</button>
+              <button class="ob-seg-b" data-c="inicio" aria-selected="false">Início do período</button>
+            </div>
+          </div>
+        </div>
+        <p class="ob-note-s ob-eco-lab-g"></p>
+        <div class="ob-eco" data-source="economia"></div>
+        <h3 class="ob-h ob-eco-listh">Lista de indicadores</h3>
         <div class="ob-ecof ob-ecof-t">
           <div class="ob-ecof-h"><span class="ob-mono">⏷ Filtro</span><b>Lista de indicadores</b></div>
           <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Período da lista</span>
@@ -990,35 +1243,9 @@ input.ob-in { flex: 1 1 14rem; }
             <tbody></tbody>
           </table>
         </div>
-        <h3 class="ob-mono ob-side-h" style="margin-top:22px">Gráficos</h3>
-        <div class="ob-ecof ob-ecof-gr">
-          <div class="ob-ecof-h"><span class="ob-mono">⏷ Filtro</span><b>Gráficos</b></div>
-          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Período dos gráficos (igual para todos)</span>
-            <div class="ob-seg ob-eco-per" role="tablist" aria-label="Período">
-              <button class="ob-seg-b" data-p="7d" aria-selected="false">7 dias</button>
-              <button class="ob-seg-b" data-p="30d" aria-selected="false">30 dias</button>
-              <button class="ob-seg-b" data-p="12m" aria-selected="false">12 meses</button>
-              <button class="ob-seg-b" data-p="mand" aria-selected="true">Desde dez/2022</button>
-              <button class="ob-seg-b" data-p="custom" aria-selected="false" tabindex="-1" disabled>Personalizado</button>
-            </div>
-          </div>
-          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">De · Até</span>
-            <div class="ob-ecof-row"><input class="ob-in ob-eco-de" type="date" aria-label="Início do período"><span class="ob-dimtx">→</span><input class="ob-in ob-eco-ate" type="date" aria-label="Fim do período"><button class="ob-back ob-mono ob-eco-today" type="button">Até hoje</button></div>
-          </div>
-          <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l ob-cmp-lbl">Comparar hoje com</span>
-            <div class="ob-seg ob-eco-cmpm" role="tablist" aria-label="Comparação">
-              <button class="ob-seg-b" data-c="semana" aria-selected="false">Semana anterior</button>
-              <button class="ob-seg-b" data-c="mes" aria-selected="true">Mês anterior</button>
-              <button class="ob-seg-b" data-c="ano" aria-selected="false">Ano anterior</button>
-              <button class="ob-seg-b" data-c="inicio" aria-selected="false">Início do período</button>
-            </div>
-          </div>
-        </div>
-        <p class="ob-note-s ob-eco-lab-g"></p>
-        <div class="ob-eco" data-source="economia"></div>
       </div>
       <div class="ob-card ob-glass" id="card-agenda">
-        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Calendário econômico · só Brasil</span><h2 class="ob-h ob-split">Agenda da economia</h2><p class="ob-sub">Os próximos indicadores e decisões que mexem com as promessas, no formato dos calendários econômicos: importância, projeção do mercado, valor anterior e, depois da divulgação, o resultado.</p></div><span class="ob-idx ob-mono">E-02</span></div>
+        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Calendário econômico do Brasil</span><h2 class="ob-h ob-split">Agenda da economia</h2><p class="ob-sub">Os próximos indicadores e decisões que mexem com as promessas, no formato dos calendários econômicos: importância, projeção do mercado, valor anterior e, depois da divulgação, o resultado.</p></div><span class="ob-idx ob-mono">E-02</span></div>
         <div class="ob-seg ob-ag-seg" role="tablist" aria-label="Filtro da agenda">
           <button class="ob-seg-b" data-ag="prox" aria-selected="true">Próximos</button>
           <button class="ob-seg-b" data-ag="todos" aria-selected="false">Toda a agenda</button>
@@ -1066,7 +1293,7 @@ input.ob-in { flex: 1 1 14rem; }
         </ul>
       </div>
       <div class="ob-card ob-glass" id="card-citadas">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Todas as fontes citadas</h2><p class="ob-sub">Cada link usado no painel e em quantos registros ele aparece</p></div><span class="ob-idx ob-mono">F-03</span></div>
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Todas as fontes citadas</h2><p class="ob-sub">Cada link usado no site e quantas vezes ele aparece.</p></div><span class="ob-idx ob-mono">F-03</span></div>
         <div class="ob-filters"><input class="ob-in ob-f-fonte" type="search" placeholder="Buscar fonte ou seção…" aria-label="Buscar fonte"></div>
         <p class="ob-count ob-f-count ob-mono"></p>
         <div class="ob-tablebox">
@@ -1797,7 +2024,7 @@ input.ob-in { flex: 1 1 14rem; }
   }
 
   /* ===== Todas as notícias ===== */
-  const nw = { f: 'todas', tema: '', q: '', all: false };
+  const nw = { f: 'todas', tema: '', q: '', all: false, dia: '' };
   const NW_PAGE = 12;
   const DOW = ['Domingo', 'Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado'];
   const nwRoot = document.getElementById('card-noticias');
@@ -1815,6 +2042,78 @@ input.ob-in { flex: 1 1 14rem; }
     el.scrollIntoView({ block: 'center', behavior: RM ? 'auto' : 'smooth' });
     el.classList.remove('ob-flash'); void el.offsetWidth; el.classList.add('ob-flash');
   };
+  function drawNwViz(all) {
+    const kp = nwRoot.querySelector('.ob-nw-kpis'), tl = nwRoot.querySelector('.ob-nw-tlc'), tm = nwRoot.querySelector('.ob-nw-tmc');
+    if (!kp || !tl || !tm) return;
+    const nE = all.filter((d) => d.economia).length, nP = all.filter((d) => d.promessa).length;
+    // os gráficos seguem o filtro escolhido (todas, economia ou promessas) e a busca
+    const base = all.filter((d) => (nw.f === 'eco' ? d.economia : nw.f === 'prom' ? !!d.promessa : true)
+      && (!nw.q || `${d.titulo} ${d.resumo} ${d.veiculo} ${d.tema}`.toLowerCase().includes(nw.q)));
+    const tlRows = base.filter((d) => !nw.tema || d.tema === nw.tema);
+    {
+      const lbl = nw.f === 'eco' ? (tlRows.length === 1 ? 'notícia mexeu na economia' : 'notícias mexeram na economia') : nw.f === 'prom' ? (tlRows.length === 1 ? 'notícia ligada a promessa' : 'notícias ligadas a promessas') : (tlRows.length === 1 ? 'notícia registrada' : 'notícias registradas');
+      const extra = [nw.tema ? `sobre ${nw.tema}` : '', nw.q ? `com “${nw.q}”` : ''].filter(Boolean).join(', ');
+      const box = document.createElement('div'); box.className = 'ob-nw-k ' + (nw.f === 'eco' ? 'k-eco' : nw.f === 'prom' ? 'k-prom' : 'k-all');
+      const b = document.createElement('b'); b.textContent = nf.format(tlRows.length);
+      const t = document.createElement('span'); t.textContent = extra ? `${lbl} ${extra}` : lbl;
+      box.append(b, t);
+      kp.replaceChildren(box);
+    }
+    const vh = nwRoot.querySelectorAll('.ob-nw-vh');
+    const lab = nw.f === 'eco' ? 'só as que mexeram na economia' : nw.f === 'prom' ? 'só as ligadas a promessas' : 'todas as notícias';
+    if (vh[0]) vh[0].innerHTML = `Ritmo das notícias <span>${lab}${nw.tema ? `, assunto ${nw.tema}` : ''}; clique num dia para filtrar</span>`;
+    if (vh[1]) vh[1].innerHTML = `Assuntos <span>${lab}; clique para filtrar</span>`;
+    // linha do tempo: só os dias com notícia, um quadradinho por notícia
+    const days = [...new Set(tlRows.map((d) => d.data))].sort();
+    if (!days.length) { const e = document.createElement('p'); e.className = 'ob-empty'; e.textContent = 'Nenhuma notícia neste filtro.'; tl.replaceChildren(e); }
+    else {
+    const W = Math.max(tl.clientWidth, 280), S = 12, G = 3;
+    const byDay = d3.group(tlRows, (d) => d.data);
+    const maxN = d3.max([...byDay.values()], (v) => v.length) || 1;
+    const H = maxN * (S + G) + 40;
+    const x = d3.scaleBand(days, [0, W]).paddingInner(0.35).paddingOuter(0.1);
+    const bw = Math.min(x.bandwidth(), 34);
+    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Notícias por dia');
+    const tip = mkTip();
+    tl.replaceChildren(svg.node(), tip);
+    svg.append('line').attr('x1', 0).attr('x2', W).attr('y1', H - 22).attr('y2', H - 22).attr('stroke', K('#3A3A3A'));
+    const MES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+    byDay.forEach((rows, dia) => {
+      const cx = x(dia) + x.bandwidth() / 2;
+      const sorted = [...rows].sort((a, b) => (a.economia === b.economia ? (a.promessa ? 1 : 0) - (b.promessa ? 1 : 0) : a.economia ? -1 : 1));
+      const g = svg.append('g').style('cursor', 'pointer').attr('opacity', nw.dia && nw.dia !== dia ? 0.28 : 1);
+      sorted.forEach((d, i) => {
+        g.append('rect').attr('x', cx - bw / 2).attr('y', H - 22 - (i + 1) * (S + G)).attr('width', bw).attr('height', S).attr('rx', 2)
+          .attr('fill', nw.f === 'prom' ? '#E1251B' : nw.f === 'eco' ? K('#FFB347') : d.economia ? K('#FFB347') : d.promessa ? '#E1251B' : K('#6B6B6B'));
+      });
+      g.append('text').attr('x', cx).attr('y', H - 22 - rows.length * (S + G) - 6).attr('text-anchor', 'middle').style('font-size', '11px').style('font-weight', 700).style('fill', K('#F2F2F2')).text(rows.length);
+      const p = dia.split('-');
+      g.append('text').attr('x', cx).attr('y', H - 6).attr('text-anchor', 'middle').style('font-size', '11px').style('fill', K('#A3A3A3')).text(`${p[2]} ${MES[Number(p[1]) - 1]}`);
+      g.append('rect').attr('x', x(dia) - 2).attr('y', 0).attr('width', x.bandwidth() + 4).attr('height', H).attr('fill', 'transparent')
+        .on('mousemove', (ev) => placeTip(tip, tl, ev, [brDate(dia), `${rows.length} ${rows.length === 1 ? 'notícia' : 'notícias'}`, `${rows.filter((d) => d.economia).length} mexeram na economia`]))
+        .on('mouseleave', () => { tip.style.display = 'none'; })
+        .on('click', () => { nw.dia = nw.dia === dia ? '' : dia; nw.all = true; drawNoticias(); });
+    });
+    const lg = document.createElement('div'); lg.className = 'ob-nw-lg';
+    [['#FFB347', 'mexeu na economia'], ['#E1251B', 'ligada a promessa'], ['#6B6B6B', 'outras']].filter(([c]) => nw.f === 'todas' || (nw.f === 'eco' ? c === '#FFB347' : c === '#E1251B')).forEach(([c, t]) => { const s = document.createElement('span'); const i = document.createElement('i'); i.style.background = c === '#E1251B' ? c : K(c); s.append(i, t); lg.append(s); });
+    tl.append(lg);
+    if (nw.dia) { const c = document.createElement('button'); c.type = 'button'; c.className = 'ob-nw-clear'; c.textContent = `Mostrando ${brDate(nw.dia)}. Ver todos os dias ✕`; c.addEventListener('click', () => { nw.dia = ''; nw.all = false; drawNoticias(); }); tl.append(c); }
+    }
+    // assuntos
+    const counts = d3.rollups(base, (v) => v.length, (d) => d.tema || 'Outros').sort((a, b) => b[1] - a[1]);
+    if (!counts.length) { tm.replaceChildren(); return; }
+    const mx = counts[0][1];
+    tm.replaceChildren(...counts.map(([t, n]) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'ob-nw-tb' + (nw.tema === t ? ' on' : '');
+      const l = document.createElement('span'); l.className = 'l'; l.textContent = t;
+      const bar = document.createElement('span'); bar.className = 'b'; const fill = document.createElement('i'); fill.style.width = `${(n / mx) * 100}%`; bar.append(fill);
+      const v = document.createElement('span'); v.className = 'v'; v.textContent = n;
+      b.append(l, bar, v);
+      b.addEventListener('click', () => { nw.tema = nw.tema === t ? '' : t; nwRoot.querySelector('.ob-nw-tema').value = nw.tema; nw.all = false; drawNoticias(); });
+      return b;
+    }));
+  }
+
   function drawNoticias() {
     const box = nwRoot.querySelector('.ob-nw-list');
     const r = dash.data('noticias');
@@ -1828,11 +2127,14 @@ input.ob-in { flex: 1 1 14rem; }
       sel.replaceChildren(new Option('Todos os temas', ''), ...temas.map((t) => new Option(t, t)));
       sel.value = nw.tema;
     }
+    drawNwViz(all);
     const rows = all.filter((d) => (nw.f === 'eco' ? d.economia : nw.f === 'prom' ? !!d.promessa : true)
+      && (!nw.dia || d.data === nw.dia)
       && (!nw.tema || d.tema === nw.tema)
       && (!nw.q || `${d.titulo} ${d.resumo} ${d.veiculo} ${d.tema}`.toLowerCase().includes(nw.q)));
     const nEco = all.filter((d) => d.economia).length;
-    nwRoot.querySelector('.ob-nw-n').textContent = `${nf.format(rows.length)} de ${nf.format(all.length)} notícias · ${nf.format(nEco)} mexeram na economia`;
+    nwRoot.querySelector('.ob-nw-n').textContent = `${nf.format(rows.length)} de ${nf.format(all.length)} notícias${nw.dia ? ` em ${brDate(nw.dia)}` : ''}${nw.tema ? ` sobre ${nw.tema}` : ''}`;
+    void nEco;
     const shown = nw.all ? rows : rows.slice(0, NW_PAGE);
     const out = [];
     let day = null;
@@ -1848,7 +2150,7 @@ input.ob-in { flex: 1 1 14rem; }
         out.push(h);
       }
       const it = document.createElement('article'); it.className = 'ob-nw'; it.dataset.key = d.id;
-      const hr = document.createElement('div'); hr.className = 'hr'; hr.textContent = d.hora || '—';
+      const hr = document.createElement('div'); hr.className = 'hr'; hr.textContent = d.hora || '';
       const body = document.createElement('div');
       const tg = document.createElement('div'); tg.className = 'tg';
       if (d.economia) { const e = document.createElement('span'); e.className = 'eco'; e.textContent = 'Mexeu na economia'; tg.append(e); }
@@ -2096,50 +2398,46 @@ input.ob-in { flex: 1 1 14rem; }
 
   function drawAprovacao() {
     const box = document.querySelector('.ob-aprov');
-    const r = dash.data('aprovacao'), E = dash.data('impacto_eventos');
+    const r = dash.data('aprovacao');
     if (r.status === 'error') return fail(box);
     if (r.status !== 'ok') return;
-    const W = box.clientWidth; if (!W) return;
-    const H = 260, m = { t: 26, r: 70, b: 30, l: 36 };
-    const rows = r.data.map((d) => ({ ...d, dt: new Date(d.campo_fim + 'T12:00:00'), a: Number(d.aprova), d: Number(d.desaprova) })).sort((a, b) => a.dt - b.dt);
-    const ev = E.status === 'ok' ? E.data.map((e) => ({ ...e, dt: new Date(String(e.data).slice(0, 10) + 'T12:00:00') })) : [];
-    const lo = d3.min(rows, (d) => d.dt), hi = d3.max(rows, (d) => d.dt);
-    const x = d3.scaleUtc([d3.utcDay.offset(lo, -16), d3.utcDay.offset(hi, 3)], [m.l, W - m.r]);
-    const y = d3.scaleLinear([40, 55], [H - m.b, m.t]);
-    const svg = d3.create('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', 'Aprovação do governo por pesquisa');
-    const tip = mkTip();
-    box.replaceChildren(svg.node(), tip);
-    svg.append('g').selectAll('line').data(y.ticks(3)).join('line').attr('x1', m.l).attr('x2', W - m.r).attr('y1', (d) => y(d)).attr('y2', (d) => y(d)).attr('stroke', K('#2A2A2A'));
-    svg.append('g').selectAll('text').data(y.ticks(3)).join('text').attr('x', m.l - 6).attr('y', (d) => y(d)).attr('dy', '0.35em').attr('text-anchor', 'end').style('font-family', 'var(--mono)').style('font-size', '10.5px').style('fill', K('#A3A3A3')).text((d) => `${d}%`);
-    ev.filter((e) => e.dt >= x.domain()[0] && e.dt <= x.domain()[1]).forEach((e, i) => {
-      const xx = x(e.dt);
-      svg.append('line').attr('x1', xx).attr('x2', xx).attr('y1', m.t - 8).attr('y2', H - m.b).attr('stroke', K('#3A3A3A')).attr('stroke-dasharray', '3 4');
-      svg.append('circle').attr('cx', xx).attr('cy', m.t - 10).attr('r', 5).attr('fill', '#E1251B').style('cursor', 'default')
-        .on('mousemove', (ev2) => placeTip(tip, box, ev2, [fmtDate(String(e.data).slice(0, 10)), e.evento]))
-        .on('mouseleave', () => { tip.style.display = 'none'; });
+    const rows = r.data.map((d) => ({ ...d, a: Number(d.aprova), d: Number(d.desaprova) })).sort((x, y) => String(y.campo_fim).localeCompare(String(x.campo_fim)) || String(x.instituto).localeCompare(String(y.instituto)));
+    if (!rows.length) { box.replaceChildren(); return; }
+    const last = rows[0];
+    const sald = (x) => x.a - x.d;
+    const sgnp = (v) => `${v > 0 ? '+' : v < 0 ? '−' : ''}${Math.abs(v)}`;
+    const head = document.createElement('div'); head.className = 'ob-ap-head';
+    const big = document.createElement('div'); big.className = 'ob-ap-big';
+    const ba = document.createElement('span'); ba.className = 'a'; ba.innerHTML = `<b>${last.a}%</b> aprovam`;
+    const bd = document.createElement('span'); bd.className = 'd'; bd.innerHTML = `<b>${last.d}%</b> desaprovam`;
+    big.append(ba, bd);
+    const s = sald(last);
+    const cap = document.createElement('p'); cap.className = 'ob-ap-cap';
+    cap.textContent = `Pesquisa mais recente: ${last.instituto}, ${fmtDate(last.campo_fim)}. ${s > 0 ? `Aprovação ${s} ${s === 1 ? 'ponto' : 'pontos'} à frente.` : s < 0 ? `Desaprovação ${-s} ${s === -1 ? 'ponto' : 'pontos'} à frente.` : 'Empate.'}`;
+    head.append(big, cap);
+    const list = document.createElement('div'); list.className = 'ob-ap-list';
+    const lg = document.createElement('div'); lg.className = 'ob-ap-lg';
+    lg.innerHTML = '<span><i class="a"></i>Aprova</span><span><i class="d"></i>Desaprova</span><span><i class="n"></i>Não sabe / não respondeu</span><span class="m">linha = metade (50%)</span>';
+    rows.forEach((x) => {
+      const row = document.createElement('div'); row.className = 'ob-ap-row';
+      const lab = document.createElement('div'); lab.className = 'l';
+      const b1 = document.createElement('b'); b1.textContent = x.instituto;
+      const s1 = document.createElement('span'); s1.textContent = fmtDate(x.campo_fim);
+      lab.append(b1, s1);
+      const bar = document.createElement('div'); bar.className = 'bar';
+      const n = Math.max(0, 100 - x.a - x.d);
+      [['a', x.a], ['n', n], ['d', x.d]].forEach(([k, v]) => { const seg = document.createElement('span'); seg.className = k; seg.style.width = `${v}%`; if (k !== 'n' && v >= 8) seg.textContent = `${v}%`; bar.append(seg); });
+      const mid = document.createElement('i'); mid.className = 'mid'; bar.append(mid);
+      const sv = sald(x);
+      const sd = document.createElement('div'); sd.className = 'sd ' + (sv > 0 ? 'pos' : sv < 0 ? 'neg' : '');
+      sd.innerHTML = `<b>${sgnp(sv)}</b><span>saldo</span>`;
+      const src = document.createElement('div'); src.className = 'src'; src.append(link(x.fonte_url, x.fonte));
+      row.append(lab, bar, sd, src);
+      list.append(row);
     });
-    [['a', 'Aprova', K('#FFFFFF')], ['d', 'Desaprova', K('#FFB347')]].forEach(([k, lab, col]) => {
-      ['Datafolha', 'Quaest'].forEach((inst) => {
-        const pts = rows.filter((d) => d.instituto === inst);
-        if (pts.length > 1) svg.append('path').datum(pts).attr('fill', 'none').attr('stroke', col).attr('stroke-width', 2).attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round').attr('d', d3.line().x((d) => x(d.dt)).y((d) => y(d[k])));
-      });
-      rows.forEach((d) => {
-        const sh = d.instituto === 'Quaest';
-        const g = svg.append(sh ? 'rect' : 'circle');
-        if (sh) g.attr('x', x(d.dt) - 5).attr('y', y(d[k]) - 5).attr('width', 10).attr('height', 10).attr('rx', 2);
-        else g.attr('cx', x(d.dt)).attr('cy', y(d[k])).attr('r', 5);
-        g.attr('fill', col).attr('stroke', K('#111111')).attr('stroke-width', 1.5)
-          .on('mousemove', (ev2) => placeTip(tip, box, ev2, [`${d.instituto} · ${fmtDate(d.campo_fim)}`, `Aprova ${d.a}% · Desaprova ${d.d}%`]))
-          .on('mouseleave', () => { tip.style.display = 'none'; });
-      });
-      const last = rows.filter((d) => d.instituto === 'Datafolha').slice(-1)[0];
-      const other = last ? last[k === 'a' ? 'd' : 'a'] : 0;
-      const nudge = last && Math.abs(y(last[k]) - y(other)) < 16 ? (last[k] >= other ? -8 : 8) : 0;
-      if (last) svg.append('text').attr('x', x(last.dt) + 10).attr('y', y(last[k]) + nudge).attr('dy', '0.35em').style('font-size', '12px').style('fill', col).text(lab);
-    });
-    const tk = rows.map((d) => d.dt);
-    svg.append('g').selectAll('text').data(tk).join('text').attr('x', (d) => x(d)).attr('y', H - 8).attr('text-anchor', 'middle').style('font-family', 'var(--mono)').style('font-size', '10.5px').style('fill', K('#A3A3A3')).text((d) => d3.utcFormat('%d/%m')(d));
+    box.replaceChildren(head, lg, list);
   }
+
 
   /* ===== v6: votações clicáveis, economia, exemplos de menções ===== */
   let votSel = 'V2';
@@ -2184,10 +2482,12 @@ input.ob-in { flex: 1 1 14rem; }
     if (VO.status !== 'ok' || V.status !== 'ok') return;
     const v = VO.data.find((x) => x.id === votSel); if (!v) return;
     head.replaceChildren();
-    const h = document.createElement('b'); h.textContent = `${v.proposicao} · ${v.casa} · ${fmtDate(v.data)}`;
-    const note = document.createElement('span'); note.className = 'ob-dimtx'; note.textContent = v.lista || '';
-    head.append(h, note);
-    if (v.lista_url) head.append(link(v.lista_url, 'Lista na fonte ↗'));
+    const h = document.createElement('b'); h.textContent = v.proposicao;
+    const meta = document.createElement('div'); meta.className = 'ob-vlist-m';
+    meta.append(`${v.casa}, ${fmtDate(v.data)}`);
+    if (v.lista) meta.append(' — ' + v.lista);
+    if (v.lista_url) { meta.append(' · '); meta.append(link(v.lista_url, 'ver lista na fonte ↗')); }
+    head.append(h, meta);
     const rows = V.data.filter((x) => x.votacao === votSel);
     if (!rows.length) { const e = document.createElement('p'); e.className = 'ob-empty'; e.textContent = 'A lista nominal desta votação ainda não foi publicada. O placar está na tabela; os nomes entram assim que saírem.'; box.replaceChildren(e); return; }
     const order = ['Não', 'Sim', 'Obstrução', 'Ausente'];
@@ -2671,6 +2971,7 @@ input.ob-in { flex: 1 1 14rem; }
   function exCards(rows) {
     return rows.map((x) => {
       const a = document.createElement('a'); a.className = 'ob-exc';
+      if (x._tags && x._tags.length) { const bl = document.createElement('span'); bl.className = 'bal'; x._tags.forEach((t) => { const b = document.createElement('b'); b.className = 'k-' + t.k; b.textContent = t.t; bl.append(b); }); a.append(bl); }
       if (/^https:\/\//.test(x.url)) { a.href = x.url; a.target = '_blank'; a.rel = 'noopener'; }
       const top = document.createElement('span'); top.className = 'ob-mono top'; top.textContent = `${x.rede} · ${x.tipo_autor}`;
       const au = document.createElement('span'); au.className = 'au'; au.textContent = x.autor;
@@ -2691,7 +2992,7 @@ input.ob-in { flex: 1 1 14rem; }
     el.replaceChildren();
     const h = document.createElement('div'); h.className = 'ob-ex-h';
     const t = document.createElement('span'); t.className = 'ob-mono'; t.textContent = label || 'Exemplos de menções';
-    const n = document.createElement('span'); n.className = 'ob-dimtx'; n.textContent = rows.length ? `${rows.length} posts públicos com link · amostra ilustrativa, não é tempo real` : '';
+    const n = document.createElement('span'); n.className = 'ob-dimtx'; n.textContent = rows.length ? `${rows.length === 1 ? '1 post público' : `${rows.length} posts públicos`} com link. É uma amostra para ilustrar, não é tempo real.` : '';
     h.append(t, n);
     const strip = document.createElement('div'); strip.className = 'ob-ex-s';
     if (!rows.length) { const e = document.createElement('p'); e.className = 'ob-empty'; e.textContent = 'Sem exemplos registrados para este recorte ainda.'; strip.append(e); }
@@ -2707,11 +3008,27 @@ input.ob-in { flex: 1 1 14rem; }
     exBox(document.querySelector('.ob-ex-merc'), X.filter((x) => x.mercado).sort(byLikes), 'Exemplos de menções · mercado e Lula');
   }
   function drawExArena() {
+    const el = document.querySelector('.ob-ex-all');
+    if (!el) return;
+    const r = dash.data('exemplos');
+    if (r.status === 'error') return fail(el);
+    if (r.status !== 'ok') return;
     const X = exData().filter((x) => String(x.arena).split(' | ').includes(arena) && String(x.data).slice(0, 10) >= men.start && String(x.data).slice(0, 10) <= men.end);
-    exBox(document.querySelector('.ob-ex-linha'), uniqUrl([...X].sort((a, b) => String(b.data).localeCompare(String(a.data)))).slice(0, 8), `Exemplos de menções · ${arena}`);
-    exBox(document.querySelector('.ob-ex-pauta'), d3.groups(X, (x) => x.pauta).map(([, g]) => g.sort(byLikes)[0]).sort(byLikes), 'Exemplos · um post por pauta');
-    exBox(document.querySelector('.ob-ex-canal'), d3.groups(X, (x) => x.rede).map(([, g]) => g.sort(byLikes)[0]), 'Exemplos · um post por rede');
-    exBox(document.querySelector('.ob-ex-tom'), ['Positivo', 'Neutro', 'Negativo'].map((s) => X.filter((x) => x.tom === s).sort(byLikes)[0]).filter(Boolean), 'Exemplos · um post de cada tom automático');
+    const by = new Map();
+    const add = (x, tag) => { if (!x) return; const k = x.url || x.id; if (!by.has(k)) by.set(k, { ...x, _tags: [] }); const o = by.get(k); if (!o._tags.some((t) => t.t === tag.t)) o._tags.push(tag); };
+    d3.groups(X, (x) => x.pauta).map(([, g]) => g.sort(byLikes)[0]).sort(byLikes).forEach((x) => add(x, { k: 'pauta', t: x.pauta || 'Assunto' }));
+    d3.groups(X, (x) => x.rede).map(([, g]) => g.sort(byLikes)[0]).forEach((x) => add(x, { k: 'rede', t: x.rede }));
+    ['Positivo', 'Neutro', 'Negativo'].map((s) => X.filter((x) => x.tom === s).sort(byLikes)[0]).filter(Boolean).forEach((x) => add(x, { k: 'tom', t: `Tom ${x.tom.toLowerCase()}` }));
+    uniqUrl([...X].sort((a, b) => String(b.data).localeCompare(String(a.data)))).slice(0, 4).forEach((x) => add(x, { k: 'novo', t: 'Recente' }));
+    const rows = [...by.values()].slice(0, 16);
+    el.replaceChildren();
+    const h = document.createElement('div'); h.className = 'ob-ex-h';
+    const n = document.createElement('span'); n.className = 'ob-dimtx'; n.textContent = rows.length ? `${rows.length === 1 ? '1 post' : `${rows.length} posts`} sobre ${arena}, de ${brDate(men.start)} a ${brDate(men.end)}` : '';
+    h.append(n);
+    const strip = document.createElement('div'); strip.className = 'ob-ex-s';
+    if (!rows.length) { const e = document.createElement('p'); e.className = 'ob-empty'; e.textContent = 'Sem exemplos registrados para este período ainda.'; strip.append(e); }
+    else strip.append(...exCards(rows));
+    el.append(h, strip);
   }
 
 
@@ -2846,6 +3163,23 @@ input.ob-in { flex: 1 1 14rem; }
         r.append(go, no); n.append(b, t, r);
         document.querySelector('.ob').append(n);
       }, 40000);
+    }
+  })();
+
+
+  /* fundo vivo: estrelinhas espalhadas que flutuam e piscam devagar */
+  (() => {
+    const bg = document.querySelector('.ob-bg'); if (!bg) return;
+    const path = 'M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z';
+    let seed = 7; const rnd = () => { seed = (seed * 9301 + 49297) % 233280; return seed / 233280; };
+    const N = window.matchMedia('(max-width: 640px)').matches ? 5 : 10;
+    for (let i = 0; i < N; i++) {
+      const s = document.createElement('i'); s.className = 'ob-fstar' + (rnd() < 0.35 ? ' fill' : '');
+      const size = 10 + Math.round(rnd() * 26);
+      const side = rnd() < 0.5 ? rnd() * 6 : 94 + rnd() * 5;
+      s.style.cssText = `left:${side.toFixed(1)}%;top:${(rnd() * 100).toFixed(2)}%;width:${size}px;height:${size}px;--d:${(14 + rnd() * 16).toFixed(1)}s;--t:${(3 + rnd() * 5).toFixed(1)}s;--dl:${(-rnd() * 20).toFixed(1)}s;--r:${Math.round(rnd() * 70)}deg`;
+      s.innerHTML = `<svg viewBox="0 0 100 100" aria-hidden="true"><path d="${path}"/></svg>`;
+      bg.append(s);
     }
   })();
 
