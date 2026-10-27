@@ -23,7 +23,7 @@ body{transition:background-color .35s ease}
 </head>
 <body>
 <div id="dash-root">
-<script src="estilo.js"></script>
+<script src="estilo.js?v=2"></script>
 
 <div class="ob">
   <div class="ob-bg"><div class="ob-bgdots d1"></div><div class="ob-bgdots d2"></div><div class="ob-bgstar s1"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s2"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s3"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgline l1"></div><div class="ob-bgline l2"></div></div>
@@ -58,12 +58,11 @@ body{transition:background-color .35s ease}
       <button class="ob-tab" role="tab" data-tab="visao" id="tab-visao"><span class="ob-tn ob-mono">01</span>Visão geral</button>
       <button class="ob-tab" role="tab" data-tab="promessas" id="tab-promessas"><span class="ob-tn ob-mono">02</span>Promessas</button>
       <button class="ob-tab" role="tab" data-tab="congresso" id="tab-congresso"><span class="ob-tn ob-mono">03</span>Congresso</button>
-      <button class="ob-tab" role="tab" data-tab="mapa" id="tab-mapa"><span class="ob-tn ob-mono">04</span>Mapa</button>
-      <button class="ob-tab" role="tab" data-tab="parlamentares" id="tab-parlamentares"><span class="ob-tn ob-mono">05</span>Redes</button>
-      <button class="ob-tab" role="tab" data-tab="impacto" id="tab-impacto"><span class="ob-tn ob-mono">06</span>Impacto</button>
-      <button class="ob-tab" role="tab" data-tab="economia" id="tab-economia"><span class="ob-tn ob-mono">07</span>Economia</button>
-      <button class="ob-tab" role="tab" data-tab="fontes" id="tab-fontes"><span class="ob-tn ob-mono">08</span>Fontes</button>
-      <button class="ob-tab" role="tab" data-tab="sobre" id="tab-sobre"><span class="ob-tn ob-mono">09</span>Sobre mim</button>
+      <button class="ob-tab" role="tab" data-tab="parlamentares" id="tab-parlamentares"><span class="ob-tn ob-mono">04</span>Redes</button>
+      <button class="ob-tab" role="tab" data-tab="impacto" id="tab-impacto"><span class="ob-tn ob-mono">05</span>Impacto</button>
+      <button class="ob-tab" role="tab" data-tab="economia" id="tab-economia"><span class="ob-tn ob-mono">06</span>Economia</button>
+      <button class="ob-tab" role="tab" data-tab="fontes" id="tab-fontes"><span class="ob-tn ob-mono">07</span>Fontes</button>
+      <button class="ob-tab" role="tab" data-tab="sobre" id="tab-sobre"><span class="ob-tn ob-mono">08</span>Sobre mim</button>
     </nav>
 
     <section id="visao" class="ob-page">
@@ -239,6 +238,17 @@ body{transition:background-color .35s ease}
         <div class="ob-hemi-wrap"><div class="ob-hemi" data-source="parlamentares"></div><div class="ob-hemi-lg"></div></div>
         <p class="ob-note-s">Partidos agrupados lado a lado numa ordem aproximada, da esquerda para a direita. A posição não mede como cada um vota: isso entra com o índice de alinhamento a partir de fevereiro de 2027.</p>
       </div>
+      <div class="ob-card ob-glass" id="card-mapa">
+        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Clique num estado</span><h2 class="ob-h ob-split">O Congresso pelo mapa</h2><p class="ob-sub">Quem representa cada estado e o que está propondo. Os círculos vermelhos marcam estados com projeto registrado no painel; clique em qualquer estado para abrir a página dele.</p></div><span class="ob-idx ob-mono">M-01</span></div>
+        <div class="ob-mapwrap">
+          <div class="ob-map" data-source="parlamentares atuacao"></div>
+          <div class="ob-mapside">
+            <div class="ob-legend ob-maplg"></div>
+            <h3 class="ob-mono ob-side-h">Projetos registrados</h3>
+            <div class="ob-proplist" data-source="proposicoes atuacao"></div>
+          </div>
+        </div>
+      </div>
       <div class="ob-card ob-glass" id="card-cadastro">
         <div class="ob-card-head"><div><span class="ob-badge ob-mono">Conferido com Congresso em Foco e Brasil de Fato</span><h2 class="ob-h ob-split">Os 594 do Congresso de 2027</h2><p class="ob-sub">513 deputados e 81 senadores, com a origem de cada nome e o nível de checagem. Partidos conferidos com os totais por bancada da imprensa; trocas até a posse entram na atualização semanal.</p></div><span class="ob-idx ob-mono">11</span></div>
         <div class="ob-filters">
@@ -246,20 +256,11 @@ body{transition:background-color .35s ease}
           <select class="ob-in ob-p-uf" aria-label="Estado"></select>
           <input class="ob-in ob-p-q" type="search" placeholder="Buscar nome ou partido…" aria-label="Buscar parlamentar">
         </div>
+        <div class="ob-pchips ob-ppart" role="group" aria-label="Partido"></div>
         <p class="ob-count ob-p-count ob-mono"></p>
-        <div class="ob-tablebox">
-          <table class="ob-table ob-t-parl" data-source="parlamentares" data-row-key="id">
-            <thead><tr>
-              <th data-field="nome">Nome</th>
-              <th data-field="casa">Casa</th>
-              <th data-field="uf">UF</th>
-              <th data-field="partido">Partido</th>
-              <th data-field="origem" class="ob-hide-sm">Origem</th>
-              <th data-field="verificacao" class="ob-hide-sm">Checagem</th>
-            </tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
+        <div class="ob-pgente" data-source="parlamentares"></div>
+        <button class="ob-nw-more ob-pg-more" type="button" hidden></button>
+        <p class="ob-note-s ob-pg-note"></p>
       </div>
 
       <div class="ob-card ob-glass">
@@ -369,20 +370,6 @@ body{transition:background-color .35s ease}
           <div class="ob-glass"><span class="n ob-mono">01 / Cadastro</span><b>Todos os eleitos</b><p>Lista preliminar já no painel. A base oficial do TSE confirma partidos e votos de cada eleito.</p></div>
           <div class="ob-glass"><span class="n ob-mono">02 / Conversa</span><b>Repercussão por parlamentar</b><p>Menções a cada eleito e às bancadas, com os destaques acompanhados de perto. Começa junto com o cadastro.</p></div>
           <div class="ob-glass"><span class="n ob-mono">03 / Votos</span><b>Votações e vetos</b><p>Leis sancionadas, vetos, derrubadas de veto e como cada bancada votou. A partir da posse, em fevereiro de 2027.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="mapa" class="ob-page" hidden>
-      <div class="ob-card ob-glass" id="card-mapa">
-        <div class="ob-card-head"><div><span class="ob-badge ob-mono">Clique num estado</span><h2 class="ob-h ob-split">O Congresso pelo mapa</h2><p class="ob-sub">Quem representa cada estado e o que está propondo. Os círculos vermelhos marcam estados com projeto registrado no painel; clique em qualquer estado para abrir a página dele.</p></div><span class="ob-idx ob-mono">M-01</span></div>
-        <div class="ob-mapwrap">
-          <div class="ob-map" data-source="parlamentares atuacao"></div>
-          <div class="ob-mapside">
-            <div class="ob-legend ob-maplg"></div>
-            <h3 class="ob-mono ob-side-h">Projetos registrados</h3>
-            <div class="ob-proplist" data-source="proposicoes atuacao"></div>
-          </div>
         </div>
       </div>
     </section>
@@ -746,15 +733,18 @@ body{transition:background-color .35s ease}
   const tabs = [...document.querySelectorAll('.ob-tab')];
   let current = 'visao';
   const show = (name) => {
-    if (!['visao', 'promessas', 'impacto', 'congresso', 'parlamentares', 'mapa', 'estado', 'economia', 'fontes', 'sobre'].includes(name)) name = 'visao';
+    let toMap = false;
+    if (name === 'mapa') { name = 'congresso'; toMap = true; }
+    if (!['visao', 'promessas', 'impacto', 'congresso', 'parlamentares', 'estado', 'economia', 'fontes', 'sobre'].includes(name)) name = 'visao';
     current = name;
-    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.tab === (name === 'estado' ? 'mapa' : name))));
+    tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.tab === (name === 'estado' ? 'congresso' : name))));
     document.querySelectorAll('.ob-page').forEach((p) => {
       p.hidden = p.id !== name;
       if (!p.hidden) { split(p); p.querySelectorAll('.ob-glass').forEach((g, i) => { g.classList.remove('ob-in-view'); void g.offsetWidth; g.style.animationDelay = `${i * 60}ms`; g.classList.add('ob-in-view'); }); }
     });
     dash.setLink(name);
     draw();
+    if (toMap) { const m = document.getElementById('card-mapa'); if (m) requestAnimationFrame(() => m.scrollIntoView({ block: 'start' })); }
   };
   tabs.forEach((t) => t.addEventListener('click', () => show(t.dataset.tab)));
 
@@ -1114,27 +1104,59 @@ body{transition:background-color .35s ease}
 
 
   const pCasa = document.querySelector('.ob-p-casa'), pUf = document.querySelector('.ob-p-uf'), pQ = document.querySelector('.ob-p-q');
-  const pst = { casa: '', uf: '', q: '' };
+  const pst = { casa: '', uf: '', q: '', partido: '' };
   pCasa.addEventListener('change', () => { pst.casa = pCasa.value; draw(); });
   pUf.addEventListener('change', () => { pst.uf = pUf.value; draw(); });
   pQ.addEventListener('input', () => { pst.q = pQ.value.trim().toLowerCase(); draw(); });
+  let pgAll = false;
   function drawParl() {
     const r = dash.data('parlamentares');
-    const tbody = document.querySelector('.ob-t-parl tbody');
-    if (r.status === 'error') return fail(document.querySelector('.ob-t-parl').parentElement);
+    const box = document.querySelector('.ob-pgente');
+    if (r.status === 'error') return fail(box);
     if (r.status !== 'ok') return;
     const ufs = [...new Set(r.data.map((d) => d.uf))].sort();
     if (pUf.options.length !== ufs.length + 1) pUf.replaceChildren(new Option('Todos os estados', ''), ...ufs.map((u) => new Option(u, u)));
     pUf.value = pst.uf; pCasa.value = pst.casa;
-    const rows = r.data.filter((d) => (!pst.casa || d.casa === pst.casa) && (!pst.uf || d.uf === pst.uf) && (!pst.q || `${d.nome} ${d.partido}`.toLowerCase().includes(pst.q)));
-    document.querySelector('.ob-p-count').textContent = `${rows.length} de ${r.data.length} parlamentares`;
-    tbody.replaceChildren(...rows.map((d) => {
-      const tr = document.createElement('tr'); tr.dataset.key = d.id; tr.style.cursor = 'pointer'; tr.addEventListener('click', () => openUF(d.uf));
-      const td = (t, c) => { const e = document.createElement('td'); if (c) e.className = c; e.textContent = t; return e; };
-      tr.append(td(d.nome), td(d.casa, 'ob-dimtx'), td(d.uf, 'ob-dimtx'), td(d.partido), td(d.origem, 'ob-hide-sm ob-dimtx'), td(d.verificacao, 'ob-hide-sm ob-dimtx'));
-      return tr;
+    const colP = (p) => HEMI_COL[p] || '#888888';
+    const base = r.data.filter((d) => (!pst.casa || d.casa === pst.casa) && (!pst.uf || d.uf === pst.uf) && (!pst.q || `${d.nome} ${d.partido}`.toLowerCase().includes(pst.q)));
+    // chips de partido
+    const pc = document.querySelector('.ob-ppart');
+    const parts = d3.rollups(base, (v) => v.length, (d) => d.partido).sort((a, b) => b[1] - a[1]);
+    const chip = (label, n, on, fn, cor) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'ob-pchip' + (on ? ' on' : ''); b.setAttribute('aria-pressed', String(on)); if (cor) { const i = document.createElement('i'); i.style.background = cor; b.append(i); } b.append(label); const s = document.createElement('small'); s.textContent = n; b.append(s); b.addEventListener('click', fn); return b; };
+    if (pst.partido && !parts.some(([p]) => p === pst.partido)) parts.push([pst.partido, 0]);
+    pc.replaceChildren(chip('Todos os partidos', base.length, !pst.partido, () => { pst.partido = ''; pgAll = false; drawParl(); }),
+      ...parts.map(([p, n]) => chip(p, n, pst.partido === p, () => { pst.partido = pst.partido === p ? '' : p; pgAll = false; drawParl(); }, colP(p))));
+    const rows = base.filter((d) => !pst.partido || d.partido === pst.partido)
+      .sort((a, b) => a.uf.localeCompare(b.uf) || (a.casa === b.casa ? 0 : a.casa === 'Senado' ? -1 : 1) || a.nome.localeCompare(b.nome, 'pt-BR'));
+    document.querySelector('.ob-p-count').textContent = `${rows.length} de ${r.data.length} parlamentares${pst.partido ? ` do ${pst.partido}` : ''}`;
+    const LIM = window.innerWidth < 640 ? 10 : 30; const shown = pgAll ? rows : rows.slice(0, LIM);
+    const ini = (n) => n.replace(/^(Dr\.|Dra\.|Coronel|Delegado|Delegada|Pastor|Pastora|Capitão|Sargento|General|Professor|Professora)\s+/i, '').split(/\s+/).filter((w) => w.length > 2 || /^[A-ZÁÉÍÓÚ]/.test(w)).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
+    box.replaceChildren(...shown.map((d) => {
+      const c = document.createElement('button'); c.type = 'button'; c.className = 'ob-pg'; c.dataset.key = d.id; c.style.setProperty('--pc', colP(d.partido));
+      c.title = `${d.nome} · ${d.partido} · ${d.uf}\n${d.verificacao}\nClique para ver a bancada de ${d.uf}`;
+      const av = document.createElement('span'); av.className = 'av'; av.textContent = ini(d.nome);
+      const tx = document.createElement('span'); tx.className = 'tx';
+      const n = document.createElement('b'); n.textContent = d.nome;
+      const m = document.createElement('span'); m.className = 'm'; m.textContent = `${d.partido} · ${d.uf}`;
+      tx.append(n, m);
+      const mt = m;
+      const tg = document.createElement('span'); tg.className = 'tg';
+      if (d.casa === 'Senado') { const s = document.createElement('i'); s.className = 'sen'; s.textContent = 'Senado'; tg.append(s); }
+      if (d.origem && d.origem !== 'Eleito em 2026') { const s = document.createElement('i'); s.textContent = d.origem === 'Eleito em 2022' ? 'desde 2023' : 'suplente'; tg.append(s); }
+      if (/pode ter mudado/.test(d.verificacao || '')) { const s = document.createElement('i'); s.className = 'w'; s.textContent = '⚠'; s.title = 'Partido de 2022, pode ter mudado'; tg.append(s); }
+      if (tg.childNodes.length) mt.append(tg);
+      c.append(av, tx);
+      c.addEventListener('click', () => openUF(d.uf));
+      return c;
     }));
+    if (!rows.length) { const e = document.createElement('p'); e.className = 'ob-empty'; e.textContent = 'Ninguém com esses filtros.'; box.append(e); }
+    const more = document.querySelector('.ob-pg-more');
+    more.hidden = rows.length <= LIM; more.textContent = pgAll ? 'Mostrar menos' : `Mostrar todos (${rows.length})`;
+    if (!more.dataset.w) { more.dataset.w = 1; more.addEventListener('click', () => { pgAll = !pgAll; drawParl(); if (!pgAll) box.scrollIntoView({ block: 'start' }); }); }
+    const nC = r.data.filter((d) => /2 fontes/.test(d.verificacao)).length, nS = r.data.filter((d) => /Agência Senado/.test(d.verificacao)).length, nW = r.data.filter((d) => /pode ter mudado/.test(d.verificacao || '')).length;
+    document.querySelector('.ob-pg-note').textContent = `Como conferimos: ${nC} deputados com partido checado em 2 fontes (Congresso em Foco e Brasil de Fato); ${nS} senadores pela Agência Senado; ${nW} senadores eleitos em 2022 marcados com ⚠, porque o partido pode ter mudado. Clique num nome para ver a bancada do estado.`;
   }
+
   function drawAba4() {
     drawArenaKpisPer();
     drawLinePer();
@@ -1583,7 +1605,7 @@ body{transition:background-color .35s ease}
   const UFN = window.OB_UF || {};
   const newsUrl = (p) => `https://news.google.com/search?q=${encodeURIComponent('"' + p.nome + '" ' + (p.casa === 'Senado' ? 'senador' : 'deputado'))}&hl=pt-BR&gl=BR&ceid=BR:pt-419`;
   const openUF = (uf) => { ufSel = uf; show('estado'); document.getElementById('estado').scrollIntoView({ block: 'start' }); };
-  document.querySelector('.ob-back-mapa').addEventListener('click', () => { show('mapa'); const m = document.getElementById('card-mapa'); if (m) m.scrollIntoView({ block: 'start' }); });
+  document.querySelector('.ob-back-mapa').addEventListener('click', () => { show('congresso'); const m = document.getElementById('card-mapa'); if (m) m.scrollIntoView({ block: 'start' }); });
 
   function drawMap() {
     const box = document.querySelector('.ob-map');
@@ -2688,10 +2710,9 @@ body{transition:background-color .35s ease}
     }
     if (current === 'promessas') { drawPromessas(); drawIndicadores(); drawOrcamento(); drawHistorico(); }
     if (current === 'impacto') drawImpacto();
-    if (current === 'congresso') { drawHemiciclo(); drawParl(); drawPauta(); drawVotacoes(); }
+    if (current === 'congresso') { drawHemiciclo(); drawMap(); drawPropList(); drawParl(); drawPauta(); drawVotacoes(); }
     if (current === 'economia') { drawArrec(); drawEconomia(); drawAgenda(); }
     if (current === 'parlamentares') drawAba4();
-    if (current === 'mapa') { drawMap(); drawPropList(); }
     if (current === 'fontes') drawFontes();
     if (current === 'estado') drawEstado();
     if (reduce) wire();
