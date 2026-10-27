@@ -2,7 +2,7 @@
 
 Um site para acompanhar o 4º mandato de Lula (2027–2030), promessa por promessa: o que foi prometido, como o Congresso vota, o que muda na economia e como as pessoas reagem nas redes. Cada número tem fonte.
 
-**Site:** https://mathhbasilio28.github.io/Promessa-por-Promessa/
+**Site:** https://promessaporpromessa.github.io
 
 ## Como funciona
 - `index.html`: a página (estática, sem build).
