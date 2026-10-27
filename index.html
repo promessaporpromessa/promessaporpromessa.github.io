@@ -7,7 +7,7 @@
 <meta name="description" content="Acompanhe o 4º mandato de Lula (2027–2030): promessas, Congresso, economia e a conversa nas redes, com fonte em cada número.">
 <meta property="og:title" content="Promessa por Promessa">
 <meta property="og:description" content="O mandato de Lula 2027–2030, promessa por promessa. Dados com fonte, atualizados diariamente.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23E1251B'/%3E%3Ctext x='16' y='22' font-size='16' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'%3EPP%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%236E56CF'/%3E%3Ctext x='16' y='22' font-size='16' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'%3EPP%3C/text%3E%3C/svg%3E">
 <style>
 :root{--font-anthropic-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
 html,body{margin:0;background:#111;color:#fff}
@@ -23,7 +23,7 @@ body{transition:background-color .35s ease}
 </head>
 <body>
 <div id="dash-root">
-<script src="estilo.js?v=3"></script>
+<script src="estilo.js?v=4"></script>
 
 <div class="ob">
   <div class="ob-bg"><div class="ob-bgdots d1"></div><div class="ob-bgdots d2"></div><div class="ob-bgstar s1"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s2"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s3"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgline l1"></div><div class="ob-bgline l2"></div></div>
@@ -42,6 +42,7 @@ body{transition:background-color .35s ease}
           <span class="ob-chip">2º turno <b class="ob-pct" data-source="resultado" data-field="pct" data-where="candidato=Lula">—</b></span>
           <span class="ob-chip">Posse <b>05.01.2027</b></span>
           <a class="ob-chip ob-chip-link" href="https://www.linkedin.com/in/matheusbbrandao/" target="_blank" rel="noopener">Curadoria <b>Matheus Brandão</b> · LinkedIn ↗</a>
+          <span class="ob-chip ob-apart">Apartidário · mesmo critério para governo e oposição</span>
         </div>
       </div>
       <div class="ob-hero-art">
@@ -91,7 +92,7 @@ body{transition:background-color .35s ease}
           <div class="ob-legend ob-lg1"></div>
         </div>
         <div class="ob-card ob-glass" id="card-resultado">
-          <div class="ob-card-head"><div><h2 class="ob-h ob-split">A virada nas urnas</h2><p class="ob-sub">Votos válidos no segundo turno, segundo o TSE (25/10/2026)</p></div><span class="ob-idx ob-mono">02</span></div>
+          <div class="ob-card-head"><div><h2 class="ob-h ob-split">Resultado do 2º turno</h2><p class="ob-sub">Votos válidos no segundo turno, segundo o TSE (25/10/2026)</p></div><span class="ob-idx ob-mono">02</span></div>
           <div class="ob-votes" data-source="resultado"></div>
         </div>
       </div>
@@ -245,7 +246,7 @@ body{transition:background-color .35s ease}
           <div class="ob-mapside">
             <div class="ob-legend ob-maplg"></div>
             <h3 class="ob-mono ob-side-h">Projetos registrados</h3>
-            <div class="ob-proplist" data-source="proposicoes atuacao"></div>
+            <div class="ob-proplist" data-source="proposicoes atuacao explica"></div>
           </div>
         </div>
       </div>
@@ -258,7 +259,7 @@ body{transition:background-color .35s ease}
         </div>
         <div class="ob-pchips ob-ppart" role="group" aria-label="Partido"></div>
         <p class="ob-count ob-p-count ob-mono"></p>
-        <div class="ob-pgente" data-source="parlamentares"></div>
+        <div class="ob-pgente" data-source="parlamentares votos votacoes atuacao proposicoes justificativas explica"></div>
         <button class="ob-nw-more ob-pg-more" type="button" hidden></button>
         <p class="ob-note-s ob-pg-note"></p>
       </div>
@@ -266,7 +267,7 @@ body{transition:background-color .35s ease}
       <div class="ob-card ob-glass">
         <div class="ob-card-head"><div><h2 class="ob-h ob-split">Pauta do governo no Congresso</h2><p class="ob-sub">O que foi promulgado, sancionado ou segue em tramitação</p></div><span class="ob-idx ob-mono">05</span></div>
         <div class="ob-tablebox">
-          <table class="ob-table ob-t-pauta" data-source="pauta" data-row-key="proposicao">
+          <table class="ob-table ob-t-pauta" data-source="pauta explica" data-row-key="proposicao">
             <thead><tr>
               <th data-field="proposicao">Proposta</th>
               <th data-field="etapa">Etapa</th>
@@ -283,7 +284,7 @@ body{transition:background-color .35s ease}
       <div class="ob-card ob-glass" id="card-votacoes">
         <div class="ob-card-head"><div><h2 class="ob-h ob-split">Como votaram</h2><p class="ob-sub">Clique numa votação para ver quem votou a favor e contra, nome por nome. O índice de alinhamento de cada parlamentar com o governo começa em fevereiro de 2027, com a nova legislatura.</p></div><span class="ob-idx ob-mono">05-B</span></div>
         <div class="ob-seg ob-vot-seg" role="tablist" aria-label="Casa"><button class="ob-seg-b" type="button" data-vc="todas" aria-selected="true">Câmara e Senado</button><button class="ob-seg-b" type="button" data-vc="Câmara" aria-selected="false">Só Câmara</button><button class="ob-seg-b" type="button" data-vc="Senado" aria-selected="false">Só Senado</button></div>
-        <div class="ob-vcards" data-source="votacoes"></div>
+        <div class="ob-vcards" data-source="votacoes explica"></div>
         <div class="ob-vlist" id="ob-vlist" data-source="votos votacoes parlamentares">
           <div class="ob-vlist-h"></div>
           <div class="ob-filters"><input class="ob-in ob-vq" type="search" placeholder="Buscar nome, partido ou UF…" aria-label="Buscar parlamentar na votação"></div>
@@ -585,7 +586,7 @@ body{transition:background-color .35s ease}
 (() => {
   /* tema claro/escuro */
   const OBR = document.querySelector('.ob');
-  const LIGHT = {"#FFFFFF": "#111111", "#F2F2F2": "#1A1A1A", "#E6E6E6": "#262626", "#D8D8D8": "#333333", "#D6D6D6": "#383838", "#CFCFCF": "#404040", "#A3A3A3": "#5C5C5C", "#8A8A8A": "#6B6B6B", "#7A7A7A": "#737373", "#6E6E6E": "#767676", "#6B6B6B": "#8C8C8C", "#5C5C5C": "#A6A6A6", "#3A3A3A": "#C9C9C9", "#2E2E2E": "#DCDCDC", "#2A2A2A": "#E2E2E2", "#262626": "#E6E6E6", "#242424": "#E8E8E8", "#232323": "#EBEBEB", "#222222": "#ECECEC", "#1F1F1F": "#F0F0F0", "#1C1C1C": "#F3F3F3", "#1B1B1B": "#FFFFFF", "#181818": "#F5F5F5", "#161616": "#F7F7F7", "#151515": "#F7F7F7", "#141414": "#F7F7F7", "#111111": "#F4F3F0", "#FFB347": "#C96F00", "#F07167": "#E0564C", "#241614": "#FBE7E5", "#2A1513": "#FADCD9"};
+  const LIGHT = {"#FFFFFF": "#111111", "#F2F2F2": "#1A1A1A", "#E6E6E6": "#262626", "#D8D8D8": "#333333", "#D6D6D6": "#383838", "#CFCFCF": "#404040", "#A3A3A3": "#5C5C5C", "#8A8A8A": "#6B6B6B", "#7A7A7A": "#737373", "#6E6E6E": "#767676", "#6B6B6B": "#8C8C8C", "#5C5C5C": "#A6A6A6", "#3A3A3A": "#C9C9C9", "#2E2E2E": "#DCDCDC", "#2A2A2A": "#E2E2E2", "#262626": "#E6E6E6", "#242424": "#E8E8E8", "#232323": "#EBEBEB", "#222222": "#ECECEC", "#1F1F1F": "#F0F0F0", "#1C1C1C": "#F3F3F3", "#1B1B1B": "#FFFFFF", "#181818": "#F5F5F5", "#161616": "#F7F7F7", "#151515": "#F7F7F7", "#141414": "#F7F7F7", "#111111": "#F4F3F0", "#FFB347": "#C96F00", "#F07167": "#E0564C", "#241614": "#EEEAFB", "#2A1513": "#E3DCFA"};
   let THEME = 'dark';
   try { const t = localStorage.getItem('pp-theme'); if (t === 'light' || t === 'dark') THEME = t; } catch (e) { /* sem storage */ }
   const K = (c) => {
@@ -605,7 +606,7 @@ body{transition:background-color .35s ease}
   };
   paintTheme();
   const ORDER = ['Cumprida', 'Parcialmente cumprida', 'Em tramitação', 'Em andamento', 'A iniciar', 'Abandonada'];
-  const COLOR = { 'Cumprida': '#E1251B', 'Parcialmente cumprida': '#F07167', 'Em tramitação': '#FFFFFF', 'Em andamento': '#A3A3A3', 'A iniciar': '#5C5C5C', 'Abandonada': '#FFB347' };
+  const COLOR = { 'Cumprida': '#6E56CF', 'Parcialmente cumprida': '#A594F9', 'Em tramitação': '#FFFFFF', 'Em andamento': '#A3A3A3', 'A iniciar': '#5C5C5C', 'Abandonada': '#FFB347' };
   const colorOf = (s) => K(COLOR[s] || '#5C5C5C');
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const nf = new Intl.NumberFormat('pt-BR');
@@ -700,31 +701,38 @@ body{transition:background-color .35s ease}
         ctx.beginPath(); ctx.moveTo(a[0], a[1]); ctx.lineTo(b[0], b[1]); ctx.stroke();
       }
     };
-    /* estrela 3D: sempre de frente, só balança um pouco (nunca fica de perfil) */
-    const sw = Math.sin(ang * 2.2) * 0.38;
+    /* globo em arame: neutro, gira devagar */
+    const cyS = h * 0.5;
+    const RS = Math.min(w * 0.42, (cyS - 20) * 0.95);
     const projS = (x, y, z) => {
-      const x1 = x * Math.cos(sw) + z * Math.sin(sw);
-      const z1 = -x * Math.sin(sw) + z * Math.cos(sw);
-      const y2 = y * Math.cos(0.12) - z1 * Math.sin(0.12);
-      const z2 = y * Math.sin(0.12) + z1 * Math.cos(0.12);
+      const x1 = x * Math.cos(ang * 1.6) + z * Math.sin(ang * 1.6);
+      const z1 = -x * Math.sin(ang * 1.6) + z * Math.cos(ang * 1.6);
+      const y2 = y * Math.cos(0.38) - z1 * Math.sin(0.38);
+      const z2 = y * Math.sin(0.38) + z1 * Math.cos(0.38);
       const k = F / (F + z2);
       return [cx + x1 * k, cyS + y2 * k, z2];
     };
-    const cyS = h * 0.53;
-    const RS = Math.min(w * 0.5, (cyS - 22) / 1.1);
-    const V = [];
-    for (let i = 0; i < 10; i++) { const t = -Math.PI / 2 + i * Math.PI / 5, rr = i % 2 ? RS * 0.42 : RS; V.push([rr * Math.cos(t), rr * Math.sin(t)]); }
-    const d = RS * 0.14;
-    const front = V.map(([x, y]) => projS(x, y, d)), back = V.map(([x, y]) => projS(x, y, -d));
-    const apF = projS(0, 0, d * 2.4), apB = projS(0, 0, -d * 2.4);
-    ctx.lineWidth = 1.2;
-    seg([...back, back[0]], '255,138,149', 0.12, 0.45);
-    for (let i = 0; i < 10; i++) { seg([front[i], back[i]], '255,138,149', 0.15, 0.6); seg([apB, back[i]], '228,0,43', 0.08, 0.35); }
-    for (let i = 0; i < 10; i++) seg([apF, front[i]], '225,37,27', 0.25, 0.9);
-    ctx.lineWidth = 1.8; seg([...front, front[0]], K('255,255,255'), 0.35, 0.95);
+    ctx.lineWidth = 1.1;
+    for (let m = 0; m < 12; m++) {
+      const lon = (m / 12) * Math.PI; const pts = [];
+      for (let t = 0; t <= 180; t += 6) { const la = (t / 180) * Math.PI - Math.PI / 2; pts.push(projS(RS * Math.cos(la) * Math.cos(lon), RS * Math.sin(la), RS * Math.cos(la) * Math.sin(lon))); }
+      seg(pts, '110,86,207', 0.06, 0.55);
+      const pts2 = pts.map((p, i) => pts[i]);
+      void pts2;
+    }
+    for (let m = 0; m < 12; m++) {
+      const lon = (m / 12) * Math.PI + Math.PI; const pts = [];
+      for (let t = 0; t <= 180; t += 6) { const la = (t / 180) * Math.PI - Math.PI / 2; pts.push(projS(RS * Math.cos(la) * Math.cos(lon), RS * Math.sin(la), RS * Math.cos(la) * Math.sin(lon))); }
+      seg(pts, '110,86,207', 0.06, 0.55);
+    }
+    for (let p = -75; p <= 75; p += 15) {
+      const la = p * Math.PI / 180; const pts = [];
+      for (let t = 0; t <= 360; t += 6) { const lo = t * Math.PI / 180; pts.push(projS(RS * Math.cos(la) * Math.cos(lo), RS * Math.sin(la), RS * Math.cos(la) * Math.sin(lo))); }
+      seg(pts, p === 0 ? K('255,255,255') : '150,132,230', 0.08, p === 0 ? 0.8 : 0.5);
+    }
     const ring = [];
     for (let a = 0; a <= 360; a += 4) { const t = a * Math.PI / 180; ring.push(proj(R * 1.3 * Math.cos(t), R * 0.12 * Math.sin(t * 5), R * 1.3 * Math.sin(t))); }
-    ctx.lineWidth = 1.2; seg(ring, '228,0,43', 0.15, 0.7);
+    ctx.lineWidth = 1.2; seg(ring, '150,132,230', 0.12, 0.55);
   }
   const loop = () => { ang += 0.0035; wire(); requestAnimationFrame(loop); };
   if (reduce) wire(); else requestAnimationFrame(loop);
@@ -839,7 +847,7 @@ body{transition:background-color .35s ease}
     const r = dash.data('resultado');
     if (r.status === 'error') return fail(box);
     if (r.status !== 'ok') return;
-    const grad = ['#E1251B', K('#6B6B6B')];
+    const grad = [K('#A3A3A3'), K('#A3A3A3')];
     box.replaceChildren(...r.data.map((row, i) => {
       const w = document.createElement('div'); w.className = 'ob-vote';
       const top = document.createElement('div'); top.className = 'ob-vote-row';
@@ -973,7 +981,8 @@ body{transition:background-color .35s ease}
       const pill = document.createElement('span'); pill.className = 'ob-pill'; const c = p.etapa === 'Em tramitação' ? K('#F2F2F2') : K('#F2F2F2');
       pill.style.color = c; pill.style.borderColor = c; pill.textContent = p.etapa; et.appendChild(pill);
       const fo = document.createElement('td'); fo.className = 'ob-dimtx'; fo.appendChild(link(p.fonte_url, p.fonte));
-      tr.append(td(p.proposicao), et, td(fmtDate(p.data), 'ob-dimtx'), td(p.situacao, 'ob-hide-sm'), td(p.placar, 'ob-hide-sm ob-dimtx'), fo);
+      const t0 = td(p.proposicao); const xb = exBtn(p.proposicao); if (xb) { t0.append(document.createElement('br'), xb); }
+      tr.append(t0, et, td(fmtDate(p.data), 'ob-dimtx'), td(p.situacao, 'ob-hide-sm'), td(p.placar, 'ob-hide-sm ob-dimtx'), fo);
       return tr;
     }));
   }
@@ -1010,7 +1019,7 @@ body{transition:background-color .35s ease}
     });
     draw();
   }));
-  const ARENA_C = { 'Governo Lula': '#E1251B', 'Congresso': '#FFFFFF' };
+  const ARENA_C = { 'Governo Lula': '#6E56CF', 'Congresso': '#FFFFFF' };
   const kv = (el) => Object.fromEntries(String(el.dataset.where || '').split('&').map((p) => p.split('=').map(decodeURIComponent)));
 
   function drawArenaKpis() {
@@ -1050,7 +1059,7 @@ body{transition:background-color .35s ease}
     const EV = [['2026-10-04', '1º turno'], ['2026-10-14', 'Senado aprova 6x1'], ['2026-10-25', '2º turno']];
     EV.forEach(([d, label], i) => {
       const xx = x(new Date(d + 'T12:00:00'));
-      svg.append('line').attr('x1', xx).attr('x2', xx).attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'rgba(225,37,27,.55)').attr('stroke-dasharray', '3 4');
+      svg.append('line').attr('x1', xx).attr('x2', xx).attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'rgba(110,86,207,.55)').attr('stroke-dasharray', '3 4');
       const anchor = xx > W - 90 ? 'end' : 'start';
       svg.append('text').attr('x', xx + (anchor === 'end' ? -6 : 6)).attr('y', m.t + 10 + (i % 2) * 14).attr('text-anchor', anchor).style('font-family', 'var(--mono)').style('font-size', '10px').style('fill', K('#F2F2F2')).text(label.toUpperCase());
     });
@@ -1133,7 +1142,7 @@ body{transition:background-color .35s ease}
     const ini = (n) => n.replace(/^(Dr\.|Dra\.|Coronel|Delegado|Delegada|Pastor|Pastora|Capitão|Sargento|General|Professor|Professora)\s+/i, '').split(/\s+/).filter((w) => w.length > 2 || /^[A-ZÁÉÍÓÚ]/.test(w)).slice(0, 2).map((w) => w[0]).join('').toUpperCase();
     box.replaceChildren(...shown.map((d) => {
       const c = document.createElement('button'); c.type = 'button'; c.className = 'ob-pg'; c.dataset.key = d.id; c.style.setProperty('--pc', colP(d.partido));
-      c.title = `${d.nome} · ${d.partido} · ${d.uf}\n${d.verificacao}\nClique para ver a bancada de ${d.uf}`;
+      c.title = `${d.nome} · ${d.partido} · ${d.uf}\nClique para ver como votou`;
       const av = document.createElement('span'); av.className = 'av'; av.textContent = ini(d.nome);
       const tx = document.createElement('span'); tx.className = 'tx';
       const n = document.createElement('b'); n.textContent = d.nome;
@@ -1146,7 +1155,7 @@ body{transition:background-color .35s ease}
       if (/pode ter mudado/.test(d.verificacao || '')) { const s = document.createElement('i'); s.className = 'w'; s.textContent = '⚠'; s.title = 'Partido de 2022, pode ter mudado'; tg.append(s); }
       if (tg.childNodes.length) mt.append(tg);
       c.append(av, tx);
-      c.addEventListener('click', () => openUF(d.uf));
+      c.addEventListener('click', () => openParl(d));
       return c;
     }));
     if (!rows.length) { const e = document.createElement('p'); e.className = 'ob-empty'; e.textContent = 'Ninguém com esses filtros.'; box.append(e); }
@@ -1154,7 +1163,7 @@ body{transition:background-color .35s ease}
     more.hidden = rows.length <= LIM; more.textContent = pgAll ? 'Mostrar menos' : `Mostrar todos (${rows.length})`;
     if (!more.dataset.w) { more.dataset.w = 1; more.addEventListener('click', () => { pgAll = !pgAll; drawParl(); if (!pgAll) box.scrollIntoView({ block: 'start' }); }); }
     const nC = r.data.filter((d) => /2 fontes/.test(d.verificacao)).length, nS = r.data.filter((d) => /Agência Senado/.test(d.verificacao)).length, nW = r.data.filter((d) => /pode ter mudado/.test(d.verificacao || '')).length;
-    document.querySelector('.ob-pg-note').textContent = `Como conferimos: ${nC} deputados com partido checado em 2 fontes (Congresso em Foco e Brasil de Fato); ${nS} senadores pela Agência Senado; ${nW} senadores eleitos em 2022 marcados com ⚠, porque o partido pode ter mudado. Clique num nome para ver a bancada do estado.`;
+    document.querySelector('.ob-pg-note').textContent = `Como conferimos: ${nC} deputados com partido checado em 2 fontes (Congresso em Foco e Brasil de Fato); ${nS} senadores pela Agência Senado; ${nW} senadores eleitos em 2022 marcados com ⚠, porque o partido pode ter mudado. Clique num nome para ver como a pessoa votou, os projetos dela e o que disse sobre os votos.`;
   }
 
   function drawAba4() {
@@ -1249,7 +1258,7 @@ body{transition:background-color .35s ease}
     rows.forEach((d) => {
       const last = d.parcial === true || d.parcial === 'true';
       svg.append('rect').attr('x', x(d.dia)).attr('y', y(d.n)).attr('width', x.bandwidth()).attr('height', H - m.b - y(d.n)).attr('rx', Math.min(6, x.bandwidth() / 3))
-        .attr('fill', last ? POS : 'rgba(225,37,27,.55)').attr('stroke', last ? 'none' : 'rgba(225,37,27,.9)')
+        .attr('fill', last ? POS : 'rgba(110,86,207,.55)').attr('stroke', last ? 'none' : 'rgba(110,86,207,.9)')
         
         .on('mousemove', (ev) => placeTip(tip, box, ev, [fmtDate(d.dia) + (last ? ' (parcial)' : ''), `${nf.format(d.n)} menções`]))
         .on('mouseleave', () => { tip.style.display = 'none'; });
@@ -1289,7 +1298,7 @@ body{transition:background-color .35s ease}
     outer.forEach((o) => o.links.forEach((k) => {
       const n = inner.find((x) => x.id === k); if (!n) return;
       const on = !sel || sel.id === center.id || sel.id === o.id || sel.id === n.id;
-      gL.append('path').attr('d', curve(n, o, 0.18)).attr('fill', 'none').attr('stroke', o.col || '#E1251B').attr('stroke-width', 1.4).attr('opacity', on ? 0.7 : 0.08).attr('stroke-dasharray', '3 4').attr('class', RMn ? '' : 'ob-flow2');
+      gL.append('path').attr('d', curve(n, o, 0.18)).attr('fill', 'none').attr('stroke', o.col || '#6E56CF').attr('stroke-width', 1.4).attr('opacity', on ? 0.7 : 0.08).attr('stroke-dasharray', '3 4').attr('class', RMn ? '' : 'ob-flow2');
     }));
     const node = (n, kind) => {
       const isSel = sel && sel.id === n.id;
@@ -1322,11 +1331,11 @@ body{transition:background-color .35s ease}
     const temas = d3.rollups(base, (v) => v, (d) => d.tema || 'Outros').sort((a, b) => b[1].length - a[1].length);
     const W = Math.max(box.clientWidth || 640, 320), H = W < 560 ? Math.round(W * 1.2) : Math.round(Math.min(Math.max(W * 0.72, 380), 500));
     const sm = W < 560;
-    const center = { id: '__all', label: 'Governo Lula', inside: String(base.length), r: sm ? 26 : 34, fill: '#E1251B', stroke: '#E1251B', insideCol: '#FFFFFF', x: W / 2, y: H / 2, rows: base };
+    const center = { id: '__all', label: 'Governo Lula', inside: String(base.length), r: sm ? 26 : 34, fill: '#6E56CF', stroke: '#6E56CF', insideCol: '#FFFFFF', x: W / 2, y: H / 2, rows: base };
     const inner = temas.map(([t, rows]) => ({ id: 't:' + t, kind: 'tema', tema: t, label: t.length > 22 ? t.replace(' e ', '\ne ') : t, inside: String(rows.length), r: (sm ? 12 : 15) + (sm ? 4.5 : 6) * Math.sqrt(rows.length), rows,
       col: rows.some((d) => d.economia) ? K('#FFB347') : K('#6B6B6B'), w: 1 + rows.length * 0.9, stroke: rows.some((d) => d.economia) ? K('#FFB347') : K('#BDBDBD') }));
     const proms = d3.rollups(base.filter((d) => d.promessa), (v) => v, (d) => d.promessa);
-    const outer = proms.map(([pid, rows]) => ({ id: 'p:' + pid, kind: 'prom', pid, label: pid, inside: pid, insideSize: sm ? 9.5 : 11, r: sm ? 14 : 17, rows, fill: K('#161616'), stroke: '#E1251B', insideCol: K('#FFFFFF'), links: [...new Set(rows.map((d) => 't:' + (d.tema || 'Outros')))] }));
+    const outer = proms.map(([pid, rows]) => ({ id: 'p:' + pid, kind: 'prom', pid, label: pid, inside: pid, insideSize: sm ? 9.5 : 11, r: sm ? 14 : 17, rows, fill: K('#161616'), stroke: '#6E56CF', insideCol: K('#FFFFFF'), links: [...new Set(rows.map((d) => 't:' + (d.tema || 'Outros')))] }));
     inner.forEach((n) => { n.links = outer.filter((o) => o.links.includes(n.id)).map((o) => o.id); });
     netLayout(W, H, inner, outer);
     const all = [center, ...inner, ...outer];
@@ -1375,11 +1384,11 @@ body{transition:background-color .35s ease}
     const W = Math.max(box.clientWidth || 640, 320), H = W < 560 ? Math.round(W * 1.2) : Math.round(Math.min(Math.max(W * 0.7, 360), 480));
     const sm = W < 560;
     const short = (v) => String(v).replace(' a.a.', '').replace(' milhão', ' mi').replace(' km²', ' km²');
-    const center = { id: '__c', label: sm ? 'Ponto de partida' : 'Ponto de partida\nantes da posse', inside: '2027', r: sm ? 27 : 36, fill: '#E1251B', stroke: '#E1251B', insideCol: '#FFFFFF', insideSize: 16, x: W / 2, y: H / 2 };
+    const center = { id: '__c', label: sm ? 'Ponto de partida' : 'Ponto de partida\nantes da posse', inside: '2027', r: sm ? 27 : 36, fill: '#6E56CF', stroke: '#6E56CF', insideCol: '#FFFFFF', insideSize: 16, x: W / 2, y: H / 2 };
     const inner = r.data.map((d) => ({ id: 'i:' + d.id, d, label: `${d.area}\n${d.indicador}`, inside: short(d.valor), insideSize: sm ? 10.5 : 13, r: sm ? 28 : 36, fill: K('#161616'), stroke: K('#FFFFFF'), col: K('#6B6B6B'), w: 1.6, links: [] }));
     const pids = new Map();
     inner.forEach((n) => { (String(n.d.promessa).match(/P\d{2}/g) || []).forEach((p) => { if (!pids.has(p)) pids.set(p, []); pids.get(p).push(n.id); }); });
-    const outer = [...pids.entries()].map(([pid, links]) => ({ id: 'p:' + pid, pid, kind: 'out', label: pid, inside: pid, insideSize: sm ? 9.5 : 11, r: sm ? 14 : 17, fill: K('#161616'), stroke: '#E1251B', links }));
+    const outer = [...pids.entries()].map(([pid, links]) => ({ id: 'p:' + pid, pid, kind: 'out', label: pid, inside: pid, insideSize: sm ? 9.5 : 11, r: sm ? 14 : 17, fill: K('#161616'), stroke: '#6E56CF', links }));
     inner.forEach((n) => { n.links = outer.filter((o) => o.links.includes(n.id)).map((o) => o.id); });
     netLayout(W, H, inner, outer);
     if (!indSel) indSel = inner[0] && inner[0].id;
@@ -1506,7 +1515,7 @@ body{transition:background-color .35s ease}
       const g = svg.append('g').style('cursor', 'pointer').attr('opacity', nw.dia && nw.dia !== dia ? 0.28 : 1);
       sorted.forEach((d, i) => {
         g.append('rect').attr('x', cx - bw / 2).attr('y', H - 22 - (i + 1) * (S + G)).attr('width', bw).attr('height', S).attr('rx', 2)
-          .attr('fill', nw.f === 'prom' ? '#E1251B' : nw.f === 'eco' ? K('#FFB347') : d.economia ? K('#FFB347') : d.promessa ? '#E1251B' : K('#6B6B6B'));
+          .attr('fill', nw.f === 'prom' ? '#6E56CF' : nw.f === 'eco' ? K('#FFB347') : d.economia ? K('#FFB347') : d.promessa ? '#6E56CF' : K('#6B6B6B'));
       });
       g.append('text').attr('x', cx).attr('y', H - 22 - rows.length * (S + G) - 6).attr('text-anchor', 'middle').style('font-size', '11px').style('font-weight', 700).style('fill', K('#F2F2F2')).text(rows.length);
       const p = dia.split('-');
@@ -1517,7 +1526,7 @@ body{transition:background-color .35s ease}
         .on('click', () => { nw.dia = nw.dia === dia ? '' : dia; nw.all = true; drawNoticias(); });
     });
     const lg = document.createElement('div'); lg.className = 'ob-nw-lg';
-    [['#FFB347', 'mexeu na economia'], ['#E1251B', 'ligada a promessa'], ['#6B6B6B', 'outras']].filter(([c]) => nw.f === 'todas' || (nw.f === 'eco' ? c === '#FFB347' : c === '#E1251B')).forEach(([c, t]) => { const s = document.createElement('span'); const i = document.createElement('i'); i.style.background = c === '#E1251B' ? c : K(c); s.append(i, t); lg.append(s); });
+    [['#FFB347', 'mexeu na economia'], ['#6E56CF', 'ligada a promessa'], ['#6B6B6B', 'outras']].filter(([c]) => nw.f === 'todas' || (nw.f === 'eco' ? c === '#FFB347' : c === '#6E56CF')).forEach(([c, t]) => { const s = document.createElement('span'); const i = document.createElement('i'); i.style.background = c === '#6E56CF' ? c : K(c); s.append(i, t); lg.append(s); });
     tl.append(lg);
     if (nw.dia) { const c = document.createElement('button'); c.type = 'button'; c.className = 'ob-nw-clear'; c.textContent = `Mostrando ${brDate(nw.dia)}. Ver todos os dias ✕`; c.addEventListener('click', () => { nw.dia = ''; nw.all = false; drawNoticias(); }); tl.append(c); }
     }
@@ -1635,15 +1644,137 @@ body{transition:background-color .35s ease}
       const a = acts.get(uf) || 0;
       svg.append('text').attr('x', g.cx).attr('y', g.cy + (a ? 20 : 4)).attr('text-anchor', 'middle').style('font-family', 'var(--mono)').style('font-size', '10px').style('fill', K('#F2F2F2')).style('pointer-events', 'none').text(uf);
       if (a) {
-        svg.append('circle').attr('cx', g.cx).attr('cy', g.cy).attr('r', 6 + a * 3).attr('fill', '#E1251B').attr('stroke', K('#111111')).attr('stroke-width', 1.5).style('pointer-events', 'none');
+        svg.append('circle').attr('cx', g.cx).attr('cy', g.cy).attr('r', 6 + a * 3).attr('fill', '#6E56CF').attr('stroke', K('#111111')).attr('stroke-width', 1.5).style('pointer-events', 'none');
         svg.append('text').attr('x', g.cx).attr('y', g.cy).attr('dy', '0.35em').attr('text-anchor', 'middle').style('font-size', '10px').style('font-weight', 700).style('fill', K('#FFFFFF')).style('pointer-events', 'none').text(a);
       }
     });
     const lg = document.querySelector('.ob-maplg');
     const mk = (bg, txt, round) => { const sp = document.createElement('span'); const i = document.createElement('i'); i.className = 'ob-dot'; i.style.background = bg; if (!round) i.style.borderRadius = '2px'; sp.append(i, txt); return sp; };
-    lg.replaceChildren(mk(K('#262626'), 'Menos cadeiras'), mk(K('#6B6B6B'), 'Mais cadeiras'), mk('#E1251B', 'Projetos registrados', true));
+    lg.replaceChildren(mk(K('#262626'), 'Menos cadeiras'), mk(K('#6B6B6B'), 'Mais cadeiras'), mk('#6E56CF', 'Projetos registrados', true));
   }
 
+
+
+  /* ===== Página do parlamentar ===== */
+  function openParl(p) {
+    let d = document.querySelector('.ob-exdlg');
+    if (!d) { d = document.createElement('dialog'); d.className = 'ob-exdlg'; (document.querySelector('.ob') || document.body).append(d); d.addEventListener('click', (ev) => { if (ev.target === d) d.close(); }); }
+    const mk = (tag, cls, t) => { const x = document.createElement(tag); if (cls) x.className = cls; if (t !== undefined) x.textContent = t; return x; };
+    const VT = dash.data('votacoes'), VO = dash.data('votos'), A = dash.data('atuacao'), PR = dash.data('proposicoes'), JU = dash.data('justificativas');
+    const vots = VT.status === 'ok' ? VT.data : [], votos = VO.status === 'ok' ? VO.data : [];
+    const meus = votos.filter((v) => v.parl_id === p.id);
+    const cor = HEMI_COL[p.partido] || '#888888';
+    const top = mk('div', 'hd'); top.style.borderTopColor = cor;
+    const who = mk('div', 'pw');
+    const av = mk('span', 'av', (p.nome.split(/\s+/).filter((w) => w.length > 2).slice(0, 2).map((w) => w[0]).join('') || p.nome[0]).toUpperCase()); av.style.background = cor;
+    const tt = mk('div'); tt.append(mk('span', 'kk', p.casa === 'Senado' ? 'Senador(a)' : 'Deputado(a) federal'), mk('h2', '', p.nome), mk('p', 'st', `${p.partido} · ${p.uf} · mandato ${p.mandato || ''} · ${p.origem || ''}`));
+    who.append(av, tt);
+    const x = mk('button', 'x', '✕'); x.type = 'button'; x.setAttribute('aria-label', 'Fechar'); x.addEventListener('click', () => d.close());
+    top.append(who, x);
+    const body = mk('div', 'bd');
+    // números
+    const comGov = meus.filter((v) => { const vt = vots.find((q) => q.id === v.votacao); return vt && vt.promessa && v.voto === 'Sim'; }).length;
+    const validos = meus.filter((v) => v.voto === 'Sim' || v.voto === 'Não');
+    const maioria = (vid, partido) => { const c = d3.rollup(votos.filter((q) => q.votacao === vid && q.partido === partido && (q.voto === 'Sim' || q.voto === 'Não')), (g) => g.length, (q) => q.voto); return (c.get('Sim') || 0) >= (c.get('Não') || 0) ? 'Sim' : 'Não'; };
+    const comPart = validos.filter((v) => v.voto === maioria(v.votacao, v.partido)).length;
+    const k = mk('div', 'pk');
+    const tile = (n, l) => { const t = mk('div'); t.append(mk('b', '', n), mk('span', '', l)); return t; };
+    k.append(tile(String(meus.length), meus.length === 1 ? 'votação acompanhada' : 'votações acompanhadas'), tile(validos.length ? `${comGov} de ${validos.length}` : '—', 'votos junto com o governo'), tile(validos.length ? `${comPart} de ${validos.length}` : '—', 'votos junto com a maioria do partido'));
+    if (meus.length) body.append(k);
+    // votos
+    const vb = mk('div', 'blk'); vb.append(mk('h3', '', 'Como votou'));
+    if (!meus.length) vb.append(mk('p', 'nada', p.origem === 'Eleito em 2026' && !votos.some((q) => q.nome === p.nome) ? 'Ainda não votou nada acompanhado aqui: o mandato começa em 2027. Os votos entram aqui conforme acontecem.' : 'Nenhum voto registrado nas votações acompanhadas até agora.'));
+    meus.forEach((v) => {
+      const vt = vots.find((q) => q.id === v.votacao) || {};
+      const row = mk('div', 'pv');
+      const pill = mk('span', 'vp ' + (v.voto === 'Sim' ? 's' : v.voto === 'Não' ? 'n' : 'o'), v.voto);
+      const mid = mk('div');
+      mid.append(mk('b', '', vt.proposicao || v.votacao), mk('span', 'm', `${vt.casa || ''} · ${fmtDate(vt.data)} · placar ${vt.sim || '?'} × ${vt.nao || '?'} · maioria do ${v.partido}: ${maioria(v.votacao, v.partido)}`));
+      const j = JU.status === 'ok' ? JU.data.find((q) => q.parl_id === p.id && (q.votacoes || []).includes(v.votacao)) : null;
+      if (j) { const jq = mk('blockquote', 'jq'); jq.append(mk('span', 'l', 'O que disse sobre o voto'), mk('p', '', j.texto)); const fl = mk('span', 'f'); fl.append(link(j.fonte_url, `${j.fonte}${j.data ? ', ' + fmtDate(j.data) : ''}`)); jq.append(fl); mid.append(jq); }
+      else if (v.voto !== 'Sim') mid.append(mk('span', 'nj', 'Ainda não achamos uma justificativa pública desse voto.'));
+      const xb = exBtn(v.votacao); if (xb) mid.append(xb);
+      row.append(pill, mid); vb.append(row);
+    });
+    const pend = vots.filter((q) => q.casa === p.casa && !votos.some((z) => z.votacao === q.id));
+    if (pend.length) vb.append(mk('p', 'nada', `Sem lista nominal publicada ainda: ${pend.map((q) => q.proposicao).join('; ')}.`));
+    if (meus.length) { vb.append(mk('p', 'src', `Fonte: listas nominais publicadas pela imprensa (${[...new Set(meus.map((v) => (vots.find((q) => q.id === v.votacao) || {}).fonte).filter(Boolean))].join(', ')}).`)); body.append(vb); }
+    // projetos
+    const at = A.status === 'ok' ? A.data.filter((a) => a.parl_id === p.id) : [];
+    if (at.length) {
+      const pb = mk('div', 'blk'); pb.append(mk('h3', '', 'Projetos que propôs ou relatou'));
+      at.forEach((a) => { const pr = PR.status === 'ok' ? PR.data.find((q) => q.id === a.proposicao) : null; const row = mk('div', 'pv'); row.append(mk('span', 'vp o', a.papel.split(' ')[0])); const mid = mk('div'); mid.append(mk('b', '', pr ? `${pr.numero} · ${pr.titulo}` : a.proposicao), mk('span', 'm', pr ? `${pr.etapa} · ${a.papel}` : a.papel)); const xb = exBtn(a.proposicao); if (xb) mid.append(xb); row.append(mid); pb.append(row); });
+      pb.append(mk('p', 'src', 'Fonte: Agência Câmara, Agência Senado e imprensa, uma matéria por projeto.')); body.append(pb);
+    }
+    const temJ = JU.status === 'ok' && JU.data.some((q) => q.parl_id === p.id);
+    const chk = mk('div', 'blk chk'); chk.append(mk('h3', '', 'O que está e o que não está nesta página'));
+    const it = (ok, b, t) => { const r = mk('div', 'ci' + (ok ? ' ok' : '')); r.append(mk('i', '', ok ? '✓' : '–')); const s = mk('span'); s.append(mk('b', '', b), ` · ${t}`); r.append(s); chk.append(r); };
+    it(true, 'Partido e mandato', p.fonte ? `conferidos com ${p.fonte}` : 'conferidos com a imprensa');
+    it(meus.length > 0, 'Votos', meus.length ? `${meus.length} nas votações que o painel acompanha` : (p.origem === 'Eleito em 2026' ? 'o mandato começa em 2027; entram conforme as votações acontecem' : 'nenhum voto nas votações acompanhadas até agora'));
+    it(temJ, 'Justificativa dos votos', temJ ? 'falas públicas com fonte' : 'ainda não achamos fala pública explicando os votos');
+    it(at.length > 0, 'Projetos', at.length ? `${at.length} registrado(s) no painel` : 'nenhum projeto desta pessoa registrado no painel ainda');
+    it(false, 'Propostas na carreira, presença, gastos da cota e patrimônio', 'ainda não carregados; vêm dos dados abertos da Câmara, do Senado e do TSE');
+    chk.append(mk('p', 'src', 'Só entra dado com fonte. "–" quer dizer que o dado não está aqui, nunca que é zero.'));
+    body.append(chk);
+    const ac = mk('div', 'pa');
+    const lk = (t, href) => { const a = mk('a', 'ub', t); a.href = href; a.target = '_blank'; a.rel = 'noopener'; return a; };
+    ac.append(lk('Reportar erro', FEEDBACK_FORM), lk('Direito de resposta', FEEDBACK_FORM));
+    body.append(ac);
+    const ft = mk('div', 'pf');
+    const ub = mk('button', 'ub', `Ver a bancada de ${p.uf} →`); ub.type = 'button'; ub.addEventListener('click', () => { d.close(); openUF(p.uf); });
+    ft.append(ub, mk('p', 'av', `"Junto com o governo" conta os votos Sim nas votações de promessas do Lula, que o governo apoiava. A maioria do partido é calculada com a lista nominal. ${p.verificacao || ''}`));
+    body.append(ft);
+    d.replaceChildren(top, body);
+    window.__exBack = () => openParl(p);
+    if (!d.dataset.w) { d.dataset.w = 1; d.addEventListener('close', () => { window.__exBack = null; }); }
+    if (!d.open) d.showModal();
+    body.scrollTop = 0;
+  }
+  /* ===== Entenda fácil: explicação em linguagem simples, com prós e contras ===== */
+  const exFind = (k) => { const r = dash.data('explica'); return r.status === 'ok' ? r.data.find((e) => (e.chaves || []).includes(k)) : null; };
+  const exBtn = (k, cls) => {
+    const e = exFind(k); if (!e) return null;
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'ob-exbtn' + (cls ? ' ' + cls : '');
+    b.innerHTML = '<i aria-hidden="true">?</i>Entenda fácil';
+    b.title = 'Explicação simples, com prós e contras';
+    b.addEventListener('click', (ev) => { ev.stopPropagation(); exOpen(e); });
+    return b;
+  };
+  function exOpen(e) {
+    let d = document.querySelector('.ob-exdlg');
+    if (!d) { d = document.createElement('dialog'); d.className = 'ob-exdlg'; (document.querySelector('.ob') || document.body).append(d); d.addEventListener('click', (ev) => { if (ev.target === d) d.close(); }); }
+    const mk = (tag, cls, t) => { const x = document.createElement(tag); if (cls) x.className = cls; if (t !== undefined) x.textContent = t; return x; };
+    const top = mk('div', 'hd');
+    const tt = mk('div'); const back = d.open && window.__exBack; if (back) { const bk = mk('button', 'bk', '← Voltar'); bk.type = 'button'; bk.addEventListener('click', () => back()); tt.append(bk); }
+    tt.append(mk('span', 'kk', 'Entenda fácil'), mk('h2', '', e.titulo), mk('p', 'st', e.situacao));
+    const x = mk('button', 'x', '✕'); x.type = 'button'; x.setAttribute('aria-label', 'Fechar'); x.addEventListener('click', () => d.close());
+    top.append(tt, x);
+    const one = mk('p', 'one', e.em_uma_frase);
+    const mu = mk('div', 'blk'); mu.append(mk('h3', '', 'O que muda na prática'));
+    const ul = mk('ul'); (e.o_que_muda || []).forEach((t) => ul.append(mk('li', '', t))); mu.append(ul);
+    let qd = null;
+    if (e.quadro) {
+      qd = mk('div', 'blk'); qd.append(mk('h3', '', 'Quem ganha e quem perde'));
+      const gq = mk('div', 'quad');
+      const cell = (cls, who, what, t) => { const c = mk('div', 'qc ' + cls); const hh = mk('b'); hh.append(mk('span', 'w', who), ' ' + what); c.append(hh, mk('p', '', t)); return c; };
+      gq.append(cell('y', 'Povo', 'ganha', e.quadro.povo_ganha), cell('n', 'Povo', 'perde', e.quadro.povo_perde), cell('y', 'Empresas', 'ganham', e.quadro.empresas_ganham), cell('n', 'Empresas', 'perdem', e.quadro.empresas_perdem));
+      qd.append(gq);
+    }
+    const side = (cls, title, rows) => { const s = mk('div', 'sd ' + cls); s.append(mk('h3', '', title)); rows.forEach((r) => { const it = mk('div', 'it'); it.append(mk('p', '', r.texto), mk('span', 'q', r.quem)); s.append(it); }); return s; };
+    const two = mk('div', 'two'); two.append(side('pro', 'Quem defende diz', e.a_favor || []), side('con', 'Quem critica diz', e.contra || []));
+    const vp = mk('div', 'vale'); vp.append(mk('h3', '', 'Vale a pena?'), mk('p', 'nv', 'O painel não dá veredito: depende do que pesa mais pra você.'));
+    const g = mk('div', 'vg');
+    const a1 = mk('div', 'y'); a1.append(mk('b', '', 'Pode valer a pena se…'), mk('p', '', e.pesa_sim));
+    const a2 = mk('div', 'n'); a2.append(mk('b', '', 'Pode não valer se…'), mk('p', '', e.pesa_nao));
+    g.append(a1, a2); vp.append(g);
+    const fo = mk('div', 'fo'); fo.append(mk('span', '', 'Fontes: '));
+    (e.fontes || []).forEach((f, i) => { if (i) fo.append(' · '); fo.append(link(f.url, f.nome)); });
+    const av = mk('p', 'av', `Texto em linguagem simples escrito com IA a partir das fontes acima e conferido em ${fmtDate(e.revisado)}. Os argumentos são de quem defende e de quem critica, não do painel.`);
+    const body = mk('div', 'bd'); body.append(...[one, mu, qd, two, vp, fo, av].filter(Boolean));
+    d.replaceChildren(top, body);
+    if (!d.open) d.showModal();
+    body.scrollTop = 0;
+  }
   function propCard(p, atuRows, onName) {
     const c = document.createElement('div'); c.className = 'ob-prop';
     const k = document.createElement('div'); k.className = 'k'; k.textContent = `${p.numero} · ${fmtDate(p.data)}`;
@@ -1657,6 +1788,7 @@ body{transition:background-color .35s ease}
       w.append(b, ` — ${a.papel}`);
     });
     c.append(k, t, e, st, w, link(p.fonte_url, p.fonte));
+    const xb = exBtn(p.id); if (xb) c.append(xb);
     return c;
   }
 
@@ -1951,6 +2083,7 @@ body{transition:background-color .35s ease}
       btn.addEventListener('click', () => { votSel = v.id; drawVotacoes(); document.getElementById('ob-vlist').scrollIntoView({ block: 'nearest', behavior: 'smooth' }); });
       ft.append(btn);
       if (v.contra_por_partido) { const cp = document.createElement('span'); cp.className = 'cp'; cp.textContent = `Contra: ${v.contra_por_partido}`; ft.append(cp); }
+      { const xb = exBtn(v.id); if (xb) ft.append(xb); }
       ft.append(link(v.fonte_url, v.fonte));
       mid.append(tg, t, pr, bar, ft);
       const sc = document.createElement('div'); sc.className = 'sc';
@@ -2014,7 +2147,7 @@ body{transition:background-color .35s ease}
       M12.forEach((mm, i) => {
         const m = ms.find((q) => Number(String(q.data).slice(5, 7)) === i + 1), xx = x(mm);
         if (m) {
-          const rc = svg.append('rect').attr('x', xx).attr('width', x.bandwidth()).attr('rx', 2).attr('fill', m === lastM ? '#E1251B' : K('#6B6B6B'))
+          const rc = svg.append('rect').attr('x', xx).attr('width', x.bandwidth()).attr('rx', 2).attr('fill', m === lastM ? '#6E56CF' : K('#6B6B6B'))
             .on('mousemove', (ev) => placeTip(tip, chart, ev, [m.rotulo.split(' ')[0], `R$ ${new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 1 }).format(m.v)} bi`, m.fonte]))
             .on('mouseleave', () => { tip.style.display = 'none'; });
           const tx = svg.append('text').attr('x', xx + x.bandwidth() / 2).attr('y', y(m.v) - 5).attr('text-anchor', 'middle').style('font-size', '10.5px').style('font-weight', 600).style('fill', K('#D6D6D6')).text(`R$ ${Math.round(m.v)} bi`);
@@ -2059,7 +2192,7 @@ body{transition:background-color .35s ease}
     svg2.append('text').attr('x', 0).attr('y', 9).style('font-size', '11px').style('font-weight', 600).style('fill', K('#A3A3A3')).text('Dívida no fim de cada ano, em R$ trilhões');
     pts.forEach((d, i) => {
       const xx = x2(d.ano), on = d.ano === arrAno;
-      const rc = svg2.append('rect').attr('x', xx).attr('width', x2.bandwidth()).attr('rx', 2).attr('fill', on ? '#E1251B' : K('#3A3A3A')).style('cursor', 'pointer')
+      const rc = svg2.append('rect').attr('x', xx).attr('width', x2.bandwidth()).attr('rx', 2).attr('fill', on ? '#6E56CF' : K('#3A3A3A')).style('cursor', 'pointer')
         .on('click', () => { if (anos.includes(d.ano) && d.ano !== arrAno) { arrAno = d.ano; drawArrec(); } })
         .on('mousemove', (ev) => placeTip(tip2, dc, ev, [d.rotulo, `R$ ${new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(d.v)} tri`, d.fonte]))
         .on('mouseleave', () => { tip2.style.display = 'none'; });
@@ -2093,7 +2226,7 @@ body{transition:background-color .35s ease}
       const list = rows.filter((x) => x.voto === o && (!votQ || `${x.nome} ${x.partido} ${x.uf}`.toLowerCase().includes(votQ)));
       const col = document.createElement('div'); col.className = 'ob-vcol';
       const t = document.createElement('div'); t.className = 'ob-vcol-h';
-      const dot = document.createElement('i'); dot.className = 'ob-dot'; dot.style.background = o === 'Sim' ? '#E1251B' : o === 'Não' ? K('#FFB347') : K('#6B6B6B');
+      const dot = document.createElement('i'); dot.className = 'ob-dot'; dot.style.background = o === 'Sim' ? '#6E56CF' : o === 'Não' ? K('#FFB347') : K('#6B6B6B');
       const tt = document.createElement('span'); tt.textContent = `${o === 'Sim' ? 'A favor' : o === 'Não' ? 'Contra' : o} · ${rows.filter((x) => x.voto === o).length}`;
       t.append(dot, tt); col.append(t);
       d3.groups(list, (x) => x.partido).sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0])).forEach(([pt, ps]) => {
@@ -2219,14 +2352,14 @@ body{transition:background-color .35s ease}
     });
     if (hi.cmpIso) {
       const xa = x(new Date(hi.cmpIso + 'T12:00:00'));
-      svg.append('rect').attr('class', 'ob-cmpband').attr('x', xa).attr('width', Math.max(W - m.r - xa, 1)).attr('y', m.t - 8).attr('height', H - m.b - m.t + 8).attr('fill', '#E1251B').attr('opacity', 0.07);
+      svg.append('rect').attr('class', 'ob-cmpband').attr('x', xa).attr('width', Math.max(W - m.r - xa, 1)).attr('y', m.t - 8).attr('height', H - m.b - m.t + 8).attr('fill', '#6E56CF').attr('opacity', 0.07);
     }
     if (!pts.length) return;
     const curve = cfg.k === 'selic' ? d3.curveStepAfter : d3.curveMonotoneX;
     const PX = (d) => (d.carry ? m.l : X(d));
     const gid = `obg-${cfg.k}`;
     const lg = svg.append('defs').append('linearGradient').attr('id', gid).attr('x1', 0).attr('x2', 0).attr('y1', 0).attr('y2', 1);
-    [[0, 0.22], [1, 0]].forEach(([o, a]) => lg.append('stop').attr('offset', o).style('stop-color', '#E1251B').style('stop-opacity', a));
+    [[0, 0.22], [1, 0]].forEach(([o, a]) => lg.append('stop').attr('offset', o).style('stop-color', '#6E56CF').style('stop-opacity', a));
     const area = svg.append('path').datum(pts).attr('fill', `url(#${gid})`).attr('d', d3.area().x(PX).y0(H - m.b).y1((d) => y(d.valor)).curve(curve));
     const path = svg.append('path').datum(pts).attr('fill', 'none').attr('stroke', K('#FFFFFF')).attr('stroke-width', 2).attr('stroke-linejoin', 'round').attr('stroke-linecap', 'round').attr('d', d3.line().x(PX).y((d) => y(d.valor)).curve(curve));
     const lp = pts[pts.length - 1];
@@ -2237,7 +2370,7 @@ body{transition:background-color .35s ease}
     pts.forEach((d) => {
       const cx = PX(d), cy = y(d.valor);
       const key = isA(d) ? 'a' : isB(d) ? 'b' : d.carry ? 'c' : 'n';
-      if (key !== 'n') marks.append('circle').attr('class', `ob-pt ob-pt-${key}`).attr('cx', cx).attr('cy', cy).attr('r', key === 'a' ? 5 : 4).attr('fill', key === 'a' ? '#E1251B' : key === 'b' ? K('#FFB347') : K('#161616')).attr('stroke', key === 'c' ? K('#FFFFFF') : K('#161616')).attr('stroke-width', key === 'c' ? 1.5 : 2);
+      if (key !== 'n') marks.append('circle').attr('class', `ob-pt ob-pt-${key}`).attr('cx', cx).attr('cy', cy).attr('r', key === 'a' ? 5 : 4).attr('fill', key === 'a' ? '#6E56CF' : key === 'b' ? K('#FFB347') : K('#161616')).attr('stroke', key === 'c' ? K('#FFFFFF') : K('#161616')).attr('stroke-width', key === 'c' ? 1.5 : 2);
       svg.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 10).attr('fill', 'transparent')
         .on('mousemove', (ev) => placeTip(tip, box, ev, [d.carry ? `Valor vigente no início (dado de ${brDate(d.data)})` : brDate(d.data), cfg.f(d.valor), d.fonte]))
         .on('mouseleave', () => { tip.style.display = 'none'; });
@@ -2245,7 +2378,7 @@ body{transition:background-color .35s ease}
     // pulso no dado atual
     if (hi.a) {
       const ap = pts.find((d) => isA(d));
-      if (ap) marks.insert('circle', ':first-child').attr('class', 'ob-pulse').attr('cx', PX(ap)).attr('cy', y(ap.valor)).attr('r', 5).attr('fill', 'none').attr('stroke', '#E1251B').attr('stroke-width', 2);
+      if (ap) marks.insert('circle', ':first-child').attr('class', 'ob-pulse').attr('cx', PX(ap)).attr('cy', y(ap.valor)).attr('r', 5).attr('fill', 'none').attr('stroke', '#6E56CF').attr('stroke-width', 2);
     }
     // rótulos: só início e atual
     const lab = (d, txt, col, anchor) => svg.append('text').attr('class', 'ob-lab').attr('x', Math.min(Math.max(PX(d), m.l), W - m.r)).attr('y', y(d.valor) - 10).attr('text-anchor', anchor).style('font-size', '11px').style('font-weight', 600).style('fill', col).text(txt);
@@ -2256,7 +2389,7 @@ body{transition:background-color .35s ease}
     // "hoje" no fim do eixo quando o período termina hoje
     if (eco.end === TODAY) {
       const g = svg.append('g').attr('transform', `translate(${W - m.r},${m.t - 12})`);
-      g.append('circle').attr('class', 'ob-blink').attr('cx', -36).attr('cy', 0).attr('r', 3).attr('fill', '#E1251B');
+      g.append('circle').attr('class', 'ob-blink').attr('cx', -36).attr('cy', 0).attr('r', 3).attr('fill', '#6E56CF');
       g.append('text').attr('x', 0).attr('y', 3.5).attr('text-anchor', 'end').style('font-family', 'var(--mono)').style('font-size', '9.5px').style('fill', K('#FFFFFF')).style('letter-spacing', '.08em').text('HOJE');
     }
     // animação de entrada
@@ -2510,7 +2643,7 @@ body{transition:background-color .35s ease}
     const evStep = span > 120 ? EV.filter(([, l]) => !/turno|6x1/.test(l)) : EV;
     evStep.forEach(([d, label], i) => {
       const xx = x(new Date(d + 'T12:00:00'));
-      svg.append('line').attr('x1', xx).attr('x2', xx).attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'rgba(225,37,27,.55)').attr('stroke-dasharray', '3 4');
+      svg.append('line').attr('x1', xx).attr('x2', xx).attr('y1', m.t).attr('y2', H - m.b).attr('stroke', 'rgba(110,86,207,.55)').attr('stroke-dasharray', '3 4');
       const anchor = xx > W - 90 ? 'end' : 'start';
       svg.append('text').attr('x', xx + (anchor === 'end' ? -6 : 6)).attr('y', m.t + 10 + (i % 2) * 14).attr('text-anchor', anchor).style('font-family', 'var(--mono)').style('font-size', '10px').style('fill', K('#F2F2F2')).text(label.toUpperCase());
     });
@@ -2549,7 +2682,7 @@ body{transition:background-color .35s ease}
     const cRows = cr.status === 'ok' ? cr.data.filter((d) => d.arena === arena && inPer(d)) : [];
     const sRows = sr.status === 'ok' ? sr.data.filter((d) => d.arena === arena && inPer(d)) : [];
     setPerNote('.ob-per-pauta', pRows); setPerNote('.ob-per-canal', cRows); setPerNote('.ob-per-tom', sRows);
-    const pc = Array(10).fill(K('#CFCFCF')).map((c, i) => (i === 0 ? '#E1251B' : c));
+    const pc = Array(10).fill(K('#CFCFCF')).map((c, i) => (i === 0 ? '#6E56CF' : c));
     hbars('.ob-hb-pauta', 'pautas_conversa', () => d3.rollups(pRows, (v) => d3.sum(v, (d) => Number(d.posts_amostra)) / (d3.sum(v, (d) => Number(d.amostra)) || 1), (d) => d.pauta).map(([label, v]) => ({ label, v })).sort((a, b) => b.v - a.v), (i) => pc[i % pc.length], (v) => new Intl.NumberFormat('pt-BR', { style: 'percent', maximumFractionDigits: 1 }).format(v));
     hbars('.ob-hb-canal', 'mencoes_canal', () => d3.rollups(cRows, (v) => d3.sum(v, (d) => Number(d.mencoes)), (d) => d.canal).map(([label, v]) => ({ label, v })).sort((a, b) => b.v - a.v), (i) => (i === 0 ? K(ARENA_C[arena]) : K('#6B6B6B')), big);
     const box = document.querySelector('.ob-sent');
