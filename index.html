@@ -117,6 +117,17 @@ body{transition:background-color .35s ease}
 .ob-kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr)); gap: 14px; }
 .ob-kpi { padding: 18px; display: flex; flex-direction: column; gap: 10px; position: relative; overflow: hidden; }
 .ob-kpi::after { display: none; }
+/* faixa de status: sempre numa linha só */
+.ob-kpis-row { grid-template-columns: repeat(8, minmax(0, 1fr)); gap: clamp(6px, .8vw, 12px); }
+.ob-kpis-row .ob-kpi { padding: clamp(10px, 1.1vw, 16px); gap: 6px; justify-content: space-between; min-width: 0; }
+.ob-kpis-row .ob-kpi-l { font-size: clamp(8.5px, .72vw, 10.5px); letter-spacing: .06em; gap: 5px; align-items: flex-start; line-height: 1.25; min-height: 2.5em; }
+.ob-kpis-row .ob-kpi-l::before { width: 9px; height: 9px; margin-top: 1px; }
+.ob-kpis-row .ob-kpi-l .ob-dot { width: 7px; height: 7px; margin-top: 2px; }
+.ob-kpis-row .ob-kpi-v { font-size: clamp(1.5rem, 2.9vw, 3rem); }
+@media (max-width: 760px) {
+  .ob-kpis-row { grid-template-columns: repeat(8, minmax(92px, 1fr)); overflow-x: auto; padding-bottom: 6px; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch; }
+  .ob-kpis-row .ob-kpi { scroll-snap-align: start; }
+}
 .ob-kpi-l { color: var(--mut); display: flex; align-items: center; gap: 8px; }
 .ob-dot { width: 8px; height: 8px; border-radius: 50%; flex: none; display: inline-block; }
 .ob-kpi-v { font-size: clamp(2.2rem, 4vw, 3.2rem); font-weight: 200; line-height: 1; letter-spacing: -.04em; font-variant-numeric: tabular-nums; margin: 0; min-height: 1em; }
@@ -506,7 +517,7 @@ input.ob-in { flex: 1 1 14rem; }
         <button type="button" data-go="impacto"><b>3</b> O que mudou</button>
         <button type="button" data-go="economia"><b>4</b> A economia por trás</button>
       </nav>
-      <div class="ob-kpis">
+      <div class="ob-kpis ob-kpis-row">
         <div class="ob-kpi ob-glass" style="--k: var(--violet)"><span class="ob-kpi-l ob-mono">Monitoradas</span><p class="ob-kpi-v" data-source="resumo_status" data-field="n" data-where="status=Total">—</p></div>
         <div class="ob-kpi ob-glass" data-k="Cumprida"><span class="ob-kpi-l ob-mono"><i class="ob-dot" data-st="Cumprida"></i>Cumpridas</span><p class="ob-kpi-v" data-source="resumo_status" data-field="n" data-where="status=Cumprida">—</p></div>
         <div class="ob-kpi ob-glass" data-k="Parcialmente cumprida"><span class="ob-kpi-l ob-mono"><i class="ob-dot" data-st="Parcialmente cumprida"></i>Parciais</span><p class="ob-kpi-v" data-source="resumo_status" data-field="n" data-where="status=Parcialmente%20cumprida">—</p></div>
