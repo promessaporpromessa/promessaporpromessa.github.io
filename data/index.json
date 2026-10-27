@@ -1,0 +1,31 @@
+{
+ "datasets": [
+  "acoes_d1",
+  "agenda",
+  "aprovacao",
+  "conversa_mercado",
+  "economia",
+  "eleicoes_d1",
+  "exemplos",
+  "historico_status",
+  "impacto_eventos",
+  "indicadores",
+  "mencoes_buzz",
+  "mencoes_canal",
+  "mencoes_dia",
+  "mencoes_sentimento",
+  "mercado_d1",
+  "orcamento",
+  "pautas_conversa",
+  "promessas",
+  "votacoes",
+  "votos",
+  "youtube_reeleicao",
+  "atuacao",
+  "parlamentares",
+  "proposicoes",
+  "pauta",
+  "resultado"
+ ],
+ "atualizado": "2026-10-26T23:40-03:00"
+}
