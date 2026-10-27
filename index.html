@@ -381,6 +381,12 @@ input.ob-in { flex: 1 1 14rem; }
 .ob-chipd.down { background: rgba(255,179,71,.14); color: var(--nFFB347); }
 .ob-chipd.na, .ob-chipd.flat { background: var(--n1F1F1F); color: var(--mut); font-weight: 400; }
 .ob-eco-c .u { font-size: 12px; color: var(--mut); }
+.ob-eco-rs { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin-top: 2px; font-size: 12.5px; color: var(--mut); }
+.ob-eco-rs b { font-size: 17px; font-weight: 600; color: var(--tx); font-variant-numeric: tabular-nums; letter-spacing: -.01em; }
+.ob-eco-rs i { font-style: normal; font-size: 11.5px; font-weight: 600; color: var(--mut); }
+.ob-eco-rs i.up { color: var(--nFFB347); }
+.ob-cmp-rs { display: block; font-size: 12.5px; font-weight: 600; color: var(--tx); font-variant-numeric: tabular-nums; margin-top: 2px; }
+.ob-dimtx .ob-cmp-rs { color: var(--mut); font-weight: 500; }
 .ob-eco-hl { margin: 2px 0 0; font-size: 12px; color: var(--nCFCFCF); font-family: var(--mono); }
 .ob-eco-ch { min-height: 150px; margin-top: 2px; }
 .ob-eco-cmp2 { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--mut); flex-wrap: wrap; }
@@ -2209,6 +2215,12 @@ input.ob-in { flex: 1 1 14rem; }
   const syncInputs = () => FILTERS.forEach((f) => f());
 
   const asOf = (pts, iso) => { let r = null; pts.forEach((p) => { if (String(p.data) <= iso) r = p; }); return r; };
+  /* dívida em reais (série divida_rs, em R$ trilhões) para acompanhar o % do PIB */
+  const nfTri = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fTri = (v) => `R$ ${nfTri.format(v)} tri`;
+  const fTriD = (v) => `${v > 0 ? '+' : v < 0 ? '−' : ''}R$ ${nfTri.format(Math.abs(v))} tri`;
+  let RS_SERIE = [];
+  const rsAt = (iso) => (iso ? asOf(RS_SERIE, iso) : null);
   const cmpIso = (st = eco) => (st.cmp === 'inicio' ? st.start : shiftIso(st.end, st.cmp));
   const deltaTxt = (cfg, a, b) => {
     if (!a || !b) return { t: 'sem dado nessa data', cls: 'na' };
@@ -2310,6 +2322,7 @@ input.ob-in { flex: 1 1 14rem; }
     syncInputs();
     const ci = cmpIso(eco), ciT = cmpIso(ecoT);
     const POP = r.data.filter((d) => d.indicador === 'populacao').sort((a, b) => String(a.data).localeCompare(String(b.data)));
+    RS_SERIE = r.data.filter((d) => d.indicador === 'divida_rs').map((d) => ({ ...d, valor: Number(d.valor) })).sort((a, b) => String(a.data).localeCompare(String(b.data)));
     const popAt = (iso) => asOf(POP, iso) || POP[0];
     const DATA = r.data.concat(r.data.filter((d) => d.indicador === 'divida_rs').map((d) => { const pp = popAt(String(d.data)); return { ...d, id: 'PC' + d.id, indicador: 'percap', valor: Number(d.valor) * 1e12 / Number(pp.valor), pop: pp }; }));
     document.querySelector('.ob-eco-lab-t').textContent = `Lista: de ${brDate(ecoT.start)} a ${brDate(ecoT.end)}, comparando ${brDate(ecoT.end)} com ${brDate(ciT)} (${CMP_L[ecoT.cmp]}). Cada indicador usa o último dado divulgado até cada data.`;
@@ -2345,6 +2358,18 @@ input.ob-in { flex: 1 1 14rem; }
       const cd = document.createElement('b'); cd.className = dl.cls; cd.textContent = dl.cls === 'na' ? 'sem divulgação nova' : dl.t;
       cmp.append(dot, ct, cd);
       c.append(top, vr, u, ch, cmp);
+      if (cfg.k === 'divida' && A) {
+        const ra = rsAt(String(A.data)), rs0 = (st || inside[0]) ? rsAt(String((st || inside[0]).data)) : null, rb = Bp ? rsAt(String(Bp.data)) : null;
+        if (ra) {
+          const box = document.createElement('div'); box.className = 'ob-eco-rs';
+          const b = document.createElement('b'); b.textContent = fTri(ra.valor);
+          const s = document.createElement('span'); s.textContent = ` em reais · dado de ${brDate(ra.data)}`;
+          box.append(b, s);
+          if (rs0 && rs0.id !== ra.id) { const dch = document.createElement('i'); const dv = ra.valor - rs0.valor; dch.className = dv > 0 ? 'up' : dv < 0 ? 'down' : ''; dch.textContent = `${fTriD(dv)} no período`; box.append(dch); }
+          c.insertBefore(box, ch);
+        }
+        if (rb) ct.textContent += ` · ${fTri(rb.valor)}`;
+      }
       if (!pts.length) { const e = document.createElement('p'); e.className = 'ob-empty'; e.textContent = 'Sem dados neste período.'; ch.append(e); }
       // detalhes recolhidos
       const det = document.createElement('details'); det.className = 'ob-eco-det';
@@ -2385,7 +2410,15 @@ input.ob-in { flex: 1 1 14rem; }
     sumBody.replaceChildren(...sumRows.map(({ cfg, A, Bp, dl, S0, dP }) => {
       const tr = document.createElement('tr'); tr.dataset.key = cfg.k;
       const td = (t, c2) => { const e = document.createElement('td'); if (c2) e.className = c2; e.textContent = t; return e; };
-      tr.append(td(cfg.t), vcell(S0, cfg, 'ob-dimtx'), vcell(A, cfg), td(dP.t, 'ob-cmp-d ' + dP.cls), vcell(Bp, cfg, 'ob-dimtx ob-hide-sm'), td(dl.t, 'ob-cmp-d ob-hide-sm ' + dl.cls));
+      const cS0 = vcell(S0, cfg, 'ob-dimtx'), cA = vcell(A, cfg), cP = td(dP.t, 'ob-cmp-d ' + dP.cls), cB = vcell(Bp, cfg, 'ob-dimtx ob-hide-sm'), cL = td(dl.t, 'ob-cmp-d ob-hide-sm ' + dl.cls);
+      if (cfg.k === 'divida') {
+        const rsS0 = S0 ? rsAt(String(S0.data)) : null, rsA = A ? rsAt(String(A.data)) : null, rsB = Bp ? rsAt(String(Bp.data)) : null;
+        const addRs = (cell, v) => { if (!v) return; const x = document.createElement('small'); x.className = 'ob-cmp-rs'; x.textContent = fTri(v.valor); cell.insertBefore(x, cell.querySelector('.ob-cmp-dt')); };
+        addRs(cS0, rsS0); addRs(cA, rsA); addRs(cB, rsB);
+        const addD = (cell, a, b) => { if (!a || !b || a.id === b.id) return; const x = document.createElement('small'); x.className = 'ob-cmp-rs'; x.textContent = fTriD(a.valor - b.valor); cell.append(x); };
+        addD(cP, rsA, rsS0); addD(cL, rsA, rsB);
+      }
+      tr.append(td(cfg.t), cS0, cA, cP, cB, cL);
       return tr;
     }));
   }
