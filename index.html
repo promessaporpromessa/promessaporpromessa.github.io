@@ -367,7 +367,9 @@ input.ob-in { flex: 1 1 14rem; }
 .ob-ecof-g { display: flex; flex-direction: column; gap: 6px; }
 .ob-ecof-l { font-size: 10.5px; color: var(--mut); letter-spacing: .08em; text-transform: uppercase; }
 .ob-ecof-row { display: flex; gap: 8px; align-items: center; }
-.ob-eco-de, .ob-eco-ate { color-scheme: dark; }
+.ob-eco-de, .ob-eco-ate, .ob-men-de, .ob-men-ate { color-scheme: dark; }
+.ob[data-theme="light"] .ob-eco-de, .ob[data-theme="light"] .ob-eco-ate, .ob[data-theme="light"] .ob-men-de, .ob[data-theme="light"] .ob-men-ate { color-scheme: light; }
+.ob-split .w { display: inline-block; white-space: nowrap; }
 .ob-eco-per [data-p="custom"][aria-selected="false"] { display: none; }
 .ob-eco-per [data-p="custom"] { cursor: default; }
 .ob-eco-lab-t.flash, .ob-eco-lab-g.flash { animation: obflash .9s ease; }
@@ -499,7 +501,7 @@ input.ob-in { flex: 1 1 14rem; }
 .ob-foot { color: var(--dim); text-align: center; padding: 6px 0 4px; }
 .ob-fail { display: flex; align-items: center; justify-content: center; gap: 6px; color: var(--mut); font-size: 12px; min-height: inherit; }
 .ob-fail::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--rose); }
-.ob [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+.ob [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow, .6s); }
 .ob [data-dash-source-state=empty] { color: transparent; }
 
 @media (max-width: 760px) {
@@ -514,9 +516,9 @@ input.ob-in { flex: 1 1 14rem; }
   .ob-ticker-track { animation: obTick 46s linear infinite; }
   .ob-ticker:hover .ob-ticker-track { animation-play-state: paused; }
   .ob-reticle { animation: obBreath 3.4s ease-in-out infinite; }
-  .ob-split .ch { display: inline-block; opacity: 0; transform: translateY(.6em) rotateX(-80deg); animation: obChar .7s var(--cds-ease-out) forwards; animation-delay: calc(var(--i) * 28ms); }
-  .ob-in-view { animation: obRise .8s var(--cds-ease-out) both; }
-  .ob-fill { transition: width 1.1s var(--cds-ease-out); }
+  .ob-split .ch { display: inline-block; opacity: 0; transform: translateY(.6em) rotateX(-80deg); animation: obChar .7s var(--cds-ease-out, cubic-bezier(.16, 1, .3, 1)) forwards; animation-delay: calc(var(--i) * 28ms); }
+  .ob-in-view { animation: obRise .8s var(--cds-ease-out, cubic-bezier(.16, 1, .3, 1)) both; }
+  .ob-fill { transition: width 1.1s var(--cds-ease-out, cubic-bezier(.16, 1, .3, 1)); }
   .ob-scan { display: none; }
 }
 @keyframes obPulse { 0% { box-shadow: 0 0 0 0 rgba(255,179,71,.7); } 70% { box-shadow: 0 0 0 10px rgba(255,179,71,0); } 100% { box-shadow: 0 0 0 0 rgba(255,179,71,0); } }
@@ -527,6 +529,32 @@ input.ob-in { flex: 1 1 14rem; }
 @keyframes obChar { to { opacity: 1; transform: none; } }
 @keyframes obRise { from { opacity: 0; transform: translateY(18px); filter: blur(6px); } to { opacity: 1; transform: none; filter: none; } }
 @keyframes obScan { from { background-position: 0 0; } to { background-position: 0 200px; } }
+
+/* ===== celular: filtros que cabem na tela e tabelas viram cartões ===== */
+@media (max-width: 640px) {
+  .ob-ecof { padding: 12px; gap: 12px; }
+  .ob-ecof-g { width: 100%; min-width: 0; }
+  .ob-ecof .ob-seg, .ob-nw-bar .ob-seg { display: flex; flex-wrap: wrap; width: 100%; }
+  .ob-ecof .ob-seg-b, .ob-nw-bar .ob-seg-b { flex: 1 1 auto; white-space: nowrap; padding: 8px 10px; font-size: 12.5px; }
+  .ob-ecof-row { flex-wrap: wrap; width: 100%; }
+  .ob-ecof-row .ob-in { flex: 1 1 128px; min-width: 0; width: auto; }
+  .ob-ecof-row > .ob-dimtx { display: none; }
+  .ob-table.ob-cards td > .ob-tdv { min-width: 0; }
+  .ob-table.ob-cards td > .ob-tdv > small, .ob-table.ob-cards td > .ob-tdv > .ob-cmp-dt { display: block; }
+  .ob-in { font-size: 16px; }
+  .ob-nw-bar .ob-nw-tema, .ob-nw-bar .ob-nw-q { flex: 1 1 100%; }
+  .ob-tablebox { max-height: 75vh; }
+  .ob-table.ob-cards, .ob-table.ob-cards tbody, .ob-table.ob-cards tr { display: block; width: 100%; }
+  .ob-table.ob-cards thead { display: none; }
+  .ob-table.ob-cards tr { padding: 12px 14px; border-bottom: 1px solid rgba(var(--w),.08); }
+  .ob-table.ob-cards td { display: grid; grid-template-columns: minmax(0, 34%) minmax(0, 1fr); justify-items: start; gap: 10px; padding: 4px 0; border: 0; min-width: 0; overflow-wrap: anywhere; }
+  .ob-table.ob-cards td::before { content: attr(data-label); font-family: var(--mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--dim); padding-top: 3px; }
+  .ob-table.ob-cards td.ob-td-main { display: block; font-size: 15px; font-weight: 600; padding-bottom: 6px; }
+  .ob-table.ob-cards td.ob-td-main::before, .ob-table.ob-cards td.ob-td-full::before { display: none; }
+  .ob-table.ob-cards td.ob-td-full { display: block; }
+  .ob-table.ob-cards td.ob-hide-sm { display: none; }
+  .ob-table.ob-cards td:empty { display: none; }
+}
 </style>
 
 <div class="ob">
@@ -810,7 +838,7 @@ input.ob-in { flex: 1 1 14rem; }
             </div>
           </div>
           <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">De · Até</span>
-            <div class="ob-ecof-row"><input class="ob-in ob-men-de" type="date" aria-label="Início do período" style="color-scheme:dark"><span class="ob-dimtx">→</span><input class="ob-in ob-men-ate" type="date" aria-label="Fim do período" style="color-scheme:dark"><button class="ob-back ob-mono ob-men-today" type="button">Até hoje</button></div>
+            <div class="ob-ecof-row"><input class="ob-in ob-men-de" type="date" aria-label="Início do período"><span class="ob-dimtx">→</span><input class="ob-in ob-men-ate" type="date" aria-label="Fim do período"><button class="ob-back ob-mono ob-men-today" type="button">Até hoje</button></div>
           </div>
           <div class="ob-ecof-g"><span class="ob-mono ob-ecof-l">Comparar com</span>
             <div class="ob-seg" role="tablist" aria-label="Comparação">
@@ -1182,12 +1210,16 @@ input.ob-in { flex: 1 1 14rem; }
     splitDone.add(h);
     const text = h.textContent;
     h.setAttribute('aria-label', text);
-    h.replaceChildren(...[...text].map((c, i) => {
-      const s = document.createElement('span');
-      s.className = 'ch'; s.setAttribute('aria-hidden', 'true'); s.style.setProperty('--i', i);
-      s.textContent = c === ' ' ? ' ' : c;
-      return s;
-    }));
+    let i = 0;
+    const parts = [];
+    text.split(/(\s+)/).forEach((wd) => {
+      if (!wd) return;
+      if (/^\s+$/.test(wd)) { parts.push(document.createTextNode(' ')); i += 1; return; }
+      const w = document.createElement('span'); w.className = 'w'; w.setAttribute('aria-hidden', 'true');
+      [...wd].forEach((c) => { const s = document.createElement('span'); s.className = 'ch'; s.style.setProperty('--i', i); s.textContent = c; i += 1; w.append(s); });
+      parts.push(w);
+    });
+    h.replaceChildren(...parts);
   });
 
   /* Legends */
@@ -2732,6 +2764,26 @@ input.ob-in { flex: 1 1 14rem; }
 
   let votesDrawn = false;
   onTheme.push(() => { votesDrawn = false; });
+
+  /* tabelas viram cartões no celular: cada célula ganha o nome da coluna */
+  function labelTables() {
+    document.querySelectorAll('.ob-page:not([hidden]) table.ob-table').forEach((t) => {
+      const heads = [...t.querySelectorAll('thead th')].map((th) => th.textContent.trim());
+      t.classList.add('ob-cards');
+      t.querySelectorAll('tbody tr').forEach((tr) => {
+        [...tr.children].forEach((td, i) => {
+          if (td.colSpan > 1) { td.classList.add('ob-td-full'); return; }
+          if (i === 0) td.classList.add('ob-td-main');
+          else if (td.childNodes.length > 1) {
+            const v = document.createElement('div'); v.className = 'ob-tdv'; v.append(...td.childNodes); td.append(v);
+          }
+          const lb = heads[i] || '';
+          if (td.dataset.label !== lb) td.dataset.label = lb;
+        });
+      });
+    });
+  }
+
   function draw() {
     drawNumbers();
     drawTicker();
@@ -2749,6 +2801,8 @@ input.ob-in { flex: 1 1 14rem; }
     if (current === 'fontes') drawFontes();
     if (current === 'estado') drawEstado();
     if (reduce) wire();
+    labelTables();
+    setTimeout(labelTables, 400);
   }
 
   themeBtn.addEventListener('click', () => {
