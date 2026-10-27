@@ -776,6 +776,11 @@ input.ob-in { flex: 1 1 14rem; }
 @keyframes obDots { 0%, 100% { opacity: .18; } 50% { opacity: .32; } }
 @keyframes obLine { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
 .ob-bgstar { opacity: .07; }
+
+/* cartões lado a lado: cabeçalhos com a mesma altura, conteúdo alinhado */
+.ob-grid > .ob-card .ob-card-head .ob-sub { min-height: 3em; }
+.ob-grid > .ob-card .ob-note-s:first-of-type { margin-top: 0; }
+@media (max-width: 760px) { .ob-grid > .ob-card .ob-card-head .ob-sub { min-height: 0; } }
 </style>
 
 <div class="ob">
