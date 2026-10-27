@@ -863,6 +863,17 @@ input.ob-in { flex: 1 1 14rem; }
     </section>
 
     <section id="promessas" class="ob-page" hidden>
+      <div class="ob-card ob-glass" id="card-criterio">
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Como classificamos</h2><p class="ob-sub">Status só muda com fonte que comprove. Toda mudança fica registrada no histórico abaixo.</p></div><span class="ob-idx ob-mono">P-02</span></div>
+        <div class="ob-defs">
+          <div><i class="ob-dot" data-st="Cumprida"></i><b>Cumprida</b><p>Entregue por inteiro e já valendo: lei em vigor, programa funcionando, meta atingida.</p></div>
+          <div><i class="ob-dot" data-st="Parcialmente cumprida"></i><b>Parcialmente cumprida</b><p>Aprovada ou entregue em parte: vale só mais tarde, cobre menos do que o prometido ou foi aprovada com cortes.</p></div>
+          <div><i class="ob-dot" data-st="Em tramitação"></i><b>Em tramitação</b><p>Depende do Congresso e já há projeto ou PEC andando.</p></div>
+          <div><i class="ob-dot" data-st="Em andamento"></i><b>Em andamento</b><p>O governo já tomou medidas (decreto, programa, orçamento), mas não entregou.</p></div>
+          <div><i class="ob-dot" data-st="A iniciar"></i><b>A iniciar</b><p>Nenhuma medida concreta registrada ainda.</p></div>
+          <div><i class="ob-dot" data-st="Abandonada"></i><b>Abandonada</b><p>O governo desistiu, trocou por outra proposta ou o prazo venceu sem entrega.</p></div>
+        </div>
+      </div>
       <div class="ob-card ob-glass">
         <div class="ob-card-head"><div><h2 class="ob-h ob-split">Base de promessas de campanha</h2><p class="ob-sub">Tudo o que Lula prometeu no plano registrado no TSE e nos discursos de campanha. Reviso o status toda semana.</p></div><span class="ob-idx ob-mono">04</span></div>
         <div class="ob-filters">
@@ -888,24 +899,14 @@ input.ob-in { flex: 1 1 14rem; }
         </div>
         <p class="ob-note-s">* Prazo padrão do painel (fim do mandato) quando a campanha não declarou data.</p>
       </div>
-
-      <div class="ob-card ob-glass" id="card-criterio">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Como classificamos</h2><p class="ob-sub">Status só muda com fonte que comprove. Toda mudança fica registrada no histórico abaixo.</p></div><span class="ob-idx ob-mono">P-02</span></div>
-        <div class="ob-defs">
-          <div><i class="ob-dot" data-st="Cumprida"></i><b>Cumprida</b><p>Entregue por inteiro e já valendo: lei em vigor, programa funcionando, meta atingida.</p></div>
-          <div><i class="ob-dot" data-st="Parcialmente cumprida"></i><b>Parcialmente cumprida</b><p>Aprovada ou entregue em parte: vale só mais tarde, cobre menos do que o prometido ou foi aprovada com cortes.</p></div>
-          <div><i class="ob-dot" data-st="Em tramitação"></i><b>Em tramitação</b><p>Depende do Congresso e já há projeto ou PEC andando.</p></div>
-          <div><i class="ob-dot" data-st="Em andamento"></i><b>Em andamento</b><p>O governo já tomou medidas (decreto, programa, orçamento), mas não entregou.</p></div>
-          <div><i class="ob-dot" data-st="A iniciar"></i><b>A iniciar</b><p>Nenhuma medida concreta registrada ainda.</p></div>
-          <div><i class="ob-dot" data-st="Abandonada"></i><b>Abandonada</b><p>O governo desistiu, trocou por outra proposta ou o prazo venceu sem entrega.</p></div>
-        </div>
+      <div class="ob-card ob-glass" id="card-indicadores">
+        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Promessa → indicador</h2><p class="ob-sub">Antes de cobrar, o ponto de partida: como estava cada área quando o mandato começou. É contra estes números que as promessas vão ser medidas.</p></div><span class="ob-idx ob-mono">I-07</span></div>
+        <div class="ob-ind" data-source="indicadores"></div>
       </div>
-
       <div class="ob-card ob-glass" id="card-orcamento">
         <div class="ob-card-head"><div><span class="ob-badge ob-mono">Orçamento de 2027, enviado em 31/08/2026</span><h2 class="ob-h ob-split">Quanto custa cada promessa</h2><p class="ob-sub">O que o projeto de Orçamento prevê para os programas-vitrine. O gasto efetivo entra a partir de janeiro, quando a execução começa.</p></div><span class="ob-idx ob-mono">P-03</span></div>
         <div class="ob-orc" data-source="orcamento"></div>
       </div>
-
       <div class="ob-card ob-glass" id="card-hist">
         <div class="ob-card-head"><div><h2 class="ob-h ob-split">Histórico de mudanças</h2><p class="ob-sub">Cada troca de status, com data, motivo e fonte</p></div><span class="ob-idx ob-mono">P-04</span></div>
         <div class="ob-tablebox">
@@ -922,6 +923,7 @@ input.ob-in { flex: 1 1 14rem; }
           </table>
         </div>
       </div>
+
     </section>
 
     <section id="impacto" class="ob-page" hidden>
@@ -996,10 +998,6 @@ input.ob-in { flex: 1 1 14rem; }
         <div class="ob-yt" data-source="youtube_reeleicao"></div>
       </div>
 
-      <div class="ob-card ob-glass" id="card-indicadores">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Promessa → indicador</h2><p class="ob-sub">O ponto de partida de cada área antes da posse. É contra estes números que o mandato vai ser medido.</p></div><span class="ob-idx ob-mono">I-07</span></div>
-        <div class="ob-ind" data-source="indicadores"></div>
-      </div>
     </section>
 
     <section id="congresso" class="ob-page" hidden>
@@ -2188,7 +2186,6 @@ input.ob-in { flex: 1 1 14rem; }
     drawSemana();
     divbars('.ob-div-acoes', 'acoes_d1', (data) => data.map((d) => ({ label: d.empresa, v: Number(d.variacao), sub: d.momento, hl: true })).sort((a, b) => a.v - b.v));
     drawConversaMercado();
-    drawIndicadores();
     drawYT();
     drawAprovacao();
     drawExImpacto();
@@ -3114,7 +3111,7 @@ input.ob-in { flex: 1 1 14rem; }
       const v = dash.data('resultado');
       if (!votesDrawn || v.status !== 'ok') { drawVotes(); votesDrawn = v.status === 'ok'; }
     }
-    if (current === 'promessas') { drawPromessas(); drawOrcamento(); drawHistorico(); }
+    if (current === 'promessas') { drawPromessas(); drawIndicadores(); drawOrcamento(); drawHistorico(); }
     if (current === 'impacto') drawImpacto();
     if (current === 'congresso') { drawPauta(); drawVotacoes(); }
     if (current === 'economia') { drawEconomia(); drawAgenda(); }
