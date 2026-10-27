@@ -19,9 +19,10 @@
 
   const bust = () => `?v=${Math.floor(Date.now() / 600000)}`; // renova o cache a cada 10 min
 
+  let ver = bust();
   function load(id) {
     store[id] = { status: 'loading' };
-    fetch(`data/${id}.json${bust()}`)
+    fetch(`data/${id}.json${ver}`, { cache: 'no-store' })
       .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then((d) => { store[id] = { status: 'ok', data: Array.isArray(d) ? d : (d.rows || []) }; fire(); })
       .catch(() => { store[id] = { status: 'error' }; fire(); });
@@ -47,9 +48,10 @@
     setLink(name) { try { history.replaceState(null, '', `#${name}`); } catch (e) { /* ignore */ } },
   };
 
-  fetch(`data/index.json${bust()}`)
+  fetch(`data/index.json?t=${Date.now()}`, { cache: 'no-store' })
     .then((r) => r.json())
     .then((idx) => {
+      if (idx.atualizado) ver = `?v=${encodeURIComponent(idx.atualizado)}`;
       (idx.datasets || []).forEach(load);
       const el = document.querySelector('.ob-site-upd');
       if (el && idx.atualizado) {

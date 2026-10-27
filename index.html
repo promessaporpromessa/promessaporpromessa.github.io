@@ -19,7 +19,7 @@ body{transition:background-color .35s ease}
 *,*::before,*::after{box-sizing:border-box}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
-<script src="js/dash-shim.js"></script>
+<script src="js/dash-shim.js?v=2"></script>
 </head>
 <body>
 <div id="dash-root">
@@ -2367,7 +2367,7 @@ input.ob-in { flex: 1 1 14rem; }
       if (!all.length) return c;
       const A = asOf(all, eco.end), Bp = asOf(all, ci);
       const dl = deltaTxt(cfg, A, Bp);
-      const AT = asOf(all, ecoT.end), BT = asOf(all, ciT), S0 = asOf(all, ecoT.start);
+      const AT = asOf(all, ecoT.end), BT = asOf(all, ciT), S0 = asOf(all, ecoT.start) || all.find((d) => String(d.data) >= ecoT.start && String(d.data) <= ecoT.end) || null;
       sumRows.push({ cfg, A: AT, Bp: BT, dl: deltaTxt(cfg, AT, BT), S0, dP: deltaTxt(cfg, AT, S0) });
       const inside = all.filter((d) => String(d.data) >= eco.start && String(d.data) <= eco.end);
       const st = asOf(all, eco.start);
