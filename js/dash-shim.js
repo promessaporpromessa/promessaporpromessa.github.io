@@ -45,7 +45,7 @@
     },
     calc(id, opts) { calcs[id] = opts; },
     onData(f) { subs.push(f); },
-    setLink(name) { try { history.replaceState(null, '', `#${name}`); } catch (e) { /* ignore */ } },
+    setLink(name) { try { history.replaceState(null, '', name === 'visao' ? location.pathname + location.search : `#${name}`); } catch (e) { /* ignore */ } },
   };
 
   fetch(`data/index.json?t=${Date.now()}`, { cache: 'no-store' })

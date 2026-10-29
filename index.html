@@ -19,11 +19,11 @@ body{transition:background-color .35s ease}
 *,*::before,*::after{box-sizing:border-box}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
-<script src="js/dash-shim.js?v=3"></script>
+<script src="js/dash-shim.js?v=4"></script>
 </head>
 <body>
 <div id="dash-root">
-<script src="estilo.js?v=4"></script>
+<script src="estilo.js?v=5"></script>
 
 <div class="ob">
   <div class="ob-bg"><div class="ob-bgdots d1"></div><div class="ob-bgdots d2"></div><div class="ob-bgstar s1"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s2"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s3"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgline l1"></div><div class="ob-bgline l2"></div></div>
@@ -31,26 +31,45 @@ body{transition:background-color .35s ease}
 
     <header class="ob-hero ob-glass" id="hero">
       <button class="ob-theme" type="button" aria-pressed="false" aria-label="Alternar entre modo escuro e modo claro"><span class="sw"><i><svg class="ic-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="ic-sun" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><circle cx="12" cy="12" r="5"/><g stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 1.5v2.5M12 20v2.5M1.5 12H4M20 12h2.5M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></g></svg></i></span><span class="lb">Modo claro</span></button>
-      <div class="ob-hero-txt">
-        <div class="ob-live ob-mono"><i></i>Promessa por Promessa · mandato 2027–2030</div>
-        <h1 class="ob-title" id="topo" aria-label="Promessa por Promessa: de olho no mandato de Lula, 2027–2030">
-          <span class="l1">De olho no</span>
-          <span class="ob-rot" aria-hidden="true"><span class="ob-rot-track"><span>Lula</span><span>Planalto</span><span>Congresso</span><span>Mandato</span><span>Lula</span></span></span>
-        </h1>
-        <p class="ob-take"><b class="ob-tk" data-source="resumo_status" data-field="n" data-where="status=Total">—</b> promessas acompanhadas desde a reeleição de 25/10. <b class="ob-tk" data-source="resumo_status" data-field="n" data-where="status=Cumprida">—</b> já saíram do papel antes da posse e <b class="ob-tk" data-source="resumo_status" data-field="n" data-where="status=Dependem%20do%20Congresso">—</b> dependem do novo Congresso.</p>
-        <div class="ob-chips ob-mono">
-          <span class="ob-chip">2º turno <b class="ob-pct" data-source="resultado" data-field="pct" data-where="candidato=Lula">—</b></span>
-          <span class="ob-chip">Posse <b>05.01.2027</b></span>
-          <a class="ob-chip ob-chip-link" href="https://www.linkedin.com/in/matheusbbrandao/" target="_blank" rel="noopener">Curadoria <b>Matheus Brandão</b> · LinkedIn ↗</a>
-          <span class="ob-chip ob-apart">Apartidário · mesmo critério para governo e oposição</span>
+      <div class="ob-clock" data-source="economia">
+        <div class="ob-live ob-mono"><i></i>Agora, enquanto você lê</div>
+        <div class="ob-debt"><span class="cur">R$</span><span class="num">—</span></div>
+        <p class="ob-debt-lb">é quanto o governo brasileiro deve <b>(dívida bruta)</b>. A conta cresce cerca de <b class="ob-debt-rate">—</b> por segundo.</p>
+        <div class="ob-debt-tiles">
+          <div><b class="t-pc">—</b><span>para cada brasileiro</span></div>
+          <div><b class="t-pib">—</b><span>do PIB, o tamanho da economia</span></div>
+          <div><b class="t-ano">—</b><span class="t-ano-l">a mais desde o fim de 2025</span></div>
+        </div>
+        <p class="ob-debt-src"></p>
+      </div>
+      <div class="ob-hero-bottom">
+        <div class="ob-hero-txt">
+          <div class="ob-live ob-mono"><i></i>Promessa por Promessa · mandato 2027–2030</div>
+          <h1 class="ob-hh" id="topo">Prometeu. Votou. <span>Entregou?</span></h1>
+          <p class="ob-hlead">Quem vai pagar essa conta, e como, passa pelas promessas do governo e pelos votos dos 594 deputados e senadores. Aqui você acompanha tudo, com fonte e com a mesma régua para todo mundo.</p>
+          <p class="ob-take"><b class="ob-tk" data-source="resumo_status" data-field="n" data-where="status=Total">—</b> promessas acompanhadas. <b class="ob-tk" data-source="resumo_status" data-field="n" data-where="status=Cumprida">—</b> já saíram do papel e <b class="ob-tk" data-source="resumo_status" data-field="n" data-where="status=Dependem%20do%20Congresso">—</b> dependem do Congresso.</p>
+        </div>
+        <div class="ob-hero-act">
+          <div class="ob-hsearch">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input type="search" placeholder="Procure um deputado ou senador" aria-label="Procurar deputado ou senador" autocomplete="off">
+            <div class="ob-hres" role="listbox" hidden></div>
+          </div>
+          <div class="ob-hcta">
+            <button type="button" class="ob-hbtn pri" data-hgo="promessas">Ver as promessas</button>
+            <button type="button" class="ob-hbtn" data-hgo="economia">Ver a economia</button>
+            <button type="button" class="ob-hbtn" data-hgo="congresso">Ver o Congresso</button>
+          </div>
+          <div class="ob-chips ob-mono">
+            <span class="ob-chip">Posse <b>05.01.2027</b></span>
+            <span class="ob-chip ob-apart">Apartidário · mesmo critério para governo e oposição</span>
+            <button type="button" class="ob-chip ob-chip-apoio">Apoie o site ♥</button>
+            <b class="ob-pct" hidden></b>
+          </div>
         </div>
       </div>
-      <div class="ob-hero-art">
-        <canvas class="ob-wire" aria-hidden="true"></canvas>
-        <div class="ob-floor" aria-hidden="true"></div>
-        <img class="ob-car" alt="Caricatura de Lula">
-        <div class="ob-scan" aria-hidden="true"></div>
-      </div>
+      <canvas class="ob-wire" aria-hidden="true" hidden></canvas>
+      <img class="ob-car" alt="" hidden>
     </header>
 
     <div class="ob-ticker ob-glass" data-source="pauta" aria-label="Pauta no Congresso"><div class="ob-ticker-track"></div></div>
@@ -63,7 +82,6 @@ body{transition:background-color .35s ease}
       <button class="ob-tab" role="tab" data-tab="impacto" id="tab-impacto"><span class="ob-tn ob-mono">05</span>Impacto</button>
       <button class="ob-tab" role="tab" data-tab="economia" id="tab-economia"><span class="ob-tn ob-mono">06</span>Economia</button>
       <button class="ob-tab" role="tab" data-tab="fontes" id="tab-fontes"><span class="ob-tn ob-mono">07</span>Fontes</button>
-      <button class="ob-tab" role="tab" data-tab="sobre" id="tab-sobre"><span class="ob-tn ob-mono">08</span>Sobre mim</button>
     </nav>
 
     <section id="visao" class="ob-page">
@@ -259,7 +277,7 @@ body{transition:background-color .35s ease}
         </div>
         <div class="ob-pchips ob-ppart" role="group" aria-label="Partido"></div>
         <p class="ob-count ob-p-count ob-mono"></p>
-        <div class="ob-pgente" data-source="parlamentares votos votacoes atuacao proposicoes justificativas explica"></div>
+        <div class="ob-pgente" data-source="parlamentares votos votacoes atuacao proposicoes justificativas explica atividade atividade_listas tse_perfil"></div>
         <button class="ob-nw-more ob-pg-more" type="button" hidden></button>
         <p class="ob-note-s ob-pg-note"></p>
       </div>
@@ -527,61 +545,39 @@ body{transition:background-color .35s ease}
       </div>
     </section>
 
-    <section id="sobre" class="ob-page" hidden>
-      <div class="ob-card ob-glass ob-about">
-        <div class="ob-about-hero">
-          <div class="ob-about-photo"><img class="ob-foto" alt="Foto de Matheus Brandão" width="160" height="184"></div>
-          <div>
-            <span class="ob-badge ob-mono">Quem faz este painel</span>
-            <h2 class="ob-about-name">Matheus Brandão</h2>
-            <p class="ob-about-sig">Community Manager · SAC Estratégico · Social Listening · Gestão de Comunidades · Estratégia de Conteúdo · Customer Experience</p>
-            <div class="ob-about-links">
-              <a class="ob-about-btn" href="https://www.linkedin.com/in/matheusbbrandao/" target="_blank" rel="noopener">LinkedIn ↗</a>
-            </div>
+
+    <dialog class="ob-apdlg" aria-labelledby="ob-ap-t">
+      <div class="ap-in">
+        <button type="button" class="x" aria-label="Fechar">✕</button>
+        <span class="kk">Apoie o Promessa por Promessa</span>
+        <h2 id="ob-ap-t">Este site é independente, gratuito e sem anúncio.</h2>
+        <p>Checar promessa por promessa, voto por voto, leva tempo todo dia. Se o painel te ajuda, contribua com qualquer valor pelo Pix. Toda ajuda mantém o site no ar e atualizado.</p>
+        <div class="ap-pix">
+          <div class="qr"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 57 57" width="100%" height="100%" shape-rendering="crispEdges" role="img" aria-label="QR code Pix" class="segno"><path fill="#fff" d="M0 0h57v57h-57z"/><path class="qrline" stroke="#111" d="M2 2.5h7m2 0h2m3 0h1m3 0h2m1 0h1m1 0h1m1 0h2m1 0h1m1 0h1m2 0h1m1 0h2m2 0h1m1 0h2m3 0h7m-53 1h1m5 0h1m2 0h1m1 0h1m2 0h1m2 0h2m1 0h3m3 0h2m1 0h1m1 0h1m2 0h1m1 0h4m2 0h2m2 0h1m5 0h1m-53 1h1m1 0h3m1 0h1m1 0h1m5 0h1m1 0h2m5 0h1m1 0h3m1 0h2m5 0h2m2 0h1m2 0h1m2 0h1m1 0h3m1 0h1m-53 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m2 0h2m2 0h2m2 0h1m3 0h5m4 0h1m1 0h2m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-53 1h1m1 0h3m1 0h1m1 0h3m1 0h3m1 0h2m1 0h1m4 0h5m1 0h4m5 0h4m3 0h1m1 0h3m1 0h1m-53 1h1m5 0h1m1 0h5m1 0h2m1 0h2m1 0h1m3 0h1m3 0h2m1 0h1m2 0h5m3 0h1m3 0h1m5 0h1m-53 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-45 1h2m1 0h1m2 0h1m1 0h2m1 0h2m1 0h1m1 0h1m3 0h2m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m-45 1h1m1 0h5m2 0h2m4 0h3m3 0h1m1 0h7m3 0h1m1 0h2m2 0h1m2 0h1m1 0h1m1 0h5m-51 1h1m2 0h3m2 0h2m2 0h7m1 0h1m1 0h1m1 0h1m2 0h2m1 0h2m1 0h1m1 0h2m2 0h1m2 0h2m1 0h1m2 0h1m3 0h1m-48 1h2m1 0h2m3 0h3m2 0h2m3 0h1m1 0h2m2 0h1m4 0h1m1 0h4m1 0h1m1 0h1m2 0h1m1 0h4m-51 1h1m1 0h1m3 0h4m2 0h1m3 0h1m1 0h2m2 0h3m3 0h1m4 0h2m4 0h1m1 0h1m4 0h1m3 0h1m-52 1h2m1 0h2m1 0h1m1 0h2m2 0h1m1 0h1m2 0h1m1 0h2m2 0h2m3 0h1m2 0h1m2 0h1m1 0h4m1 0h4m3 0h4m-50 1h2m6 0h3m1 0h1m1 0h1m3 0h1m1 0h4m1 0h3m5 0h2m5 0h1m2 0h1m2 0h1m1 0h1m1 0h1m-53 1h2m3 0h6m2 0h2m1 0h1m1 0h1m2 0h1m1 0h1m6 0h3m2 0h4m2 0h1m4 0h1m1 0h1m2 0h1m-52 1h1m1 0h2m6 0h2m3 0h1m1 0h1m2 0h1m1 0h1m1 0h2m2 0h2m1 0h3m1 0h1m4 0h1m1 0h1m2 0h1m3 0h1m1 0h2m-51 1h7m1 0h4m2 0h2m1 0h3m2 0h1m1 0h2m1 0h1m3 0h1m2 0h1m2 0h1m2 0h4m1 0h2m1 0h1m-51 1h1m2 0h3m1 0h2m8 0h2m3 0h3m2 0h1m1 0h2m1 0h2m2 0h1m2 0h2m1 0h1m2 0h1m1 0h2m3 0h1m-52 1h2m2 0h4m1 0h3m1 0h5m2 0h1m2 0h2m3 0h2m2 0h1m1 0h5m1 0h1m4 0h1m2 0h2m-47 1h2m8 0h1m2 0h2m4 0h3m1 0h2m1 0h1m1 0h1m2 0h1m1 0h1m2 0h2m1 0h1m2 0h2m1 0h1m-47 1h1m2 0h4m1 0h6m4 0h1m2 0h4m2 0h2m1 0h1m2 0h1m2 0h1m3 0h2m1 0h1m1 0h1m1 0h2m-50 1h4m3 0h2m1 0h2m3 0h2m1 0h1m3 0h1m5 0h1m5 0h1m3 0h3m9 0h1m-52 1h1m2 0h1m1 0h2m4 0h1m2 0h4m1 0h5m2 0h1m4 0h2m2 0h4m3 0h1m1 0h2m1 0h1m1 0h2m-51 1h2m1 0h2m1 0h1m3 0h1m2 0h5m2 0h1m2 0h1m10 0h1m1 0h1m2 0h1m6 0h1m4 0h1m-52 1h8m1 0h1m1 0h1m2 0h3m3 0h1m1 0h9m2 0h1m1 0h2m1 0h1m4 0h8m-48 1h1m3 0h4m1 0h3m3 0h2m1 0h1m1 0h1m3 0h1m1 0h1m1 0h2m6 0h1m1 0h3m3 0h1m3 0h1m-49 1h1m1 0h1m1 0h1m4 0h3m1 0h2m2 0h2m1 0h1m1 0h1m1 0h2m1 0h4m1 0h3m1 0h1m3 0h1m1 0h1m1 0h1m2 0h1m-52 1h1m2 0h2m3 0h3m1 0h1m1 0h1m1 0h1m1 0h4m2 0h1m3 0h3m2 0h1m2 0h2m2 0h1m1 0h1m1 0h1m3 0h1m-49 1h1m3 0h5m2 0h1m2 0h3m1 0h4m1 0h6m2 0h3m1 0h3m1 0h1m3 0h9m-50 1h2m1 0h1m3 0h1m2 0h4m1 0h1m2 0h1m1 0h6m2 0h1m1 0h2m1 0h1m4 0h1m1 0h2m4 0h2m2 0h1m-52 1h2m2 0h3m1 0h2m1 0h2m3 0h3m1 0h1m6 0h2m1 0h2m1 0h1m1 0h1m1 0h2m1 0h1m3 0h1m1 0h2m1 0h2m-51 1h3m1 0h1m1 0h1m1 0h6m1 0h1m2 0h1m2 0h4m1 0h1m2 0h1m2 0h1m1 0h1m2 0h1m1 0h5m1 0h3m3 0h1m-52 1h3m1 0h2m3 0h4m1 0h3m2 0h1m3 0h1m2 0h1m1 0h3m1 0h1m2 0h2m1 0h1m1 0h1m3 0h1m1 0h1m1 0h3m-52 1h1m1 0h1m4 0h2m2 0h1m1 0h1m1 0h5m1 0h3m1 0h1m1 0h1m2 0h2m7 0h2m1 0h2m4 0h2m2 0h1m-53 1h1m3 0h1m1 0h1m2 0h1m1 0h1m1 0h1m2 0h3m2 0h1m2 0h1m2 0h5m1 0h1m1 0h4m5 0h2m5 0h1m-51 1h4m4 0h1m1 0h4m5 0h2m2 0h1m1 0h1m2 0h3m2 0h1m5 0h1m1 0h2m2 0h1m1 0h1m2 0h1m-49 1h1m1 0h3m3 0h3m2 0h1m2 0h3m1 0h2m6 0h1m1 0h4m2 0h1m2 0h1m4 0h1m1 0h3m-50 1h2m3 0h1m1 0h3m2 0h1m1 0h2m4 0h2m2 0h2m2 0h1m1 0h1m1 0h1m1 0h1m5 0h1m3 0h1m1 0h1m1 0h3m-53 1h1m4 0h3m1 0h1m1 0h6m1 0h1m1 0h1m1 0h1m2 0h1m2 0h1m4 0h1m1 0h5m1 0h1m3 0h1m1 0h1m1 0h1m-47 1h3m4 0h1m1 0h2m3 0h1m2 0h3m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m4 0h5m1 0h4m1 0h2m-53 1h2m1 0h1m1 0h5m2 0h2m1 0h1m1 0h3m2 0h1m5 0h3m2 0h2m1 0h4m2 0h1m1 0h1m5 0h2m-51 1h4m8 0h1m3 0h3m1 0h1m3 0h3m2 0h2m4 0h1m2 0h4m1 0h2m1 0h2m2 0h2m-53 1h2m1 0h4m2 0h1m1 0h3m1 0h5m4 0h2m1 0h1m1 0h1m6 0h3m5 0h2m2 0h1m-48 1h2m4 0h3m1 0h3m3 0h1m1 0h2m2 0h1m6 0h1m1 0h1m1 0h2m2 0h3m2 0h1m2 0h2m4 0h1m-50 1h1m2 0h3m1 0h2m1 0h1m3 0h1m3 0h1m1 0h6m7 0h1m7 0h7m-43 1h1m10 0h1m2 0h1m1 0h1m3 0h1m1 0h1m1 0h1m3 0h1m5 0h1m1 0h1m3 0h1m3 0h1m-53 1h7m7 0h8m2 0h1m1 0h1m1 0h2m3 0h2m1 0h4m1 0h1m2 0h1m1 0h1m1 0h1m2 0h1m-52 1h1m5 0h1m1 0h1m1 0h2m2 0h3m1 0h1m4 0h2m3 0h1m1 0h2m1 0h1m1 0h4m1 0h1m1 0h1m1 0h1m3 0h1m2 0h1m-52 1h1m1 0h3m1 0h1m1 0h2m3 0h6m1 0h2m1 0h8m2 0h5m1 0h1m1 0h2m1 0h8m-52 1h1m1 0h3m1 0h1m1 0h2m1 0h1m3 0h1m1 0h1m7 0h1m1 0h2m1 0h2m4 0h1m5 0h4m1 0h1m3 0h2m-53 1h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h7m1 0h1m2 0h1m1 0h2m3 0h1m3 0h2m2 0h1m3 0h2m1 0h1m2 0h2m-53 1h1m5 0h1m3 0h1m1 0h2m1 0h5m2 0h2m3 0h1m1 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h2m5 0h3m1 0h1m-52 1h7m1 0h8m3 0h2m3 0h2m2 0h1m2 0h1m4 0h1m2 0h1m1 0h2m3 0h3m1 0h1"/></svg></div>
+          <div class="ap-side">
+            <span class="lb">Pix · chave aleatória</span>
+            <code class="key">0e575d17-6585-4d57-a8d0-33de5d787c8d</code>
+            <button type="button" class="ap-btn pri" data-copy="pix">Copiar Pix copia e cola</button>
+            <button type="button" class="ap-btn" data-copy="key">Copiar só a chave</button>
+            <span class="ok" aria-live="polite"></span>
+            <small>Recebedor: Matheus Basilio Brandão, curador do painel. Aponte a câmera do app do banco para o QR code.</small>
           </div>
         </div>
-        <p class="ob-about-bio">Trabalho com inteligência social: escuto o que as pessoas falam nas redes, organizo essa conversa em temas e transformo em leitura clara para quem precisa decidir. São mais de cinco anos entre SAC estratégico, gestão de comunidades e social listening.</p>
+        <button type="button" class="ap-later">Agora não</button>
       </div>
-
-      <div class="ob-card ob-glass">
-        <span class="ob-mono ob-about-k">O que eu faço</span>
-        <div class="ob-about-skills">
-          <div><b>Social listening</b><span>Monitoro marcas, temas e pessoas públicas nas redes e transformo volume em leitura: do que se fala, onde e por quê.</span></div>
-          <div><b>SAC estratégico</b><span>Estruturo atendimento nas redes com fluxo, prazo e prioridade, e uso o que chega no SAC como dado para o negócio.</span></div>
-          <div><b>Gestão de comunidades</b><span>Cuido da conversa com o público no dia a dia, do tom de resposta à gestão de crise.</span></div>
-          <div><b>Relatórios e painéis</b><span>Monto relatórios de performance e painéis vivos, como este, com método e fonte em cada número.</span></div>
-          <div><b>Estratégia de conteúdo</b><span>Traduzo o que a audiência fala em pauta, formato e linguagem para os canais.</span></div>
-          <div><b>Customer experience</b><span>Olho a jornada de ponta a ponta para achar onde a experiência quebra e o que corrigir primeiro.</span></div>
-        </div>
-      </div>
-
-      <div class="ob-card ob-glass">
-        <span class="ob-mono ob-about-k">Por que este painel</span>
-        <h3 class="ob-about-h">Acompanhar o mandato inteiro com dado, não com achismo</h3>
-        <p class="ob-about-p">O Promessa por Promessa nasceu da continuação do Entre Bandeiras e Fatos, feito durante o 2º turno de 2026. A ideia é acompanhar os quatro anos do novo mandato, de 2027 a 2030: o que foi prometido, o que o Congresso faz com cada proposta, o que muda na economia e como as pessoas reagem nas redes.</p>
-        <div class="ob-about-steps">
-          <div><b>01</b><span>Temas antes de sentimento: primeiro entender do que se fala; o tom automático é só indício.</span></div>
-          <div><b>02</b><span>Stilingue e Buzzmonitor juntos, sempre de forma agregada e sem expor pessoas comuns.</span></div>
-          <div><b>03</b><span>Todo número com fonte. Fontes oficiais têm prioridade e a imprensa entra como contexto.</span></div>
-          <div><b>04</b><span>Status de promessa só muda com prova, e cada mudança fica registrada no histórico.</span></div>
-        </div>
-        <p class="ob-note-s">Pesquisa e atualização feitas com o apoio do Claude. Curadoria, método e leitura: Matheus Brandão.</p>
-      </div>
-    </section>
-
+    </dialog>
+    <button class="ob-ap-btn" type="button" aria-haspopup="dialog">♥ <span>Apoie</span></button>
     <button class="ob-fb-btn" type="button" hidden aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="lb">Feedback</span></button>
     <dialog class="ob-fb-dlg" aria-labelledby="ob-fb-t">
       <div class="hd"><div><h2 id="ob-fb-t">Ajude a melhorar o Promessa por Promessa</h2><p>O que está bom, o que dá para melhorar e o que você quer ver aqui. Leva 1 minuto e não precisa se identificar.</p></div><button class="x" type="button" aria-label="Fechar">×</button></div>
       <div class="bd"></div>
       <div class="ft">O formulário não abriu? <a class="ob-fb-ext" href="#" target="_blank" rel="noopener">Abra em outra aba ↗</a></div>
     </dialog>
-    <p class="ob-foot ob-mono">★ Fontes oficiais e imprensa, sempre linkadas · atualização diária e semanal · curadoria <a class="ob-foot-link" href="https://www.linkedin.com/in/matheusbbrandao/" target="_blank" rel="noopener">Matheus Brandão · LinkedIn</a> · caricatura gerada por IA<br><span class="ob-site-upd"></span></p>
+    <p class="ob-foot ob-mono">Fontes oficiais e imprensa, sempre linkadas · atualização diária e semanal · curadoria <a class="ob-foot-link" href="https://www.linkedin.com/in/matheusbbrandao/" target="_blank" rel="noopener">Matheus Brandão · LinkedIn</a><br><span class="ob-site-upd"></span></p>
   </div>
 </div>
 
-<script src="caricatura.js"></script>
 <script src="brasil.js"></script>
-<script src="foto.js"></script>
 <script>
 (() => {
   /* tema claro/escuro */
@@ -743,7 +739,7 @@ body{transition:background-color .35s ease}
   const show = (name) => {
     let toMap = false;
     if (name === 'mapa') { name = 'congresso'; toMap = true; }
-    if (!['visao', 'promessas', 'impacto', 'congresso', 'parlamentares', 'estado', 'economia', 'fontes', 'sobre'].includes(name)) name = 'visao';
+    if (!['visao', 'promessas', 'impacto', 'congresso', 'parlamentares', 'estado', 'economia', 'fontes'].includes(name)) name = 'visao';
     current = name;
     tabs.forEach((t) => t.setAttribute('aria-selected', String(t.dataset.tab === (name === 'estado' ? 'congresso' : name))));
     document.querySelectorAll('.ob-page').forEach((p) => {
@@ -1143,7 +1139,7 @@ body{transition:background-color .35s ease}
     box.replaceChildren(...shown.map((d) => {
       const c = document.createElement('button'); c.type = 'button'; c.className = 'ob-pg'; c.dataset.key = d.id; c.style.setProperty('--pc', colP(d.partido));
       c.title = `${d.nome} · ${d.partido} · ${d.uf}\nClique para ver como votou`;
-      const av = document.createElement('span'); av.className = 'av'; av.textContent = ini(d.nome);
+      const av = fotoEl(d.id, 46) || (() => { const s = document.createElement('span'); s.className = 'av'; s.textContent = ini(d.nome); return s; })();
       const tx = document.createElement('span'); tx.className = 'tx';
       const n = document.createElement('b'); n.textContent = d.nome;
       const m = document.createElement('span'); m.className = 'm'; m.textContent = `${d.partido} · ${d.uf}`;
@@ -1163,7 +1159,7 @@ body{transition:background-color .35s ease}
     more.hidden = rows.length <= LIM; more.textContent = pgAll ? 'Mostrar menos' : `Mostrar todos (${rows.length})`;
     if (!more.dataset.w) { more.dataset.w = 1; more.addEventListener('click', () => { pgAll = !pgAll; drawParl(); if (!pgAll) box.scrollIntoView({ block: 'start' }); }); }
     const nC = r.data.filter((d) => /2 fontes/.test(d.verificacao)).length, nS = r.data.filter((d) => /Agência Senado/.test(d.verificacao)).length, nW = r.data.filter((d) => /pode ter mudado/.test(d.verificacao || '')).length;
-    document.querySelector('.ob-pg-note').textContent = `Como conferimos: ${nC} deputados com partido checado em 2 fontes (Congresso em Foco e Brasil de Fato); ${nS} senadores pela Agência Senado; ${nW} senadores eleitos em 2022 marcados com ⚠, porque o partido pode ter mudado. Clique num nome para ver como a pessoa votou, os projetos dela e o que disse sobre os votos.`;
+    document.querySelector('.ob-pg-note').textContent = `Como conferimos: ${nC} deputados com partido checado em 2 fontes (Congresso em Foco e Brasil de Fato); ${nS} senadores pela Agência Senado; ${nW} senadores eleitos em 2022 marcados com ⚠, porque o partido pode ter mudado. Clique num nome para ver propostas mês a mês, leis, votos, patrimônio e campanha. Fotos: TSE.`;
   }
 
   function drawAba4() {
@@ -1655,81 +1651,314 @@ body{transition:background-color .35s ease}
 
 
 
+  /* ===== Fotos (TSE) num único arquivo ===== */
+  const FOTO_COLS = 25, FOTO_ROWS = 24;
+  const FOTO_SRC = window.__FOTO_SRC || (/github\.io$|^localhost$|^127\./.test(location.hostname) ? 'fotos.webp' : '/_blob/6ffb24076186b926cd2e479bd136b052');
+  const fotoIdx = (pid) => { const r = dash.data('atividade'); if (r.status !== 'ok') return null; const a = r.data.find((q) => q.id === pid); return a && a.f !== undefined && a.f !== null ? a.f : null; };
+  function fotoEl(pid, size, cls) {
+    const i = fotoIdx(pid);
+    const e = document.createElement('span'); e.className = (cls || 'av') + ' ob-foto';
+    if (i === null) return null;
+    e.style.width = e.style.height = `${size}px`;
+    e.style.backgroundImage = `url("${FOTO_SRC}")`;
+    e.style.backgroundSize = `${FOTO_COLS * size}px ${FOTO_ROWS * size}px`;
+    e.style.backgroundPosition = `-${(i % FOTO_COLS) * size}px -${Math.floor(i / FOTO_COLS) * size}px`;
+    e.setAttribute('role', 'img');
+    return e;
+  }
+
+
+
+  /* ===== Relógio da dívida ===== */
+  let debtTimer = null;
+  function drawDebt() {
+    const E = dash.data('economia');
+    const box = document.querySelector('.ob-clock');
+    if (!box || E.status !== 'ok' || debtTimer) return;
+    const ser = (k) => E.data.filter((r) => r.indicador === k).sort((a, b) => String(a.data).localeCompare(String(b.data)));
+    const D = ser('divida_rs'); if (D.length < 2) return;
+    const last = D[D.length - 1];
+    const t1 = new Date(`${last.data}T12:00:00-03:00`).getTime();
+    const yearAgo = t1 - 365 * 864e5;
+    let base = D[0]; D.forEach((r) => { if (new Date(`${r.data}T12:00:00-03:00`).getTime() <= yearAgo) base = r; });
+    const t0 = new Date(`${base.data}T12:00:00-03:00`).getTime();
+    const v1 = Number(last.valor) * 1e12, v0 = Number(base.valor) * 1e12;
+    const perMs = (v1 - v0) / (t1 - t0);
+    const pop = ser('populacao'); const P = pop.length ? Number(pop[pop.length - 1].valor) : null;
+    const pib = ser('divida'); const pibLast = pib.length ? pib[pib.length - 1] : null;
+    const MES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+    const mlab = (d) => { const p = String(d).split('-'); return `${MES[+p[1] - 1]}/${p[0].slice(2)}`; };
+    const nf0 = new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 0 });
+    const brl0 = (v) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(v);
+    const num = box.querySelector('.num');
+    const now = () => v1 + perMs * (Date.now() - t1);
+    box.querySelector('.ob-debt-rate').textContent = brl0(perMs * 1000);
+    if (P) box.querySelector('.t-pc').textContent = brl0(now() / P);
+    if (pibLast) box.querySelector('.t-pib').textContent = `${new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 1 }).format(Number(pibLast.valor))}%`;
+    const dec = D.find((r) => r.data === '2025-12-31') || base;
+    box.querySelector('.t-ano').textContent = `+ R$ ${new Intl.NumberFormat('pt-BR', { maximumFractionDigits: 2 }).format((now() - Number(dec.valor) * 1e12) / 1e12)} tri`;
+    box.querySelector('.t-ano-l').textContent = `a mais desde ${mlab(dec.data)}`;
+    box.querySelector('.ob-debt-src').textContent = `Estimativa: último dado do Banco Central (${mlab(last.data)}: R$ ${String(last.valor).replace('.', ',')} tri) mais o ritmo médio desde ${mlab(base.data)}. O número exato só sai uma vez por mês. Fontes: BC e IBGE.`;
+    const tick = () => { num.textContent = nf0.format(now()); };
+    tick();
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    debtTimer = setInterval(tick, reduce ? 1000 : 80);
+  }
+
+  /* ===== Apoie o site ===== */
+  (() => {
+    const PIX = '00020101021126580014BR.GOV.BCB.PIX01360e575d17-6585-4d57-a8d0-33de5d787c8d5204000053039865802BR5921matheusbasiliobrandao6008SAOPAULO61080132305062070503***63043026', KEY = '0e575d17-6585-4d57-a8d0-33de5d787c8d';
+    const dlg = document.querySelector('.ob-apdlg'); if (!dlg) return;
+    const ok = dlg.querySelector('.ok');
+    const copy = async (txt, msg) => {
+      try { await navigator.clipboard.writeText(txt); ok.textContent = msg; }
+      catch (e) { const ta = document.createElement('textarea'); ta.value = txt; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0'; dlg.append(ta); ta.select(); try { document.execCommand('copy'); ok.textContent = msg; } catch (e2) { ok.textContent = 'Não deu para copiar. Selecione a chave acima.'; } ta.remove(); }
+      setTimeout(() => { ok.textContent = ''; }, 3500);
+    };
+    dlg.querySelector('[data-copy="pix"]').addEventListener('click', () => copy(PIX, 'Pix copia e cola copiado. Cole no app do banco.'));
+    dlg.querySelector('[data-copy="key"]').addEventListener('click', () => copy(KEY, 'Chave copiada.'));
+    const close = () => dlg.close();
+    dlg.querySelector('.x').addEventListener('click', close);
+    dlg.querySelector('.ap-later').addEventListener('click', close);
+    dlg.addEventListener('click', (ev) => { if (ev.target === dlg) close(); });
+    const open = () => { if (!dlg.open) dlg.showModal(); };
+    document.querySelectorAll('.ob-ap-btn, .ob-chip-apoio').forEach((b) => b.addEventListener('click', open));
+    let seen = null; try { seen = localStorage.getItem('pp-apoio-visto'); } catch (e) {}
+    const fresh = !seen || (Date.now() - Number(seen)) > 7 * 864e5;
+    if (fresh) setTimeout(() => { if (!document.querySelector('dialog[open]')) { open(); try { localStorage.setItem('pp-apoio-visto', String(Date.now())); } catch (e) {} } }, 6000);
+  })();
+
+  /* ===== Hero: mural de rostos e busca ===== */
+  let wallDone = false;
+  function drawWall() {
+    if (wallDone) return;
+    const box = document.querySelector('.ob-wall');
+    const P = dash.data('parlamentares'), A = dash.data('atividade');
+    if (!box || P.status !== 'ok' || A.status !== 'ok') return;
+    wallDone = true;
+    const size = window.innerWidth < 640 ? 34 : 44;
+    let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+    const list = [...P.data].sort(() => rnd() - 0.5);
+    const tip = mkTip();
+    const frag = document.createDocumentFragment();
+    list.forEach((p, i) => {
+      const f = fotoEl(p.id, size, 'wf'); if (!f) return;
+      f.tabIndex = 0; f.setAttribute('aria-label', `${p.nome}, ${p.partido}, ${p.uf}`);
+      f.style.animationDelay = `${(i % 40) * 25}ms`;
+      f.addEventListener('click', () => openParl(p));
+      f.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') openParl(p); });
+      f.addEventListener('mousemove', (ev) => placeTip(tip, box, ev, [p.nome, `${p.partido} · ${p.uf} · ${p.casa}`]));
+      f.addEventListener('mouseleave', () => { tip.style.display = 'none'; });
+      frag.append(f);
+    });
+    box.replaceChildren(frag, tip);
+  }
+  (() => {
+    const inp = document.querySelector('.ob-hsearch input'), res = document.querySelector('.ob-hres');
+    if (!inp) return;
+    const norm = (s) => String(s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+    const run = () => {
+      const q = norm(inp.value.trim());
+      const P = dash.data('parlamentares');
+      if (!q || P.status !== 'ok') { res.hidden = true; res.replaceChildren(); return; }
+      const hits = P.data.filter((p) => norm(`${p.nome} ${p.partido} ${p.uf}`).includes(q)).slice(0, 6);
+      if (!hits.length) { const e = document.createElement('p'); e.className = 'nada'; e.textContent = 'Ninguém com esse nome entre os 594.'; res.replaceChildren(e); res.hidden = false; return; }
+      res.replaceChildren(...hits.map((p) => {
+        const b = document.createElement('button'); b.type = 'button'; b.setAttribute('role', 'option');
+        const f = fotoEl(p.id, 34, 'hf'); if (f) b.append(f);
+        const t = document.createElement('span'); const n = document.createElement('b'); n.textContent = p.nome; const s = document.createElement('small'); s.textContent = `${p.partido} · ${p.uf} · ${p.casa === 'Senado' ? 'Senado' : 'Câmara'}`; t.append(n, s); b.append(t);
+        b.addEventListener('click', () => { res.hidden = true; openParl(p); });
+        return b;
+      }));
+      res.hidden = false;
+    };
+    inp.addEventListener('input', run);
+    inp.addEventListener('focus', run);
+    inp.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') { const f = res.querySelector('button'); if (f) f.click(); } if (ev.key === 'Escape') res.hidden = true; });
+    document.addEventListener('click', (ev) => { if (!ev.target.closest('.ob-hsearch')) res.hidden = true; });
+    document.querySelectorAll('[data-hgo]').forEach((b) => b.addEventListener('click', () => { show(b.dataset.hgo); const t = document.querySelector('.ob-tabs'); if (t) window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 8, behavior: 'smooth' }); }));
+  })();
+
   /* ===== Página do parlamentar ===== */
+  const brl = (v) => new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', maximumFractionDigits: 0 }).format(v);
+  const MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+  const MON_KEYS = (() => { const o = []; for (let y = 2023; y <= 2026; y++) for (let m = 1; m <= 12; m++) { const k = `${y}-${String(m).padStart(2, '0')}`; if (k >= '2023-02') o.push(k); } return o; })();
+  const propUrl = (id) => (String(id)[0] === 'c' ? `https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=${String(id).slice(1)}` : `https://www25.senado.leg.br/web/atividade/materias/-/materia/${String(id).slice(1)}`);
   function openParl(p) {
     let d = document.querySelector('.ob-exdlg');
     if (!d) { d = document.createElement('dialog'); d.className = 'ob-exdlg'; (document.querySelector('.ob') || document.body).append(d); d.addEventListener('click', (ev) => { if (ev.target === d) d.close(); }); }
+    d.classList.add('wide');
     const mk = (tag, cls, t) => { const x = document.createElement(tag); if (cls) x.className = cls; if (t !== undefined) x.textContent = t; return x; };
-    const VT = dash.data('votacoes'), VO = dash.data('votos'), A = dash.data('atuacao'), PR = dash.data('proposicoes'), JU = dash.data('justificativas');
-    const vots = VT.status === 'ok' ? VT.data : [], votos = VO.status === 'ok' ? VO.data : [];
+    const get = (id) => { const r = dash.data(id); return r.status === 'ok' ? r.data : []; };
+    const vots = get('votacoes'), votos = get('votos'), JUd = get('justificativas');
+    const AT = get('atividade').find((q) => q.id === p.id) || {};
+    const LI = get('atividade_listas').find((q) => q.id === p.id) || { u: [], l: [] };
+    const TS = get('tse_perfil').find((q) => q.id === p.id) || null;
     const meus = votos.filter((v) => v.parl_id === p.id);
     const cor = HEMI_COL[p.partido] || '#888888';
+    const nf0 = new Intl.NumberFormat('pt-BR');
+    // topo
     const top = mk('div', 'hd'); top.style.borderTopColor = cor;
     const who = mk('div', 'pw');
-    const av = mk('span', 'av', (p.nome.split(/\s+/).filter((w) => w.length > 2).slice(0, 2).map((w) => w[0]).join('') || p.nome[0]).toUpperCase()); av.style.background = cor;
-    const tt = mk('div'); tt.append(mk('span', 'kk', p.casa === 'Senado' ? 'Senador(a)' : 'Deputado(a) federal'), mk('h2', '', p.nome), mk('p', 'st', `${p.partido} · ${p.uf} · mandato ${p.mandato || ''} · ${p.origem || ''}`));
-    who.append(av, tt);
+    const ph = fotoEl(p.id, window.innerWidth < 640 ? 56 : 92, 'avp');
+    if (ph) { ph.style.outlineColor = cor; who.append(ph); }
+    else { const av = mk('span', 'av', (p.nome.split(/\s+/).filter((w) => w.length > 2).slice(0, 2).map((w) => w[0]).join('') || p.nome[0]).toUpperCase()); av.style.background = cor; who.append(av); }
+    const tt = mk('div');
+    const sub = [p.partido, TS && TS.idade ? `${TS.idade} anos` : '', TS && TS.ufn ? `nasceu em ${TS.ufn}` : ''].filter(Boolean).join(' · ');
+    tt.append(mk('span', 'kk', `${p.casa === 'Senado' ? 'Senador(a)' : 'Deputado(a) federal'} · ${p.uf}`), mk('h2', '', p.nome), mk('p', 'st', sub));
+    const chips = mk('div', 'chips');
+    chips.append(mk('span', 'ch', `Mandato ${p.mandato || ''}`), mk('span', 'ch', p.origem || ''));
+    if (TS && TS.v) chips.append(mk('span', 'ch', `${nf0.format(TS.v)} votos em ${TS.ano}`));
+    tt.append(chips);
+    who.append(tt);
     const x = mk('button', 'x', '✕'); x.type = 'button'; x.setAttribute('aria-label', 'Fechar'); x.addEventListener('click', () => d.close());
     top.append(who, x);
     const body = mk('div', 'bd');
-    // números
-    const comGov = meus.filter((v) => { const vt = vots.find((q) => q.id === v.votacao); return vt && vt.promessa && v.voto === 'Sim'; }).length;
-    const validos = meus.filter((v) => v.voto === 'Sim' || v.voto === 'Não');
-    const maioria = (vid, partido) => { const c = d3.rollup(votos.filter((q) => q.votacao === vid && q.partido === partido && (q.voto === 'Sim' || q.voto === 'Não')), (g) => g.length, (q) => q.voto); return (c.get('Sim') || 0) >= (c.get('Não') || 0) ? 'Sim' : 'Não'; };
-    const comPart = validos.filter((v) => v.voto === maioria(v.votacao, v.partido)).length;
+    const src = (t) => mk('p', 'src', t);
+    const fonteAtv = AT.cf ? `Fonte: ${AT.cf.replace('Câmara', 'Câmara dos Deputados').replace('Senado', 'Senado Federal').replace('+', ' e ')} (dados abertos) · contas do painel · registros a partir de 01/02/2023` : '';
+    // números da carreira
+    const curYM = new Date().toISOString().slice(0, 7);
+    const nMon = MON_KEYS.filter((k2) => k2 <= curYM).length;
+    const pArr = AT.p ? AT.p.split(',').map(Number).slice(0, nMon) : null;
+    const totP = pArr ? d3.sum(pArr) : null;
+    const totD = AT.d ? d3.sum(AT.d) : null;
     const k = mk('div', 'pk');
-    const tile = (n, l) => { const t = mk('div'); t.append(mk('b', '', n), mk('span', '', l)); return t; };
-    k.append(tile(String(meus.length), meus.length === 1 ? 'votação acompanhada' : 'votações acompanhadas'), tile(validos.length ? `${comGov} de ${validos.length}` : '—', 'votos junto com o governo'), tile(validos.length ? `${comPart} de ${validos.length}` : '—', 'votos junto com a maioria do partido'));
-    if (meus.length) body.append(k);
-    // votos
-    const vb = mk('div', 'blk'); vb.append(mk('h3', '', 'Como votou'));
-    if (!meus.length) vb.append(mk('p', 'nada', p.origem === 'Eleito em 2026' && !votos.some((q) => q.nome === p.nome) ? 'Ainda não votou nada acompanhado aqui: o mandato começa em 2027. Os votos entram aqui conforme acontecem.' : 'Nenhum voto registrado nas votações acompanhadas até agora.'));
-    meus.forEach((v) => {
-      const vt = vots.find((q) => q.id === v.votacao) || {};
-      const row = mk('div', 'pv');
-      const pill = mk('span', 'vp ' + (v.voto === 'Sim' ? 's' : v.voto === 'Não' ? 'n' : 'o'), v.voto);
-      const mid = mk('div');
-      mid.append(mk('b', '', vt.proposicao || v.votacao), mk('span', 'm', `${vt.casa || ''} · ${fmtDate(vt.data)} · placar ${vt.sim || '?'} × ${vt.nao || '?'} · maioria do ${v.partido}: ${maioria(v.votacao, v.partido)}`));
-      const j = JU.status === 'ok' ? JU.data.find((q) => q.parl_id === p.id && (q.votacoes || []).includes(v.votacao)) : null;
-      if (j) { const jq = mk('blockquote', 'jq'); jq.append(mk('span', 'l', 'O que disse sobre o voto'), mk('p', '', j.texto)); const fl = mk('span', 'f'); fl.append(link(j.fonte_url, `${j.fonte}${j.data ? ', ' + fmtDate(j.data) : ''}`)); jq.append(fl); mid.append(jq); }
-      else if (v.voto !== 'Sim') mid.append(mk('span', 'nj', 'Ainda não achamos uma justificativa pública desse voto.'));
-      const xb = exBtn(v.votacao); if (xb) mid.append(xb);
-      row.append(pill, mid); vb.append(row);
-    });
-    const pend = vots.filter((q) => q.casa === p.casa && !votos.some((z) => z.votacao === q.id));
-    if (pend.length) vb.append(mk('p', 'nada', `Sem lista nominal publicada ainda: ${pend.map((q) => q.proposicao).join('; ')}.`));
-    if (meus.length) { vb.append(mk('p', 'src', `Fonte: listas nominais publicadas pela imprensa (${[...new Set(meus.map((v) => (vots.find((q) => q.id === v.votacao) || {}).fonte).filter(Boolean))].join(', ')}).`)); body.append(vb); }
-    // projetos
-    const at = A.status === 'ok' ? A.data.filter((a) => a.parl_id === p.id) : [];
-    if (at.length) {
-      const pb = mk('div', 'blk'); pb.append(mk('h3', '', 'Projetos que propôs ou relatou'));
-      at.forEach((a) => { const pr = PR.status === 'ok' ? PR.data.find((q) => q.id === a.proposicao) : null; const row = mk('div', 'pv'); row.append(mk('span', 'vp o', a.papel.split(' ')[0])); const mid = mk('div'); mid.append(mk('b', '', pr ? `${pr.numero} · ${pr.titulo}` : a.proposicao), mk('span', 'm', pr ? `${pr.etapa} · ${a.papel}` : a.papel)); const xb = exBtn(a.proposicao); if (xb) mid.append(xb); row.append(mid); pb.append(row); });
-      pb.append(mk('p', 'src', 'Fonte: Agência Câmara, Agência Senado e imprensa, uma matéria por projeto.')); body.append(pb);
+    const tile = (n, l, s) => { const t = mk('div'); t.append(mk('b', '', n), mk('span', '', l)); if (s) t.append(mk('small', '', s)); return t; };
+    if (pArr) {
+      k.append(tile(nf0.format(totP), 'propostas como autor principal', 'de 2023 a 2026, de todo tipo'));
+      k.append(tile(nf0.format(AT.lp || 0), 'projetos que podem virar lei', 'PL, PLP, PEC e PDL'));
+      k.append(tile(nf0.format(AT.nl || 0), 'viraram lei', 'como autor ou coautor'));
+      k.append(tile(nf0.format(totD || 0), 'falas no plenário', 'discursos registrados'));
     }
-    const temJ = JU.status === 'ok' && JU.data.some((q) => q.parl_id === p.id);
+    if (TS) {
+      k.append(tile(brl(TS.bt), 'patrimônio declarado', `ao TSE em ${TS.bano}`));
+      if (TS.rec) k.append(tile(brl(TS.rec), 'arrecadou na campanha', `eleição de ${TS.ano}`));
+    }
+    if (meus.length) {
+      const comGov = meus.filter((v) => { const vt = vots.find((q) => q.id === v.votacao); return vt && vt.promessa && v.voto === 'Sim'; }).length;
+      const validos = meus.filter((v) => v.voto === 'Sim' || v.voto === 'Não').length;
+      k.append(tile(validos ? `${comGov} de ${validos}` : '—', 'votos junto com o governo', 'nas votações que o painel acompanha'));
+    }
+    if (k.children.length) body.append(k);
+    // mês a mês
+    if (pArr) {
+      const mb = mk('div', 'blk'); mb.append(mk('h3', '', 'Quem apresentou proposta: mês a mês'));
+      mb.append(mk('p', 'lead', `Cada barra é um mês, de fevereiro de 2023 até ${MESES[+curYM.slice(5) - 1]}/${curYM.slice(0, 4)}. Mês sem barra é mês sem nenhuma proposta como autor principal.`));
+      const W = 720, H = 120, bw = W / pArr.length, mx = Math.max(1, d3.max(pArr));
+      const svg = d3.create('svg').attr('viewBox', `0 0 ${W} ${H + 22}`).attr('width', '100%').attr('class', 'mm');
+      pArr.forEach((v, i) => {
+        const h = v ? Math.max(2, (v / mx) * H) : 0;
+        const [yy, mm] = MON_KEYS[i].split('-');
+        svg.append('rect').attr('x', i * bw + 1).attr('y', H - h).attr('width', Math.max(1, bw - 2)).attr('height', h).attr('rx', 1.5).attr('fill', v ? '#6E56CF' : 'none')
+          .append('title').text(`${MESES[+mm - 1]}/${yy}: ${v} ${v === 1 ? 'proposta' : 'propostas'}`);
+        if (!v) svg.append('rect').attr('x', i * bw + 1).attr('y', H - 1).attr('width', Math.max(1, bw - 2)).attr('height', 1).attr('fill', K('#5C5C5C'));
+        if (mm === '01' || i === 0) svg.append('text').attr('x', i * bw + 1).attr('y', H + 16).attr('font-size', 11).attr('fill', K('#A3A3A3')).text(yy);
+      });
+      mb.append(svg.node());
+      const zero = pArr.filter((v) => !v).length;
+      mb.append(mk('p', 'm', `${zero} de ${pArr.length} meses sem nenhuma proposta como autor principal. Maior mês: ${mx} ${mx === 1 ? 'proposta' : 'propostas'}.`));
+      // ano a ano
+      const yb = mk('div', 'yy');
+      const anos = [2023, 2024, 2025, 2026];
+      const pY = anos.map((y) => d3.sum(pArr.filter((_, i) => MON_KEYS[i].startsWith(String(y)))));
+      const mP = Math.max(1, d3.max(pY)), mD = Math.max(1, d3.max(AT.d || [0]));
+      const hd = mk('div', 'yr h'); hd.append(mk('span', '', 'Ano'), mk('span', '', 'Propostas'), mk('span', '', 'Falas')); yb.append(hd);
+      anos.forEach((y, i) => {
+        const r = mk('div', 'yr');
+        const bar = (v, m) => { const c = mk('span', 'bc'); const t = mk('i'); t.style.width = `${(v / m) * 100}%`; c.append(t, mk('b', '', nf0.format(v))); return c; };
+        r.append(mk('span', 'y', String(y)), bar(pY[i], mP), bar((AT.d || [])[i] || 0, mD));
+        yb.append(r);
+      });
+      mb.append(yb);
+      mb.append(src(fonteAtv));
+      body.append(mb);
+    }
+    // novo mandato
+    const nm = mk('div', 'novo');
+    nm.append(mk('b', '', 'Mandato 2027–2031'), mk('span', '', 'A contagem do novo mandato começa em 1º de fevereiro de 2027 e entra aqui mês a mês, com a mesma régua para todo mundo.'));
+    body.append(nm);
+    // votos
+    if (meus.length) {
+      const maioria = (vid, partido) => { const c = d3.rollup(votos.filter((q) => q.votacao === vid && q.partido === partido && (q.voto === 'Sim' || q.voto === 'Não')), (g) => g.length, (q) => q.voto); return (c.get('Sim') || 0) >= (c.get('Não') || 0) ? 'Sim' : 'Não'; };
+      const vb = mk('div', 'blk'); vb.append(mk('h3', '', 'Como votou nas votações que o painel acompanha'));
+      meus.forEach((v) => {
+        const vt = vots.find((q) => q.id === v.votacao) || {};
+        const row = mk('div', 'pv');
+        const pill = mk('span', 'vp ' + (v.voto === 'Sim' ? 's' : v.voto === 'Não' ? 'n' : 'o'), v.voto);
+        const mid = mk('div');
+        mid.append(mk('b', '', vt.proposicao || v.votacao), mk('span', 'm', `${vt.casa || ''} · ${fmtDate(vt.data)} · placar ${vt.sim || '?'} × ${vt.nao || '?'} · maioria do ${v.partido}: ${maioria(v.votacao, v.partido)}`));
+        const j = JUd.find((q) => q.parl_id === p.id && (q.votacoes || []).includes(v.votacao));
+        if (j) { const jq = mk('blockquote', 'jq'); jq.append(mk('span', 'l', 'O que disse sobre o voto'), mk('p', '', j.texto)); const fl = mk('span', 'f'); fl.append(link(j.fonte_url, `${j.fonte}${j.data ? ', ' + fmtDate(j.data) : ''}`)); jq.append(fl); mid.append(jq); }
+        else if (v.voto !== 'Sim') mid.append(mk('span', 'nj', 'Ainda não achamos uma justificativa pública desse voto.'));
+        const xb = exBtn(v.votacao); if (xb) mid.append(xb);
+        row.append(pill, mid); vb.append(row);
+      });
+      vb.append(src(`Fonte: listas nominais publicadas pela imprensa (${[...new Set(meus.map((v) => (vots.find((q) => q.id === v.votacao) || {}).fonte).filter(Boolean))].join(', ')}).`));
+      body.append(vb);
+    }
+    // projetos no painel
+    const at = get('atuacao').filter((a) => a.parl_id === p.id);
+    if (at.length) {
+      const PRd = get('proposicoes');
+      const pb = mk('div', 'blk'); pb.append(mk('h3', '', 'Projetos acompanhados pelo painel'));
+      at.forEach((a) => { const pr = PRd.find((q) => q.id === a.proposicao); const row = mk('div', 'pv'); row.append(mk('span', 'vp o', a.papel.split(' ')[0])); const mid = mk('div'); mid.append(mk('b', '', pr ? `${pr.numero} · ${pr.titulo}` : a.proposicao), mk('span', 'm', pr ? `${pr.etapa} · ${a.papel}` : a.papel)); const xb = exBtn(a.proposicao); if (xb) mid.append(xb); row.append(mid); pb.append(row); });
+      pb.append(src('Fonte: Agência Câmara, Agência Senado e imprensa, uma matéria por projeto.')); body.append(pb);
+    }
+    // o que propôs / viraram lei
+    const lista = (title, rows, papel) => {
+      const b = mk('div', 'blk'); b.append(mk('h3', '', title));
+      rows.forEach((r) => { const it = mk('a', 'pl'); it.href = propUrl(r[3]); it.target = '_blank'; it.rel = 'noopener'; it.append(mk('b', '', r[2]), mk('span', 'm', `${r[0]} · ${fmtDate(r[1])}${papel && r[4] !== undefined ? (r[4] ? ' · autor principal' : ' · coautor') : ''}`)); b.append(it); });
+      return b;
+    };
+    if (LI.u && LI.u.length) { const b = lista('Projetos mais recentes que apresentou', LI.u); b.append(src(fonteAtv + ' · toque para abrir o texto oficial')); body.append(b); }
+    if (LI.l && LI.l.length) { const b = lista('Projetos que viraram lei', LI.l, true); b.append(src(fonteAtv)); body.append(b); }
+    // patrimônio e campanha
+    if (TS) {
+      const two = mk('div', 'two2');
+      const pt = mk('div', 'blk'); pt.append(mk('h3', '', `Patrimônio declarado em ${TS.bano}`));
+      pt.append(mk('p', 'big', brl(TS.bt)), mk('p', 'm', `${TS.bn} ${TS.bn === 1 ? 'bem declarado' : 'bens declarados'}, em valores da época`));
+      const mxb = Math.max(1, d3.max(TS.bk, (q) => q[1]) || 1);
+      TS.bk.forEach(([n, v]) => { const r = mk('div', 'hb'); const lab = mk('span', 'l', n); const tr = mk('span', 't'); const i = mk('i'); i.style.width = `${(v / mxb) * 100}%`; tr.append(i); r.append(lab, tr, mk('b', '', brl(v))); pt.append(r); });
+      pt.append(src('Fonte: Tribunal Superior Eleitoral (TSE), bens de candidatos'));
+      two.append(pt);
+      if (TS.rec) {
+        const cp = mk('div', 'blk'); cp.append(mk('h3', '', `Dinheiro da campanha de ${TS.ano}`));
+        cp.append(mk('p', 'big', brl(TS.rec)), mk('p', 'm', `arrecadados · ${brl(TS.desp)} em despesas contratadas`));
+        const mxo = Math.max(1, d3.max(TS.org, (q) => q[1]) || 1);
+        TS.org.forEach(([n, v]) => { const r = mk('div', 'hb'); const tr = mk('span', 't'); const i = mk('i'); i.style.width = `${(v / mxo) * 100}%`; tr.append(i); r.append(mk('span', 'l', n.charAt(0).toUpperCase() + n.slice(1)), tr, mk('b', '', brl(v))); cp.append(r); });
+        cp.append(src('Fonte: TSE, prestação de contas de candidatos 2026'));
+        two.append(cp);
+      }
+      body.append(two);
+      const pf = mk('div', 'perfil');
+      [['Escolaridade', TS.inst], ['Ocupação declarada', TS.ocup]].forEach(([a, b]) => { if (b) { const r = mk('div'); r.append(mk('span', '', a), mk('b', '', b)); pf.append(r); } });
+      body.append(pf);
+    }
+    // checklist
+    const temJ = JUd.some((q) => q.parl_id === p.id);
     const chk = mk('div', 'blk chk'); chk.append(mk('h3', '', 'O que está e o que não está nesta página'));
     const it = (ok, b, t) => { const r = mk('div', 'ci' + (ok ? ' ok' : '')); r.append(mk('i', '', ok ? '✓' : '–')); const s = mk('span'); s.append(mk('b', '', b), ` · ${t}`); r.append(s); chk.append(r); };
     it(true, 'Partido e mandato', p.fonte ? `conferidos com ${p.fonte}` : 'conferidos com a imprensa');
-    it(meus.length > 0, 'Votos', meus.length ? `${meus.length} nas votações que o painel acompanha` : (p.origem === 'Eleito em 2026' ? 'o mandato começa em 2027; entram conforme as votações acontecem' : 'nenhum voto nas votações acompanhadas até agora'));
+    it(!!ph, 'Foto', ph ? 'foto oficial da candidatura, do TSE' : 'sem foto no TSE');
+    it(!!pArr, 'Propostas, leis e falas (2023–2026)', pArr ? `dados abertos ${AT.cf === 'Senado' ? 'do Senado' : AT.cf === 'Câmara' ? 'da Câmara' : 'da Câmara e do Senado'}` : 'não estava no Congresso entre 2023 e 2026; a contagem começa no novo mandato');
+    it(meus.length > 0, 'Votos nas votações acompanhadas', meus.length ? `${meus.length} com lista nominal publicada` : (pArr ? 'nenhum nas votações com lista nominal publicada' : 'o mandato começa em 2027'));
     it(temJ, 'Justificativa dos votos', temJ ? 'falas públicas com fonte' : 'ainda não achamos fala pública explicando os votos');
-    it(at.length > 0, 'Projetos', at.length ? `${at.length} registrado(s) no painel` : 'nenhum projeto desta pessoa registrado no painel ainda');
-    it(false, 'Propostas na carreira, presença, gastos da cota e patrimônio', 'ainda não carregados; vêm dos dados abertos da Câmara, do Senado e do TSE');
-    chk.append(mk('p', 'src', 'Só entra dado com fonte. "–" quer dizer que o dado não está aqui, nunca que é zero.'));
+    it(!!TS, 'Patrimônio e campanha', TS ? 'declarados ao TSE' : 'não encontrados no TSE');
+    it(false, 'Presença e gastos da cota parlamentar', 'ainda não carregados');
+    chk.append(src('Só entra dado com fonte. "–" quer dizer que o dado não está aqui, nunca que é zero. As contas usam a mesma régua para todos.'));
     body.append(chk);
     const ac = mk('div', 'pa');
     const lk = (t, href) => { const a = mk('a', 'ub', t); a.href = href; a.target = '_blank'; a.rel = 'noopener'; return a; };
-    ac.append(lk('Reportar erro', FEEDBACK_FORM), lk('Direito de resposta', FEEDBACK_FORM));
-    body.append(ac);
-    const ft = mk('div', 'pf');
     const ub = mk('button', 'ub', `Ver a bancada de ${p.uf} →`); ub.type = 'button'; ub.addEventListener('click', () => { d.close(); openUF(p.uf); });
-    ft.append(ub, mk('p', 'av', `"Junto com o governo" conta os votos Sim nas votações de promessas do Lula, que o governo apoiava. A maioria do partido é calculada com a lista nominal. ${p.verificacao || ''}`));
-    body.append(ft);
+    ac.append(ub, lk('Reportar erro', FEEDBACK_FORM), lk('Direito de resposta', FEEDBACK_FORM));
+    body.append(ac);
     d.replaceChildren(top, body);
     window.__exBack = () => openParl(p);
-    if (!d.dataset.w) { d.dataset.w = 1; d.addEventListener('close', () => { window.__exBack = null; }); }
+    if (!d.dataset.w) { d.dataset.w = 1; d.addEventListener('close', () => { window.__exBack = null; d.classList.remove('wide'); }); }
     if (!d.open) d.showModal();
     body.scrollTop = 0;
   }
+
   /* ===== Entenda fácil: explicação em linguagem simples, com prós e contras ===== */
   const exFind = (k) => { const r = dash.data('explica'); return r.status === 'ok' ? r.data.find((e) => (e.chaves || []).includes(k)) : null; };
   const exBtn = (k, cls) => {
@@ -2834,6 +3063,7 @@ body{transition:background-color .35s ease}
   }
 
   function draw() {
+    drawDebt();
     drawNumbers();
     drawTicker();
     if (current === 'visao') {
