@@ -10,4 +10,4 @@ Um site para acompanhar o 4º mandato de Lula (2027–2030), promessa por promes
 - `js/dash-shim.js`: lê os JSON e entrega para a página.
 - Os dados são atualizados automaticamente por tarefas agendadas (diária, dias úteis às 19h47, e semanal, segunda às 8h42, horário de Brasília), que fazem commit direto em `data/`.
 
-Curadoria: [Matheus Brandão](https://www.linkedin.com/in/matheusbbrandao/). Caricatura gerada por IA.
+Curadoria: [Matheus Brandão](https://www.linkedin.com/in/matheusbbrandao/). Privacidade e termos: [privacidade.html](https://promessaporpromessa.github.io/privacidade.html). Instagram: [@promessaporpromessa](https://www.instagram.com/promessaporpromessa/).

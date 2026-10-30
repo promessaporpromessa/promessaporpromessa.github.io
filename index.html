@@ -7,6 +7,18 @@
 <meta name="description" content="Acompanhe o 4º mandato de Lula (2027–2030): promessas, Congresso, economia e a conversa nas redes, com fonte em cada número.">
 <meta property="og:title" content="Promessa por Promessa">
 <meta property="og:description" content="O mandato de Lula 2027–2030, promessa por promessa. Dados com fonte, atualizados diariamente.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://promessaporpromessa.github.io/">
+<meta property="og:site_name" content="Promessa por Promessa">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:image" content="https://promessaporpromessa.github.io/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Prometeu. Votou. Entregou? Promessa por Promessa, mandato 2027–2030">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://promessaporpromessa.github.io/og-image.jpg">
+<meta name="theme-color" content="#111111">
+<link rel="canonical" href="https://promessaporpromessa.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%236E56CF'/%3E%3Ctext x='16' y='22' font-size='16' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='white'%3EPP%3C/text%3E%3C/svg%3E">
 <style>
 :root{--font-anthropic-sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
@@ -23,7 +35,7 @@ body{transition:background-color .35s ease}
 </head>
 <body>
 <div id="dash-root">
-<script src="estilo.js?v=5"></script>
+<script src="estilo.js?v=6"></script>
 
 <div class="ob">
   <div class="ob-bg"><div class="ob-bgdots d1"></div><div class="ob-bgdots d2"></div><div class="ob-bgstar s1"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s2"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgstar s3"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 4 61.8 38.2H97.6L68.6 59.4 79.4 94 50 72.8 20.6 94 31.4 59.4 2.4 38.2H38.2Z"/></svg></div><div class="ob-bgline l1"></div><div class="ob-bgline l2"></div></div>
@@ -64,6 +76,8 @@ body{transition:background-color .35s ease}
             <span class="ob-chip">Posse <b>05.01.2027</b></span>
             <span class="ob-chip ob-apart">Apartidário · mesmo critério para governo e oposição</span>
             <button type="button" class="ob-chip ob-chip-apoio">Apoie o site ♥</button>
+            <a class="ob-chip ob-chip-soc" href="https://www.instagram.com/promessaporpromessa/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" class="f"/></svg>Siga no Instagram</a>
+            <a class="ob-chip ob-chip-soc" href="https://wa.me/?text=Prometeu.%20Votou.%20Entregou%3F%20Acompanhe%20as%20promessas%20do%20governo%20e%20os%20votos%20dos%20594%20deputados%20e%20senadores%2C%20com%20fonte%20em%20cada%20n%C3%BAmero%3A%20https%3A//promessaporpromessa.github.io" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.2-3.6A8 8 0 1 1 8 19.2z"/><path d="M9 8.6c.2 2.6 2.6 5.2 5.4 5.6l1.1-1.3-1.9-1-.8.8c-1-.4-2-1.4-2.4-2.4l.8-.8-1-1.9z" class="f"/></svg>Compartilhar no WhatsApp</a>
             <b class="ob-pct" hidden></b>
           </div>
         </div>
@@ -109,16 +123,11 @@ body{transition:background-color .35s ease}
           <div class="ob-donut" data-source="resumo_status"></div>
           <div class="ob-legend ob-lg1"></div>
         </div>
-        <div class="ob-card ob-glass" id="card-resultado">
-          <div class="ob-card-head"><div><h2 class="ob-h ob-split">Resultado do 2º turno</h2><p class="ob-sub">Votos válidos no segundo turno, segundo o TSE (25/10/2026)</p></div><span class="ob-idx ob-mono">02</span></div>
-          <div class="ob-votes" data-source="resultado"></div>
+        <div class="ob-card ob-glass" id="card-temas">
+          <div class="ob-card-head"><div><h2 class="ob-h ob-split">Promessas por área</h2><p class="ob-sub">Quanto de cada tema já andou</p></div><span class="ob-idx ob-mono">02</span></div>
+          <div class="ob-legend ob-lg2" style="margin: 0 0 12px"></div>
+          <div class="ob-chart" data-source="por_tema"></div>
         </div>
-      </div>
-
-      <div class="ob-card ob-glass" id="card-temas">
-        <div class="ob-card-head"><div><h2 class="ob-h ob-split">Promessas por área</h2><p class="ob-sub">Quanto de cada tema já andou</p></div><span class="ob-idx ob-mono">03</span></div>
-        <div class="ob-legend ob-lg2" style="margin: 0 0 12px"></div>
-        <div class="ob-chart" data-source="por_tema"></div>
       </div>
     </section>
 
@@ -567,13 +576,15 @@ body{transition:background-color .35s ease}
       </div>
     </dialog>
     <button class="ob-ap-btn" type="button" aria-haspopup="dialog">♥ <span>Apoie</span></button>
+    <a class="ob-ig-btn" href="https://www.instagram.com/promessaporpromessa/" target="_blank" rel="noopener" aria-label="Instagram @promessaporpromessa"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r="1" class="f"/></svg><span>Instagram</span></a>
+    <div class="ob-loading" role="status" aria-live="polite"><i></i><span>Carregando os dados…</span></div>
     <button class="ob-fb-btn" type="button" hidden aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span class="lb">Feedback</span></button>
     <dialog class="ob-fb-dlg" aria-labelledby="ob-fb-t">
       <div class="hd"><div><h2 id="ob-fb-t">Ajude a melhorar o Promessa por Promessa</h2><p>O que está bom, o que dá para melhorar e o que você quer ver aqui. Leva 1 minuto e não precisa se identificar.</p></div><button class="x" type="button" aria-label="Fechar">×</button></div>
       <div class="bd"></div>
       <div class="ft">O formulário não abriu? <a class="ob-fb-ext" href="#" target="_blank" rel="noopener">Abra em outra aba ↗</a></div>
     </dialog>
-    <p class="ob-foot ob-mono">Fontes oficiais e imprensa, sempre linkadas · atualização diária e semanal · curadoria <a class="ob-foot-link" href="https://www.linkedin.com/in/matheusbbrandao/" target="_blank" rel="noopener">Matheus Brandão · LinkedIn</a><br><span class="ob-site-upd"></span></p>
+    <p class="ob-foot ob-mono">Fontes oficiais e imprensa, sempre linkadas · atualização diária e semanal · curadoria <a class="ob-foot-link" href="https://www.linkedin.com/in/matheusbbrandao/" target="_blank" rel="noopener">Matheus Brandão · LinkedIn</a><br><a class="ob-foot-link" href="https://www.instagram.com/promessaporpromessa/" target="_blank" rel="noopener">Instagram @promessaporpromessa</a> · <a class="ob-foot-link" href="https://wa.me/?text=Prometeu.%20Votou.%20Entregou%3F%20Acompanhe%20as%20promessas%20do%20governo%20e%20os%20votos%20dos%20594%20deputados%20e%20senadores%2C%20com%20fonte%20em%20cada%20n%C3%BAmero%3A%20https%3A//promessaporpromessa.github.io" target="_blank" rel="noopener">Compartilhar no WhatsApp</a> · <a class="ob-foot-link" href="https://promessaporpromessa.github.io/privacidade.html" target="_blank" rel="noopener">Privacidade e termos de uso</a><br><span class="ob-site-upd"></span></p>
   </div>
 </div>
 
@@ -840,6 +851,7 @@ body{transition:background-color .35s ease}
 
   function drawVotes() {
     const box = document.querySelector('.ob-votes');
+    if (!box) return;
     const r = dash.data('resultado');
     if (r.status === 'error') return fail(box);
     if (r.status !== 'ok') return;
@@ -1950,7 +1962,8 @@ body{transition:background-color .35s ease}
     const ac = mk('div', 'pa');
     const lk = (t, href) => { const a = mk('a', 'ub', t); a.href = href; a.target = '_blank'; a.rel = 'noopener'; return a; };
     const ub = mk('button', 'ub', `Ver a bancada de ${p.uf} →`); ub.type = 'button'; ub.addEventListener('click', () => { d.close(); openUF(p.uf); });
-    ac.append(ub, lk('Reportar erro', FEEDBACK_FORM), lk('Direito de resposta', FEEDBACK_FORM));
+    const waTxt = `${p.casa === 'Senado' ? 'Senador(a)' : 'Deputado(a)'} ${p.nome} (${p.partido}-${p.uf}): propostas, leis, votos, patrimônio e campanha, com fonte oficial. Procure pelo nome em https://promessaporpromessa.github.io`;
+    ac.append(ub, lk('Compartilhar no WhatsApp', 'https://wa.me/?text=' + encodeURIComponent(waTxt)), lk('Reportar erro', FEEDBACK_FORM), lk('Direito de resposta', FEEDBACK_FORM));
     body.append(ac);
     d.replaceChildren(top, body);
     window.__exBack = () => openParl(p);
@@ -3062,7 +3075,17 @@ body{transition:background-color .35s ease}
     });
   }
 
+  let loadT0 = Date.now();
+  function drawLoading() {
+    const el = document.querySelector('.ob-loading'); if (!el) return;
+    const ids = ['promessas', 'economia', 'parlamentares'];
+    const st = ids.map((i) => dash.data(i).status);
+    if (st.every((s) => s && s !== 'loading' && s !== 'error')) { el.classList.add('done'); return; }
+    if (st.includes('error') && Date.now() - loadT0 > 4000) { el.classList.add('err'); el.querySelector('span').textContent = 'Não deu para carregar os dados. Recarregue a página.'; }
+  }
+  setTimeout(() => { const el = document.querySelector('.ob-loading'); if (el && !el.classList.contains('done')) { el.classList.add('slow'); el.querySelector('span').textContent = 'Ainda carregando… a conexão está lenta.'; } }, 12000);
   function draw() {
+    drawLoading();
     drawDebt();
     drawNumbers();
     drawTicker();
