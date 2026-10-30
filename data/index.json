@@ -3,6 +3,8 @@
   "acoes_d1",
   "agenda",
   "aprovacao",
+  "atividade",
+  "atividade_listas",
   "atuacao",
   "conversa_mercado",
   "economia",
@@ -26,12 +28,10 @@
   "promessas",
   "proposicoes",
   "resultado",
+  "tse_perfil",
   "votacoes",
   "votos",
-  "youtube_reeleicao",
-  "atividade",
-  "atividade_listas",
-  "tse_perfil"
+  "youtube_reeleicao"
  ],
- "atualizado": "2026-10-29T21:05:00-03:00"
+ "atualizado": "2026-10-30T19:55:45-03:00"
 }
