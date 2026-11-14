@@ -31,7 +31,7 @@ body{transition:background-color .35s ease}
 *,*::before,*::after{box-sizing:border-box}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js"></script>
-<script src="js/dash-shim.js?v=4"></script>
+<script src="js/dash-shim.js?v=5"></script>
 </head>
 <body>
 <div id="dash-root">
@@ -579,6 +579,7 @@ body{transition:background-color .35s ease}
 </div>
 </div>
 <script src="brasil.js"></script>
+<script src="nw_arquivo.js?v=1"></script>
 <script>
 (() => {
 const OBR = document.querySelector('.ob');
@@ -1416,7 +1417,7 @@ const b = document.createElement('b'); b.textContent = `${p[2]}/${p[1]}`; dt.app
 const mid = document.createElement('div');
 const tp = document.createElement('span'); tp.className = 'tp'; tp.textContent = e.tipo;
 const NWe = dash.data('noticias').status === 'ok' ? dash.data('noticias').data : [];
-const ecoE = NWe.some((n) => n.evento === e.id && n.economia);
+const ecoE = NWe.some((n) => n.evento === e.id && n.economia) || !!(window.NWA && NWA.ecoEv(e.id));
 const t = document.createElement('p'); t.className = 't'; t.textContent = e.evento;
 if (ecoE) { const eb = document.createElement('span'); eb.className = 'eco'; eb.textContent = 'Mexeu na economia'; t.append(' ', eb); }
 const pr = document.createElement('div'); pr.className = 'p'; pr.textContent = `Promessa: ${e.promessa}`;
@@ -1518,7 +1519,7 @@ drawNwNet(base);
 }
 function drawNoticias() {
 const box = nwRoot.querySelector('.ob-nw-list');
-const r = dash.data('noticias');
+const r = window.NWA ? NWA.rows(nw) : dash.data('noticias');
 if (r.status === 'error') return fail(box);
 if (r.status !== 'ok') return;
 const all = [...r.data].sort((a, b) => String(b.data).localeCompare(String(a.data)) || String(b.hora || '').localeCompare(String(a.hora || '')) || String(b.id).localeCompare(String(a.id)));
@@ -1575,6 +1576,7 @@ const more = nwRoot.querySelector('.ob-nw-more');
 more.hidden = rows.length <= NW_PAGE;
 more.textContent = nw.all ? 'Mostrar menos' : `Mostrar todas as notícias (${nf.format(rows.length)})`;
 }
+window.nwDraw = () => drawNoticias();
 function drawImpacto() {
 drawNoticias();
 drawFeed();

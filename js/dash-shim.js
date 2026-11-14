@@ -10,6 +10,7 @@
   let version = 0;
   const memo = {};
   let pending = false;
+  const lazy = new Set(); // meses do arquivo de notícias: só baixam quando a página pede
 
   const fire = () => {
     if (pending) return;
@@ -41,6 +42,7 @@
         memo[id] = { v: version, r };
         return r;
       }
+      if (!store[id] && lazy.has(id)) load(id);
       return store[id] || { status: 'loading' };
     },
     calc(id, opts) { calcs[id] = opts; },
@@ -52,6 +54,7 @@
     .then((r) => r.json())
     .then((idx) => {
       if (idx.atualizado) ver = `?v=${encodeURIComponent(idx.atualizado)}`;
+      (idx.arquivo || []).forEach((id) => lazy.add(id));
       (idx.datasets || []).forEach(load);
       const el = document.querySelector('.ob-site-upd');
       if (el && idx.atualizado) {
